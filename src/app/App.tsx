@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Toaster, toast } from "sonner";
 import Sage01Onboarding from "../imports/Sage01Onboarding1/Sage01Onboarding1";
 import HomeScreen from "./components/HomeScreen";
@@ -6,15 +6,31 @@ import ActivityScreen from "./components/ActivityScreen";
 import GoalsScreen from "./components/GoalsScreen";
 import PulseScreen from "./components/PulseScreen";
 import ProfileScreen from "./components/ProfileScreen";
+import NotificationsScreen from "./components/NotificationsScreen";
 
-type Screen = "onboarding" | "home" | "activity" | "goals" | "pulse" | "profile";
+type Screen = "onboarding" | "home" | "activity" | "goals" | "pulse" | "profile" | "notifications";
 
-const FRAME_HEIGHT = 844;
-const FRAME_WIDTH = 390;
+const FRAME_HEIGHT = 852;
+const FRAME_WIDTH = 393;
 
 export default function App() {
   const [screen, setScreen] = useState<Screen>("onboarding");
   const [onboardingStep, setOnboardingStep] = useState(2);
+  const [scale, setScale] = useState(1);
+
+  useEffect(() => {
+    const compute = () => {
+      const s = Math.min(
+        window.innerWidth / FRAME_WIDTH,
+        window.innerHeight / FRAME_HEIGHT,
+        1,
+      );
+      setScale(s);
+    };
+    compute();
+    window.addEventListener("resize", compute);
+    return () => window.removeEventListener("resize", compute);
+  }, []);
 
   const handleSignOut = () => {
     setScreen("onboarding");
@@ -35,15 +51,21 @@ export default function App() {
       case "goals": return <GoalsScreen onNavigate={setScreen} />;
       case "pulse": return <PulseScreen onNavigate={setScreen} />;
       case "profile": return <ProfileScreen onNavigate={setScreen} onSignOut={handleSignOut} />;
+      case "notifications": return <NotificationsScreen onBack={() => setScreen("home")} />;
     }
   };
 
   return (
-    <div className="size-full flex items-center justify-center bg-[#050505] p-4 overflow-auto">
+    <div className="fixed inset-0 flex items-center justify-center bg-[#050505] overflow-hidden">
       <Toaster theme="dark" position="top-center" />
       <div
         className="relative shrink-0"
-        style={{ width: FRAME_WIDTH, height: FRAME_HEIGHT }}
+        style={{
+          width: FRAME_WIDTH,
+          height: FRAME_HEIGHT,
+          transform: `scale(${scale})`,
+          transformOrigin: "center center",
+        }}
       >
         {renderScreen()}
 

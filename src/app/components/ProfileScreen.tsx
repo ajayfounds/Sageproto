@@ -53,7 +53,7 @@ export default function ProfileScreen({ onNavigate, onSignOut }: Props = {}) {
         </p>
       </div>
 
-      <div className="px-5 pt-4 pb-[80px] overflow-y-auto h-[calc(100%-100px-62px)] space-y-4">
+      <div className="px-5 pt-4 pb-[100px] overflow-y-auto h-[calc(100%-100px-80px)] space-y-4">
         <div className="rounded-[16px] border border-white/10 bg-white/[0.03] p-4 flex items-center gap-4">
           <button
             onClick={() => toast("Sage")}
@@ -121,7 +121,7 @@ export default function ProfileScreen({ onNavigate, onSignOut }: Props = {}) {
         </button>
       </div>
 
-      <div className="absolute left-0 right-0 bottom-0 h-[62px] bg-[#0A0F0C]/[0.97]">
+      <div className="absolute left-0 right-0 bottom-0 h-[80px] bg-[#0A0F0C]/[0.97]">
         <div className="absolute inset-x-0 top-0 h-px bg-[#7EC8A4]/[0.15]" />
         <div className="flex h-full">
           {([
@@ -136,11 +136,11 @@ export default function ProfileScreen({ onNavigate, onSignOut }: Props = {}) {
               <button
                 key={t.key}
                 onClick={() => onNavigate?.(t.key)}
-                className="flex-1 flex flex-col items-center justify-center gap-[2px] relative"
+                className="flex-1 flex flex-col items-center justify-center gap-[3px] relative"
               >
-                <p className={`leading-none text-[20px] ${active ? "text-[#7EC8A4]" : "text-[#5A7060]"}`}>{t.icon}</p>
-                <p className={`leading-none text-[9px] ${active ? "text-[#7EC8A4]" : "text-[#5A7060]"}`}>{t.label}</p>
-                {active && <div className="absolute bottom-[6px] size-[5px] rounded-full bg-[#7EC8A4]" />}
+                <p className={`leading-none text-[26px] ${active ? "text-[#7EC8A4]" : "text-[#5A7060]"}`}>{t.icon}</p>
+                <p className={`leading-none text-[12px] ${active ? "text-[#7EC8A4]" : "text-[#5A7060]"}`}>{t.label}</p>
+                {active && <div className="absolute bottom-[8px] size-[6px] rounded-full bg-[#7EC8A4]" />}
               </button>
             );
           })}

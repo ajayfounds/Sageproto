@@ -138,7 +138,7 @@ export default function ActivityScreen({ onNavigate }: Props = {}) {
         </div>
       </div>
 
-      <div className="px-5 pt-3 pb-[80px] overflow-y-auto h-[calc(100%-100px-62px)]">
+      <div className="px-5 pt-3 pb-[100px] overflow-y-auto h-[calc(100%-100px-80px)]">
         <div className="rounded-[14px] border border-[#7EC8A4]/[0.15] bg-[#0E1A10] p-4 flex gap-4 items-center">
           <div className="relative size-[88px] shrink-0">
             <svg viewBox="0 0 88 88" className="size-full -rotate-90">
@@ -160,7 +160,7 @@ export default function ActivityScreen({ onNavigate }: Props = {}) {
             </svg>
             <div className="absolute inset-0 flex flex-col items-center justify-center">
               <p className="text-[#EEF2ED] text-[18px]" style={{ fontFamily: "Fraunces, serif" }}>
-                ₹{Math.round(total / 1000)}k
+                ₹{total >= 1000 ? (total / 1000).toFixed(total % 1000 === 0 ? 0 : 1) + "k" : total.toLocaleString("en-IN")}
               </p>
               <p className="text-[#5A7060] text-[8px]">spent</p>
             </div>
@@ -289,7 +289,7 @@ export default function ActivityScreen({ onNavigate }: Props = {}) {
         )}
       </div>
 
-      <div className="absolute left-0 right-0 bottom-0 h-[62px] bg-[#0A0F0C]/[0.97]">
+      <div className="absolute left-0 right-0 bottom-0 h-[80px] bg-[#0A0F0C]/[0.97]">
         <div className="absolute inset-x-0 top-0 h-px bg-[#7EC8A4]/[0.15]" />
         <div className="flex h-full">
           {([
@@ -304,11 +304,11 @@ export default function ActivityScreen({ onNavigate }: Props = {}) {
               <button
                 key={t.key}
                 onClick={() => onNavigate?.(t.key)}
-                className="flex-1 flex flex-col items-center justify-center gap-[2px] relative"
+                className="flex-1 flex flex-col items-center justify-center gap-[3px] relative"
               >
-                <p className={`leading-none text-[20px] ${active ? "text-[#7EC8A4]" : "text-[#5A7060]"}`}>{t.icon}</p>
-                <p className={`leading-none text-[9px] ${active ? "text-[#7EC8A4]" : "text-[#5A7060]"}`}>{t.label}</p>
-                {active && <div className="absolute bottom-[6px] size-[5px] rounded-full bg-[#7EC8A4]" />}
+                <p className={`leading-none text-[26px] ${active ? "text-[#7EC8A4]" : "text-[#5A7060]"}`}>{t.icon}</p>
+                <p className={`leading-none text-[12px] ${active ? "text-[#7EC8A4]" : "text-[#5A7060]"}`}>{t.label}</p>
+                {active && <div className="absolute bottom-[8px] size-[6px] rounded-full bg-[#7EC8A4]" />}
               </button>
             );
           })}

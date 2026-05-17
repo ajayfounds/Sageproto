@@ -12,7 +12,7 @@ const INITIAL: Tx[] = [
 
 const fmt = (n: number) => "₹" + n.toLocaleString("en-IN");
 
-type Tab = "home" | "activity" | "goals" | "pulse" | "profile";
+type Tab = "home" | "activity" | "goals" | "pulse" | "profile" | "notifications";
 type Props = { onNavigate?: (tab: Tab) => void };
 
 export default function HomeScreen({ onNavigate }: Props = {}) {
@@ -63,15 +63,19 @@ export default function HomeScreen({ onNavigate }: Props = {}) {
           </p>
         </div>
         <button
-          onClick={() => onNavigate?.("profile")}
-          className="size-9 rounded-full bg-[#7EC8A4]/10 border border-[#7EC8A4]/30 flex items-center justify-center text-[#7EC8A4]"
-          aria-label="Profile"
+          onClick={() => onNavigate?.("notifications")}
+          className="relative size-9 rounded-full bg-[#7EC8A4]/10 border border-[#7EC8A4]/30 flex items-center justify-center text-[#7EC8A4] active:scale-95 transition-transform"
+          aria-label="Notifications"
         >
-          <Icon name="leaf" size={16} />
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9" />
+            <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0" />
+          </svg>
+          <span className="absolute top-[6px] right-[6px] size-[6px] rounded-full bg-[#F07B6A] border border-[#0E1A10]" />
         </button>
       </div>
 
-      <div className="px-5 pt-3 pb-[80px] overflow-y-auto h-[calc(100%-90px-62px)]">
+      <div className="px-5 pt-3 pb-[100px] overflow-y-auto h-[calc(100%-90px-80px)]">
         <button onClick={editBudget} className="w-full text-left rounded-[14px] border border-[#7EC8A4]/[0.18] bg-[#0E1A10] p-4">
           <p className="text-[#5A7060] text-[9px] tracking-wider">AVAILABLE THIS MONTH</p>
           <p className="text-[#EEF2ED] text-[34px] mt-1" style={{ fontFamily: "Fraunces, serif" }}>{fmt(available)}</p>
@@ -187,7 +191,7 @@ export default function HomeScreen({ onNavigate }: Props = {}) {
         )}
       </div>
 
-      <div className="absolute left-0 right-0 bottom-0 h-[62px] bg-[#0A0F0C]/[0.97]">
+      <div className="absolute left-0 right-0 bottom-0 h-[80px] bg-[#0A0F0C]/[0.97]">
         <div className="absolute inset-x-0 top-0 h-px bg-[#7EC8A4]/[0.15]" />
         <div className="flex h-full">
           {([
@@ -202,11 +206,11 @@ export default function HomeScreen({ onNavigate }: Props = {}) {
               <button
                 key={t.key}
                 onClick={() => onNavigate?.(t.key)}
-                className="flex-1 flex flex-col items-center justify-center gap-[2px] relative"
+                className="flex-1 flex flex-col items-center justify-center gap-[3px] relative"
               >
-                <p className={`leading-none text-[20px] ${active ? "text-[#7EC8A4]" : "text-[#5A7060]"}`}>{t.icon}</p>
-                <p className={`leading-none text-[9px] ${active ? "text-[#7EC8A4]" : "text-[#5A7060]"}`}>{t.label}</p>
-                {active && <div className="absolute bottom-[6px] size-[5px] rounded-full bg-[#7EC8A4]" />}
+                <p className={`leading-none text-[26px] ${active ? "text-[#7EC8A4]" : "text-[#5A7060]"}`}>{t.icon}</p>
+                <p className={`leading-none text-[12px] ${active ? "text-[#7EC8A4]" : "text-[#5A7060]"}`}>{t.label}</p>
+                {active && <div className="absolute bottom-[8px] size-[6px] rounded-full bg-[#7EC8A4]" />}
               </button>
             );
           })}
