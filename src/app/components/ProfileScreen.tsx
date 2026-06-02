@@ -1,175 +1,293 @@
 import { useState } from "react";
 import { toast } from "sonner";
-import { Icon } from "./icons";
+import { Icon, IconKey } from "./icons";
+import BottomTabBar, { TabKey } from "./BottomTabBar";
 
-type Tab = "home" | "activity" | "goals" | "pulse" | "profile";
-type Props = { onNavigate?: (tab: Tab) => void; onSignOut?: () => void };
+type Props = { onNavigate?: (tab: TabKey | "security") => void; onSignOut?: () => void };
 
-const CURRENCIES = ["INR (₹)", "USD ($)", "EUR (€)", "GBP (£)"];
-const DAYS = ["Sundays", "Mondays", "Fridays", "Saturdays"];
-const PRIVACY = ["Only you", "Friends", "Public"];
+type SettingRow = {
+  icon: IconKey;
+  label: string;
+  value?: string;
+  isToggle?: boolean;
+  toggleValue?: boolean;
+  onToggle?: (val: boolean) => void;
+  onClick?: () => void;
+};
 
 export default function ProfileScreen({ onNavigate, onSignOut }: Props = {}) {
-  const [name, setName] = useState("Priya");
-  const [email, setEmail] = useState("priya@sage.app");
-  const [salary, setSalary] = useState(58000);
-  const [currency, setCurrency] = useState(0);
-  const [checkInDay, setCheckInDay] = useState(0);
-  const [notifs, setNotifs] = useState(true);
-  const [privacy, setPrivacy] = useState(0);
+  const [appLock, setAppLock] = useState(false);
 
-  const editName = () => {
-    const v = window.prompt("Display name", name);
-    if (v && v.trim()) {
-      setName(v.trim());
-      toast.success("Name updated");
-    }
-  };
-  const editEmail = () => {
-    const v = window.prompt("Email", email);
-    if (v && v.trim()) {
-      setEmail(v.trim());
-      toast.success("Email updated");
-    }
-  };
-  const editSalary = () => {
-    const v = window.prompt("Monthly salary (₹)", String(salary));
-    const n = Number(v);
-    if (n > 0) {
-      setSalary(n);
-      toast.success("Salary updated");
-    }
-  };
+  const accountSettings: SettingRow[] = [
+    { icon: "profile", label: "Personal details", onClick: () => toast("Personal details") },
+    { icon: "accounts", label: "Linked accounts & cards", onClick: () => toast("Linked accounts") },
+    { icon: "card", label: "Payment methods", onClick: () => toast("Payment methods") },
+  ];
 
-  const fmt = (n: number) => "₹" + n.toLocaleString("en-IN");
+  const securitySettings: SettingRow[] = [
+    { icon: "shield", label: "Security & privacy", onClick: () => onNavigate?.("security") },
+    {
+      icon: "lock",
+      label: "App lock",
+      isToggle: true,
+      toggleValue: appLock,
+      onToggle: (val) => {
+        setAppLock(val);
+        toast.success(val ? "App lock enabled" : "App lock disabled");
+      },
+    },
+    { icon: "eye", label: "Login activity", onClick: () => toast("Login activity") },
+  ];
+
+  const preferenceSettings: SettingRow[] = [
+    { icon: "bell", label: "Notifications", onClick: () => toast("Notifications") },
+    { icon: "globe", label: "Language", value: "English", onClick: () => toast("Language") },
+    { icon: "palette", label: "Appearance", onClick: () => toast("Appearance") },
+  ];
+
+  const supportSettings: SettingRow[] = [
+    { icon: "help", label: "Help centre", onClick: () => toast("Help centre") },
+    { icon: "mail", label: "Contact us", onClick: () => toast("Contact us") },
+    { icon: "file", label: "Terms & privacy", onClick: () => toast("Terms & privacy") },
+  ];
+
+  const handleLogout = () => {
+    if (window.confirm("Are you sure you want to log out?")) {
+      onSignOut?.();
+    }
+  };
 
   return (
-    <div className="relative size-full bg-[#050E0B] overflow-hidden">
+    <div className="relative size-full bg-surface-2 overflow-hidden">
       <div className="h-[44px]" />
 
-      <div className="px-6 pt-2">
-        <p className="text-[#EEF2ED] text-[28px]" style={{ fontFamily: "Fraunces, serif", fontVariationSettings: "'SOFT' 0, 'WONK' 1" }}>
-          Profile
-        </p>
+      <div className="px-6 pt-2 mb-4">
+        <h1>Profile</h1>
       </div>
 
-      <div className="px-5 pt-4 pb-[100px] overflow-y-auto h-[calc(100%-100px-80px)] space-y-4">
-        <div className="rounded-[16px] border border-white/10 bg-white/[0.03] p-4 flex items-center gap-4">
-          <button
-            onClick={() => toast("Sage")}
-            className="size-14 rounded-full bg-[#00BC7D]/15 border border-[#00BC7D]/30 flex items-center justify-center text-[#7EC8A4]"
+      <div className="px-5 pb-[100px] overflow-y-auto h-[calc(100%-90px-80px)]">
+        {/* Profile header card */}
+        <div
+          className="p-5 bg-card border border-border shadow-[0_1px_2px_rgba(11,31,51,0.04)] mb-6"
+          style={{ borderRadius: "var(--radius-md)" }}
+        >
+          <div className="flex items-start gap-4 mb-4">
+            <div
+              className="w-16 h-16 rounded-full bg-vault-teal/10 border-2 border-vault-teal/30 flex items-center justify-center text-vault-teal shrink-0"
+              style={{
+                fontSize: "var(--text-h2)",
+                lineHeight: "var(--leading-h2)",
+                fontWeight: 700,
+              }}
+            >
+              PS
+            </div>
+            <div className="flex-1">
+              <h2 className="mb-1">Priya Sharma</h2>
+              <p
+                className="text-ink-500 money mb-1"
+                style={{
+                  fontSize: "var(--text-label)",
+                  lineHeight: "var(--leading-label)",
+                }}
+              >
+                p••••@gmail.com
+              </p>
+              <p
+                className="text-ink-500 money"
+                style={{
+                  fontSize: "var(--text-label)",
+                  lineHeight: "var(--leading-label)",
+                }}
+              >
+                +91 ••••• 4821
+              </p>
+            </div>
+          </div>
+
+          <div
+            className="inline-flex items-center gap-2 px-3 py-1.5 bg-gain/10 border border-gain/30"
+            style={{ borderRadius: "var(--radius-pill)" }}
           >
-            <Icon name="leaf" size={24} />
-          </button>
-          <div className="flex-1">
-            <button onClick={editName} className="block text-left text-white text-[18px]">{name}</button>
-            <button onClick={editEmail} className="block text-left text-white/50 text-[12px] mt-0.5">{email}</button>
+            <Icon name="check" size={14} className="text-gain" strokeWidth={2} />
+            <p
+              className="text-gain"
+              style={{
+                fontSize: "var(--text-label)",
+                lineHeight: "var(--leading-label)",
+                fontWeight: 600,
+              }}
+            >
+              Verified
+            </p>
           </div>
         </div>
 
-        <div className="rounded-[16px] border border-white/10 bg-white/[0.03] overflow-hidden">
-          <Row
-            label="Monthly salary"
-            value={fmt(salary)}
-            onClick={editSalary}
-          />
-          <Row
-            label="Currency"
-            value={CURRENCIES[currency]}
-            onClick={() => {
-              setCurrency((c) => (c + 1) % CURRENCIES.length);
-              toast(`Currency: ${CURRENCIES[(currency + 1) % CURRENCIES.length]}`);
-            }}
-          />
-          <Row
-            label="Weekly check-in"
-            value={DAYS[checkInDay]}
-            onClick={() => {
-              setCheckInDay((d) => (d + 1) % DAYS.length);
-              toast(`Check-in: ${DAYS[(checkInDay + 1) % DAYS.length]}`);
-            }}
-          />
-          <Row
-            label="Notifications"
-            value={notifs ? "On" : "Off"}
-            onClick={() => {
-              setNotifs((v) => !v);
-              toast(`Notifications ${!notifs ? "on" : "off"}`);
-            }}
-            valueClass={notifs ? "text-[#7EC8A4]" : "text-[#F07B6A]"}
-          />
-          <Row
-            label="Privacy"
-            value={PRIVACY[privacy]}
-            onClick={() => {
-              setPrivacy((p) => (p + 1) % PRIVACY.length);
-              toast(`Privacy: ${PRIVACY[(privacy + 1) % PRIVACY.length]}`);
-            }}
-            last
-          />
-        </div>
-
-        <button
-          onClick={() => {
-            if (window.confirm("Sign out?")) {
-              onSignOut?.();
-            }
-          }}
-          className="w-full py-3 rounded-full border border-white/15 text-white/70 text-[12px]"
+        {/* Account settings */}
+        <label className="text-ink-500 mb-3 block">ACCOUNT</label>
+        <div
+          className="bg-card border border-border shadow-[0_1px_2px_rgba(11,31,51,0.04)] mb-6 overflow-hidden"
+          style={{ borderRadius: "var(--radius-md)" }}
         >
-          Sign out
+          {accountSettings.map((setting, idx) => (
+            <SettingRowComponent
+              key={setting.label}
+              {...setting}
+              isLast={idx === accountSettings.length - 1}
+            />
+          ))}
+        </div>
+
+        {/* Security settings */}
+        <label className="text-ink-500 mb-3 block">SECURITY</label>
+        <div
+          className="bg-card border border-border shadow-[0_1px_2px_rgba(11,31,51,0.04)] mb-6 overflow-hidden"
+          style={{ borderRadius: "var(--radius-md)" }}
+        >
+          {securitySettings.map((setting, idx) => (
+            <SettingRowComponent
+              key={setting.label}
+              {...setting}
+              isLast={idx === securitySettings.length - 1}
+            />
+          ))}
+        </div>
+
+        {/* Preferences */}
+        <label className="text-ink-500 mb-3 block">PREFERENCES</label>
+        <div
+          className="bg-card border border-border shadow-[0_1px_2px_rgba(11,31,51,0.04)] mb-6 overflow-hidden"
+          style={{ borderRadius: "var(--radius-md)" }}
+        >
+          {preferenceSettings.map((setting, idx) => (
+            <SettingRowComponent
+              key={setting.label}
+              {...setting}
+              isLast={idx === preferenceSettings.length - 1}
+            />
+          ))}
+        </div>
+
+        {/* Support */}
+        <label className="text-ink-500 mb-3 block">SUPPORT</label>
+        <div
+          className="bg-card border border-border shadow-[0_1px_2px_rgba(11,31,51,0.04)] mb-6 overflow-hidden"
+          style={{ borderRadius: "var(--radius-md)" }}
+        >
+          {supportSettings.map((setting, idx) => (
+            <SettingRowComponent
+              key={setting.label}
+              {...setting}
+              isLast={idx === supportSettings.length - 1}
+            />
+          ))}
+        </div>
+
+        {/* Log out */}
+        <button
+          onClick={handleLogout}
+          className="w-full border border-border text-loss flex items-center justify-center gap-2 active:scale-[0.98] transition-transform mb-4"
+          style={{
+            borderRadius: "var(--radius-pill)",
+            fontSize: "var(--text-button)",
+            lineHeight: "var(--leading-button)",
+            fontWeight: 600,
+            minHeight: "52px",
+          }}
+        >
+          <Icon name="logout" size={18} strokeWidth={2} />
+          Log out
         </button>
+
+        {/* Version */}
+        <p
+          className="text-ink-500 text-center"
+          style={{
+            fontSize: "var(--text-caption)",
+            lineHeight: "var(--leading-caption)",
+          }}
+        >
+          SAGE v1.0.0
+        </p>
       </div>
 
-      <div className="absolute left-0 right-0 bottom-0 h-[80px] bg-[#0A0F0C]/[0.97]">
-        <div className="absolute inset-x-0 top-0 h-px bg-[#7EC8A4]/[0.15]" />
-        <div className="flex h-full">
-          {([
-            { key: "home",     icon: "⌂", label: "Home" },
-            { key: "activity", icon: "≡", label: "Activity" },
-            { key: "goals",    icon: "◎", label: "Goals" },
-            { key: "pulse",    icon: "♡", label: "Pulse" },
-            { key: "profile",  icon: "⊙", label: "Profile" },
-          ] as const).map((t) => {
-            const active = t.key === "profile";
-            return (
-              <button
-                key={t.key}
-                onClick={() => onNavigate?.(t.key)}
-                className="flex-1 flex flex-col items-center justify-center gap-[3px] relative"
-              >
-                <p className={`leading-none text-[26px] ${active ? "text-[#7EC8A4]" : "text-[#5A7060]"}`}>{t.icon}</p>
-                <p className={`leading-none text-[12px] ${active ? "text-[#7EC8A4]" : "text-[#5A7060]"}`}>{t.label}</p>
-                {active && <div className="absolute bottom-[8px] size-[6px] rounded-full bg-[#7EC8A4]" />}
-              </button>
-            );
-          })}
-        </div>
-      </div>
+      <BottomTabBar active="profile" onNavigate={(k) => onNavigate?.(k)} />
     </div>
   );
 }
 
-function Row({
+function SettingRowComponent({
+  icon,
   label,
   value,
+  isToggle,
+  toggleValue,
+  onToggle,
   onClick,
-  last,
-  valueClass,
-}: {
-  label: string;
-  value: string;
-  onClick: () => void;
-  last?: boolean;
-  valueClass?: string;
-}) {
+  isLast,
+}: SettingRow & { isLast?: boolean }) {
+  const handleClick = () => {
+    if (isToggle && onToggle) {
+      onToggle(!toggleValue);
+    } else if (onClick) {
+      onClick();
+    }
+  };
+
   return (
     <button
-      onClick={onClick}
-      className={`w-full flex items-center justify-between px-4 py-3 ${last ? "" : "border-b border-white/[0.05]"}`}
+      onClick={handleClick}
+      className={`w-full flex items-center gap-3 p-4 active:scale-[0.99] transition-transform ${
+        isLast ? "" : "border-b border-border"
+      }`}
+      style={{ minHeight: "64px" }}
     >
-      <p className="text-white/70 text-[12px]">{label}</p>
-      <p className={valueClass ?? "text-white/90 text-[11px] text-[12px]"}>{value}</p>
+      <div
+        className="w-9 h-9 rounded-lg bg-surface-2 flex items-center justify-center text-ink-500 shrink-0"
+        style={{ borderRadius: "var(--radius-sm)" }}
+      >
+        <Icon name={icon} size={18} strokeWidth={1.8} />
+      </div>
+
+      <p
+        className="text-trust-navy flex-1 text-left"
+        style={{
+          fontSize: "var(--text-body)",
+          lineHeight: "var(--leading-body)",
+          fontWeight: 600,
+        }}
+      >
+        {label}
+      </p>
+
+      {value && !isToggle && (
+        <p
+          className="text-ink-500"
+          style={{
+            fontSize: "var(--text-body)",
+            lineHeight: "var(--leading-body)",
+            fontWeight: 500,
+          }}
+        >
+          {value}
+        </p>
+      )}
+
+      {isToggle ? (
+        <div
+          className={`relative w-12 h-7 rounded-full transition-colors ${
+            toggleValue ? "bg-vault-teal" : "bg-switch-background"
+          }`}
+        >
+          <div
+            className={`absolute top-[3px] left-[3px] w-5 h-5 rounded-full bg-white shadow-sm transition-transform ${
+              toggleValue ? "translate-x-5" : "translate-x-0"
+            }`}
+          />
+        </div>
+      ) : (
+        <Icon name="chevron-right" size={18} className="text-ink-500 shrink-0" strokeWidth={2} />
+      )}
     </button>
   );
 }

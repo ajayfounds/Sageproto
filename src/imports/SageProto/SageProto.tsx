@@ -4,7 +4,7 @@ function Icon() {
   return (
     <div className="h-[730px] overflow-clip relative shrink-0 w-full" data-name="Icon">
       <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 336.726 730">
-        <path d="M336.726 0H0V730H336.726V0Z" fill="var(--fill-0, #090E0B)" id="Vector" />
+        <path d="M336.726 0H0V730H336.726V0Z" fill="var(--fill-0, #0B1F33)" id="Vector" />
       </svg>
     </div>
   );
@@ -25,8 +25,8 @@ function Icon1() {
         <path d="M336.726 0H0V730H336.726V0Z" fill="url(#paint0_linear_26_379)" id="Vector" />
         <defs>
           <linearGradient gradientUnits="userSpaceOnUse" id="paint0_linear_26_379" x1="0" x2="419.136" y1="0" y2="483.336">
-            <stop stopColor="#0E1A10" />
-            <stop offset="1" stopColor="#090E0B" />
+            <stop stopColor="#FFFFFF" />
+            <stop offset="1" stopColor="#0B1F33" />
           </linearGradient>
         </defs>
       </svg>
@@ -49,8 +49,8 @@ function Icon2() {
         <path d={svgPaths.p3fe04600} fill="url(#paint0_radial_26_373)" id="Vector" />
         <defs>
           <radialGradient cx="0" cy="0" gradientTransform="translate(112.232 112.419) scale(112.232 112.419)" gradientUnits="userSpaceOnUse" id="paint0_radial_26_373" r="1">
-            <stop stopColor="#7EC8A4" stopOpacity="0.18" />
-            <stop offset="1" stopColor="#7EC8A4" stopOpacity="0" />
+            <stop stopColor="#0E6E63" stopOpacity="0.18" />
+            <stop offset="1" stopColor="#0E6E63" stopOpacity="0" />
           </radialGradient>
         </defs>
       </svg>
@@ -73,8 +73,8 @@ function Icon3() {
         <path d={svgPaths.p11822100} fill="url(#paint0_radial_26_371)" id="Vector" />
         <defs>
           <radialGradient cx="0" cy="0" gradientTransform="translate(86.3341 86.511) scale(86.3341 86.511)" gradientUnits="userSpaceOnUse" id="paint0_radial_26_371" r="1">
-            <stop stopColor="#E8C87A" stopOpacity="0.14" />
-            <stop offset="1" stopColor="#E8C87A" stopOpacity="0" />
+            <stop stopColor="#C68A2E" stopOpacity="0.14" />
+            <stop offset="1" stopColor="#C68A2E" stopOpacity="0" />
           </radialGradient>
         </defs>
       </svg>
@@ -93,7 +93,7 @@ function Group3() {
 function Group4() {
   return (
     <div className="absolute h-[27.418px] left-[20.49px] top-[46.85px] w-[52.265px]" data-name="Group">
-      <p className="absolute font-['Fraunces:Regular',sans-serif] font-normal leading-[normal] left-[0.21px] text-[#7ec8a4] text-[22.277px] top-[-0.13px] whitespace-nowrap" style={{ fontVariationSettings: "'SOFT' 0, 'WONK' 1" }}>
+      <p className="absolute font-['Plus_Jakarta_Sans:Regular',sans-serif] font-normal leading-[normal] left-[0.21px] text-[#0E6E63] text-[22.277px] top-[-0.13px] whitespace-nowrap" style={{ fontVariationSettings: "'SOFT' 0, 'WONK' 1" }}>
         sage.
       </p>
     </div>
@@ -103,7 +103,7 @@ function Group4() {
 function Group5() {
   return (
     <div className="absolute h-[9.425px] left-[20.49px] top-[104.72px] w-[165.364px]" data-name="Group">
-      <p className="absolute font-['Inter:Bold',sans-serif] font-bold leading-[normal] left-[0.21px] not-italic text-[#7ec8a4] text-[7.711px] top-[0.05px] whitespace-nowrap">YOUR FIRST REAL SALARY DESERVES THIS</p>
+      <p className="absolute font-['Inter:Bold',sans-serif] font-bold leading-[normal] left-[0.21px] not-italic text-[#0E6E63] text-[7.711px] top-[0.05px] whitespace-nowrap">YOUR FIRST REAL SALARY DESERVES THIS</p>
     </div>
   );
 }
@@ -111,7 +111,7 @@ function Group5() {
 function Group6() {
   return (
     <div className="absolute h-[29.988px] left-[20.63px] top-[121.22px] w-[204.777px]" data-name="Group">
-      <p className="absolute font-['Fraunces:Regular',sans-serif] font-normal leading-[normal] left-[0.07px] text-[#eef2ed] text-[23.991px] top-[0.05px] whitespace-nowrap" style={{ fontVariationSettings: "'SOFT' 0, 'WONK' 1" }}>
+      <p className="absolute font-['Plus_Jakarta_Sans:Regular',sans-serif] font-normal leading-[normal] left-[0.07px] text-[#0B1F33] text-[23.991px] top-[0.05px] whitespace-nowrap" style={{ fontVariationSettings: "'SOFT' 0, 'WONK' 1" }}>
         Money that makes
       </p>
     </div>
@@ -121,7 +121,7 @@ function Group6() {
 function Group7() {
   return (
     <div className="absolute h-[29.988px] left-[20.62px] top-[148.93px] w-[87.394px]" data-name="Group">
-      <p className="absolute font-['Fraunces:Regular',sans-serif] font-normal leading-[normal] left-[0.09px] text-[#eef2ed] text-[23.991px] top-[0.02px] whitespace-nowrap" style={{ fontVariationSettings: "'SOFT' 0, 'WONK' 1" }}>{`you feel `}</p>
+      <p className="absolute font-['Plus_Jakarta_Sans:Regular',sans-serif] font-normal leading-[normal] left-[0.09px] text-[#0B1F33] text-[23.991px] top-[0.02px] whitespace-nowrap" style={{ fontVariationSettings: "'SOFT' 0, 'WONK' 1" }}>{`you feel `}</p>
     </div>
   );
 }
@@ -129,7 +129,7 @@ function Group7() {
 function Group8() {
   return (
     <div className="absolute h-[29.988px] left-[101.85px] top-[148.93px] w-[102.817px]" data-name="Group">
-      <p className="absolute font-['Fraunces:Italic',sans-serif] font-normal italic leading-[normal] left-[0.03px] text-[#7ec8a4] text-[23.991px] top-[0.02px] whitespace-nowrap" style={{ fontVariationSettings: "'SOFT' 0, 'WONK' 1" }}>
+      <p className="absolute font-['Plus_Jakarta_Sans:Italic',sans-serif] font-normal italic leading-[normal] left-[0.03px] text-[#0E6E63] text-[23.991px] top-[0.02px] whitespace-nowrap" style={{ fontVariationSettings: "'SOFT' 0, 'WONK' 1" }}>
         in control
       </p>
     </div>
@@ -139,7 +139,7 @@ function Group8() {
 function Group9() {
   return (
     <div className="absolute h-[12.852px] left-[20.57px] top-[186.88px] w-[186.784px]" data-name="Group">
-      <p className="absolute font-['Inter:Regular',sans-serif] font-normal leading-[normal] left-[0.13px] not-italic text-[#9bb09f] text-[10.282px] top-[0.01px] whitespace-nowrap">Set up in 3 minutes. No spreadsheets,</p>
+      <p className="absolute font-['Inter:Regular',sans-serif] font-normal leading-[normal] left-[0.13px] not-italic text-[#9FB0C3] text-[10.282px] top-[0.01px] whitespace-nowrap">Set up in 3 minutes. No spreadsheets,</p>
     </div>
   );
 }
@@ -147,7 +147,7 @@ function Group9() {
 function Group10() {
   return (
     <div className="absolute h-[12.852px] left-[20.71px] top-[200.75px] w-[107.958px]" data-name="Group">
-      <p className="absolute font-['Inter:Regular',sans-serif] font-normal leading-[normal] left-[-0.01px] not-italic text-[#9bb09f] text-[10.282px] top-[0.01px] whitespace-nowrap">no jargon. Just clarity.</p>
+      <p className="absolute font-['Inter:Regular',sans-serif] font-normal leading-[normal] left-[-0.01px] not-italic text-[#9FB0C3] text-[10.282px] top-[0.01px] whitespace-nowrap">no jargon. Just clarity.</p>
     </div>
   );
 }
@@ -158,7 +158,7 @@ function Icon4() {
       <div className="absolute inset-[0.45%_0.13%]" data-name="Vector">
         <div className="absolute inset-[-0.44%_-0.14%]">
           <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 296.167 96.025">
-            <path d={svgPaths.pf9ea800} fill="var(--fill-0, #161E18)" id="Vector" stroke="var(--stroke-0, #7EC8A4)" strokeOpacity="0.15" strokeWidth="0.831054" />
+            <path d={svgPaths.pf9ea800} fill="var(--fill-0, #FFFFFF)" id="Vector" stroke="var(--stroke-0, #0E6E63)" strokeOpacity="0.15" strokeWidth="0.831054" />
           </svg>
         </div>
       </div>
@@ -180,7 +180,7 @@ function Icon5() {
       <div className="absolute inset-[1.35%_1.4%]" data-name="Vector">
         <div className="absolute inset-[-1.33%_-1.5%]">
           <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 28.4474 32.0097">
-            <path d={svgPaths.pbcbf3c0} fill="var(--fill-0, #1A120E)" id="Vector" stroke="var(--stroke-0, #F07B6A)" strokeOpacity="0.35" strokeWidth="0.831115" />
+            <path d={svgPaths.pbcbf3c0} fill="var(--fill-0, #FBE7E3)" id="Vector" stroke="var(--stroke-0, #C24A3C)" strokeOpacity="0.35" strokeWidth="0.831115" />
           </svg>
         </div>
       </div>
@@ -210,7 +210,7 @@ function Icon6() {
       <div className="absolute inset-[1.02%_1.4%]" data-name="Vector">
         <div className="absolute inset-[-1%_-1.5%]">
           <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 28.4789 42.3778">
-            <path d={svgPaths.p2f266940} fill="var(--fill-0, #1A120E)" id="Vector" stroke="var(--stroke-0, #F07B6A)" strokeOpacity="0.35" strokeWidth="0.831335" />
+            <path d={svgPaths.p2f266940} fill="var(--fill-0, #FBE7E3)" id="Vector" stroke="var(--stroke-0, #C24A3C)" strokeOpacity="0.35" strokeWidth="0.831335" />
           </svg>
         </div>
       </div>
@@ -240,7 +240,7 @@ function Icon7() {
       <div className="absolute inset-[1.61%_1.4%]" data-name="Vector">
         <div className="absolute inset-[-1.6%_-1.51%]">
           <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 28.4476 26.8258">
-            <path d={svgPaths.p292e8150} fill="var(--fill-0, #1A120E)" id="Vector" stroke="var(--stroke-0, #F07B6A)" strokeOpacity="0.35" strokeWidth="0.831312" />
+            <path d={svgPaths.p292e8150} fill="var(--fill-0, #FBE7E3)" id="Vector" stroke="var(--stroke-0, #C24A3C)" strokeOpacity="0.35" strokeWidth="0.831312" />
           </svg>
         </div>
       </div>
@@ -270,7 +270,7 @@ function Icon8() {
       <div className="absolute inset-[2%_1.4%]" data-name="Vector">
         <div className="absolute inset-[-2%_-1.5%]">
           <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 28.4465 21.5683">
-            <path d={svgPaths.p2833e00} fill="var(--fill-0, #1A2E1F)" id="Vector" stroke="var(--stroke-0, #7EC8A4)" strokeOpacity="0.35" strokeWidth="0.830164" />
+            <path d={svgPaths.p2833e00} fill="var(--fill-0, #D6EDE9)" id="Vector" stroke="var(--stroke-0, #0E6E63)" strokeOpacity="0.35" strokeWidth="0.830164" />
           </svg>
         </div>
       </div>
@@ -300,7 +300,7 @@ function Icon9() {
       <div className="absolute inset-[1.47%_1.4%]" data-name="Vector">
         <div className="absolute inset-[-1.46%_-1.5%]">
           <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 28.4786 29.376">
-            <path d={svgPaths.p2a0f0400} fill="var(--fill-0, #1A2E1F)" id="Vector" stroke="var(--stroke-0, #7EC8A4)" strokeOpacity="0.35" strokeWidth="0.831069" />
+            <path d={svgPaths.p2a0f0400} fill="var(--fill-0, #D6EDE9)" id="Vector" stroke="var(--stroke-0, #0E6E63)" strokeOpacity="0.35" strokeWidth="0.831069" />
           </svg>
         </div>
       </div>
@@ -330,7 +330,7 @@ function Icon10() {
       <div className="absolute inset-[1.16%_1.4%]" data-name="Vector">
         <div className="absolute inset-[-1.14%_-1.5%]">
           <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 28.4473 37.1935">
-            <path d={svgPaths.p341da800} fill="var(--fill-0, #1A2E1F)" id="Vector" stroke="var(--stroke-0, #7EC8A4)" strokeOpacity="0.35" strokeWidth="0.830973" />
+            <path d={svgPaths.p341da800} fill="var(--fill-0, #D6EDE9)" id="Vector" stroke="var(--stroke-0, #0E6E63)" strokeOpacity="0.35" strokeWidth="0.830973" />
           </svg>
         </div>
       </div>
@@ -360,7 +360,7 @@ function Icon11() {
       <div className="absolute inset-[0.96%_1.4%]" data-name="Vector">
         <div className="absolute inset-[-0.94%_-1.5%]">
           <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 28.4784 44.9273">
-            <path d={svgPaths.p36642d00} fill="var(--fill-0, #1A2E1F)" id="Vector" stroke="var(--stroke-0, #7EC8A4)" strokeOpacity="0.35" strokeWidth="0.830895" />
+            <path d={svgPaths.p36642d00} fill="var(--fill-0, #D6EDE9)" id="Vector" stroke="var(--stroke-0, #0E6E63)" strokeOpacity="0.35" strokeWidth="0.830895" />
           </svg>
         </div>
       </div>
@@ -387,7 +387,7 @@ function Group17() {
 function Group18() {
   return (
     <div className="absolute h-[9.425px] left-[34.68px] top-[296.71px] w-[35.129px]" data-name="Group">
-      <p className="absolute font-['Inter:Regular',sans-serif] font-normal leading-[normal] left-[-0.14px] not-italic text-[#f07b6a] text-[7.711px] top-[0.05px] whitespace-nowrap">Spending</p>
+      <p className="absolute font-['Inter:Regular',sans-serif] font-normal leading-[normal] left-[-0.14px] not-italic text-[#C24A3C] text-[7.711px] top-[0.05px] whitespace-nowrap">Spending</p>
     </div>
   );
 }
@@ -395,7 +395,7 @@ function Group18() {
 function Group19() {
   return (
     <div className="absolute h-[9.425px] left-[115.48px] top-[296.71px] w-[57.406px]" data-name="Group">
-      <p className="-translate-x-full absolute font-['Inter:Regular',sans-serif] font-normal leading-[normal] left-[58.17px] not-italic text-[#7ec8a4] text-[7.711px] text-right top-[0.05px] whitespace-nowrap">Savings ↑ 23%</p>
+      <p className="-translate-x-full absolute font-['Inter:Regular',sans-serif] font-normal leading-[normal] left-[58.17px] not-italic text-[#0E6E63] text-[7.711px] text-right top-[0.05px] whitespace-nowrap">Savings ↑ 23%</p>
     </div>
   );
 }
@@ -406,7 +406,7 @@ function Icon12() {
       <div className="absolute bottom-1/2 left-0 right-0 top-1/2" data-name="Vector">
         <div className="absolute inset-[-0.42px_0]">
           <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 267.645 0.831983">
-            <path d="M0 0.415991H267.645" id="Vector" stroke="var(--stroke-0, #2A3A2E)" strokeWidth="0.831983" />
+            <path d="M0 0.415991H267.645" id="Vector" stroke="var(--stroke-0, #D6EDE9)" strokeWidth="0.831983" />
           </svg>
         </div>
       </div>
@@ -428,7 +428,7 @@ function Icon13() {
       <div className="absolute inset-[2.38%_2.21%]" data-name="Vector">
         <div className="absolute inset-[-2.4%_-2.41%]">
           <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 18.1115 18.1409">
-            <path d={svgPaths.p60c0ff0} fill="var(--fill-0, #1A2E1F)" id="Vector" stroke="var(--stroke-0, #7EC8A4)" strokeOpacity="0.5" strokeWidth="0.83131" />
+            <path d={svgPaths.p60c0ff0} fill="var(--fill-0, #D6EDE9)" id="Vector" stroke="var(--stroke-0, #0E6E63)" strokeOpacity="0.5" strokeWidth="0.83131" />
           </svg>
         </div>
       </div>
@@ -455,7 +455,7 @@ function Group20() {
 function Group21() {
   return (
     <div className="absolute h-[9.425px] left-[25.92px] top-[332.18px] w-[6.854px]" data-name="Group">
-      <p className="-translate-x-1/2 absolute font-['Inter:Bold',sans-serif] font-bold leading-[normal] left-[3.52px] not-italic text-[#7ec8a4] text-[7.711px] text-center top-[0.05px] whitespace-nowrap">✓</p>
+      <p className="-translate-x-1/2 absolute font-['Inter:Bold',sans-serif] font-bold leading-[normal] left-[3.52px] not-italic text-[#0E6E63] text-[7.711px] text-center top-[0.05px] whitespace-nowrap">✓</p>
     </div>
   );
 }
@@ -463,7 +463,7 @@ function Group21() {
 function Group22() {
   return (
     <div className="absolute h-[11.139px] left-[44.94px] top-[331.33px] w-[127.664px]" data-name="Group">
-      <p className="absolute font-['Inter:Regular',sans-serif] font-normal leading-[normal] left-[-0.07px] not-italic text-[#9bb09f] text-[9.425px] top-[-0.57px] whitespace-nowrap">Enter your take-home salary</p>
+      <p className="absolute font-['Inter:Regular',sans-serif] font-normal leading-[normal] left-[-0.07px] not-italic text-[#9FB0C3] text-[9.425px] top-[-0.57px] whitespace-nowrap">Enter your take-home salary</p>
     </div>
   );
 }
@@ -474,7 +474,7 @@ function Icon14() {
       <div className="absolute inset-[2.38%_2.21%]" data-name="Vector">
         <div className="absolute inset-[-2.4%]">
           <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 18.1112 18.1304">
-            <path d={svgPaths.p371adb00} fill="var(--fill-0, #1A2E1F)" id="Vector" stroke="var(--stroke-0, #7EC8A4)" strokeOpacity="0.5" strokeWidth="0.831065" />
+            <path d={svgPaths.p371adb00} fill="var(--fill-0, #D6EDE9)" id="Vector" stroke="var(--stroke-0, #0E6E63)" strokeOpacity="0.5" strokeWidth="0.831065" />
           </svg>
         </div>
       </div>
@@ -501,7 +501,7 @@ function Group23() {
 function Group24() {
   return (
     <div className="absolute h-[9.425px] left-[25.92px] top-[361.6px] w-[6.854px]" data-name="Group">
-      <p className="-translate-x-1/2 absolute font-['Inter:Bold',sans-serif] font-bold leading-[normal] left-[3.52px] not-italic text-[#7ec8a4] text-[7.711px] text-center top-[0.05px] whitespace-nowrap">✓</p>
+      <p className="-translate-x-1/2 absolute font-['Inter:Bold',sans-serif] font-bold leading-[normal] left-[3.52px] not-italic text-[#0E6E63] text-[7.711px] text-center top-[0.05px] whitespace-nowrap">✓</p>
     </div>
   );
 }
@@ -509,7 +509,7 @@ function Group24() {
 function Group25() {
   return (
     <div className="absolute h-[11.139px] left-[44.91px] top-[360.74px] w-[118.24px]" data-name="Group">
-      <p className="absolute font-['Inter:Regular',sans-serif] font-normal leading-[normal] left-[-0.03px] not-italic text-[#9bb09f] text-[9.425px] top-[-0.57px] whitespace-nowrap">Set your monthly priorities</p>
+      <p className="absolute font-['Inter:Regular',sans-serif] font-normal leading-[normal] left-[-0.03px] not-italic text-[#9FB0C3] text-[9.425px] top-[-0.57px] whitespace-nowrap">Set your monthly priorities</p>
     </div>
   );
 }
@@ -520,7 +520,7 @@ function Icon15() {
       <div className="absolute inset-[2.38%_2.21%]" data-name="Vector">
         <div className="absolute inset-[-2.4%]">
           <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 18.1112 18.1304">
-            <path d={svgPaths.p371adb00} fill="var(--fill-0, #161E18)" id="Vector" stroke="var(--stroke-0, #7EC8A4)" strokeOpacity="0.5" strokeWidth="0.831065" />
+            <path d={svgPaths.p371adb00} fill="var(--fill-0, #FFFFFF)" id="Vector" stroke="var(--stroke-0, #0E6E63)" strokeOpacity="0.5" strokeWidth="0.831065" />
           </svg>
         </div>
       </div>
@@ -547,7 +547,7 @@ function Group26() {
 function Group27() {
   return (
     <div className="absolute h-[9.425px] left-[26.79px] top-[390.98px] w-[5.141px]" data-name="Group">
-      <p className="-translate-x-1/2 absolute font-['Inter:Bold',sans-serif] font-bold leading-[normal] left-[3.03px] not-italic text-[#5a7060] text-[7.711px] text-center top-[0.01px] whitespace-nowrap">3</p>
+      <p className="-translate-x-1/2 absolute font-['Inter:Bold',sans-serif] font-bold leading-[normal] left-[3.03px] not-italic text-[#65717E] text-[7.711px] text-center top-[0.01px] whitespace-nowrap">3</p>
     </div>
   );
 }
@@ -555,7 +555,7 @@ function Group27() {
 function Group28() {
   return (
     <div className="absolute h-[11.139px] left-[44.78px] top-[390.16px] w-[83.11px]" data-name="Group">
-      <p className="absolute font-['Inter:Regular',sans-serif] font-normal leading-[normal] left-[0.1px] not-italic text-[#5a7060] text-[9.425px] top-[-0.57px] whitespace-nowrap">Add your first goal</p>
+      <p className="absolute font-['Inter:Regular',sans-serif] font-normal leading-[normal] left-[0.1px] not-italic text-[#65717E] text-[9.425px] top-[-0.57px] whitespace-nowrap">Add your first goal</p>
     </div>
   );
 }
@@ -564,7 +564,7 @@ function Icon16() {
   return (
     <div className="h-[39.799px] overflow-clip relative shrink-0 w-full" data-name="Icon">
       <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 295.32 39.7987">
-        <path d={svgPaths.p1d7dd400} fill="var(--fill-0, #7EC8A4)" id="Vector" />
+        <path d={svgPaths.p1d7dd400} fill="var(--fill-0, #0E6E63)" id="Vector" />
       </svg>
     </div>
   );
@@ -581,7 +581,7 @@ function Group29() {
 function Group30() {
   return (
     <div className="absolute h-[13.709px] left-[123.38px] top-[448.08px] w-[89.965px]" data-name="Group">
-      <p className="-translate-x-1/2 absolute font-['Inter:Bold',sans-serif] font-bold leading-[normal] left-[45.31px] not-italic text-[#0a1a0e] text-[11.139px] text-center top-[-0.09px] whitespace-nowrap">{`Set my first goal `}</p>
+      <p className="-translate-x-1/2 absolute font-['Inter:Bold',sans-serif] font-bold leading-[normal] left-[45.31px] not-italic text-[#FFFFFF] text-[11.139px] text-center top-[-0.09px] whitespace-nowrap">{`Set my first goal `}</p>
     </div>
   );
 }
@@ -592,7 +592,7 @@ function Icon17() {
       <div className="absolute inset-[1.11%_0.13%]" data-name="Vector">
         <div className="absolute inset-[-1.09%_-0.14%]">
           <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 296.167 38.8652">
-            <path d={svgPaths.p2b450b00} id="Vector" stroke="var(--stroke-0, #7EC8A4)" strokeOpacity="0.2" strokeWidth="0.830586" />
+            <path d={svgPaths.p2b450b00} id="Vector" stroke="var(--stroke-0, #0E6E63)" strokeOpacity="0.2" strokeWidth="0.830586" />
           </svg>
         </div>
       </div>
@@ -611,7 +611,7 @@ function Container13() {
 function Group31() {
   return (
     <div className="absolute h-[12.852px] left-[137.52px] top-[493.08px] w-[61.69px]" data-name="Group">
-      <p className="-translate-x-1/2 absolute font-['Inter:Regular',sans-serif] font-normal leading-[normal] left-[31.14px] not-italic text-[#9bb09f] text-[10.282px] text-center top-[0.05px] whitespace-nowrap">Skip for now</p>
+      <p className="-translate-x-1/2 absolute font-['Inter:Regular',sans-serif] font-normal leading-[normal] left-[31.14px] not-italic text-[#9FB0C3] text-[10.282px] text-center top-[0.05px] whitespace-nowrap">Skip for now</p>
     </div>
   );
 }
@@ -620,7 +620,7 @@ function Icon18() {
   return (
     <div className="h-[53.658px] overflow-clip relative shrink-0 w-full" data-name="Icon">
       <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 336.726 53.6576">
-        <path d={svgPaths.p1f847d00} fill="var(--fill-0, #0A0F0C)" id="Vector" opacity="0.97" />
+        <path d={svgPaths.p1f847d00} fill="var(--fill-0, #0B1F33)" id="Vector" opacity="0.97" />
       </svg>
     </div>
   );
@@ -640,7 +640,7 @@ function Icon19() {
       <div className="absolute bottom-1/2 left-0 right-0 top-1/2" data-name="Vector">
         <div className="absolute inset-[-0.42px_0]">
           <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 336.726 0.831996">
-            <path d="M0 0.415998H336.726" id="Vector" stroke="var(--stroke-0, #7EC8A4)" strokeOpacity="0.15" strokeWidth="0.831996" />
+            <path d="M0 0.415998H336.726" id="Vector" stroke="var(--stroke-0, #0E6E63)" strokeOpacity="0.15" strokeWidth="0.831996" />
           </svg>
         </div>
       </div>
@@ -659,7 +659,7 @@ function Container14() {
 function Group33() {
   return (
     <div className="absolute h-[20.563px] left-[27.69px] top-[681.65px] w-[12.852px]" data-name="Group">
-      <p className="-translate-x-1/2 absolute font-['Inter:Regular','Noto_Sans_Symbols:Regular',sans-serif] font-normal leading-[normal] left-[7.32px] not-italic text-[#7ec8a4] text-[17.136px] text-center top-[-0.12px] whitespace-nowrap">⌂</p>
+      <p className="-translate-x-1/2 absolute font-['Inter:Regular','Noto_Sans_Symbols:Regular',sans-serif] font-normal leading-[normal] left-[7.32px] not-italic text-[#0E6E63] text-[17.136px] text-center top-[-0.12px] whitespace-nowrap">⌂</p>
     </div>
   );
 }
@@ -667,7 +667,7 @@ function Group33() {
 function Group34() {
   return (
     <div className="absolute h-[9.425px] left-[22.53px] top-[706.67px] w-[22.277px]" data-name="Group">
-      <p className="-translate-x-1/2 absolute font-['Inter:Regular',sans-serif] font-normal leading-[normal] left-[11.39px] not-italic text-[#7ec8a4] text-[7.711px] text-center top-[0.05px] whitespace-nowrap">Home</p>
+      <p className="-translate-x-1/2 absolute font-['Inter:Regular',sans-serif] font-normal leading-[normal] left-[11.39px] not-italic text-[#0E6E63] text-[7.711px] text-center top-[0.05px] whitespace-nowrap">Home</p>
     </div>
   );
 }
@@ -676,7 +676,7 @@ function Icon20() {
   return (
     <div className="h-[4.316px] overflow-clip relative shrink-0 w-full" data-name="Icon">
       <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 4.32688 4.31617">
-        <path d={svgPaths.p2d0f6100} fill="var(--fill-0, #7EC8A4)" id="Vector" />
+        <path d={svgPaths.p2d0f6100} fill="var(--fill-0, #0E6E63)" id="Vector" />
       </svg>
     </div>
   );
@@ -693,7 +693,7 @@ function Group35() {
 function Group36() {
   return (
     <div className="absolute h-[20.563px] left-[95.88px] top-[681.65px] w-[10.282px]" data-name="Group">
-      <p className="-translate-x-1/2 absolute font-['Inter:Regular','Noto_Sans_Math:Regular',sans-serif] font-normal leading-[normal] left-[5.71px] not-italic text-[#5a7060] text-[17.136px] text-center top-[-0.12px] whitespace-nowrap">≡</p>
+      <p className="-translate-x-1/2 absolute font-['Inter:Regular','Noto_Sans_Math:Regular',sans-serif] font-normal leading-[normal] left-[5.71px] not-italic text-[#65717E] text-[17.136px] text-center top-[-0.12px] whitespace-nowrap">≡</p>
     </div>
   );
 }
@@ -701,7 +701,7 @@ function Group36() {
 function Group37() {
   return (
     <div className="absolute h-[9.425px] left-[87.31px] top-[706.67px] w-[27.418px]" data-name="Group">
-      <p className="-translate-x-1/2 absolute font-['Inter:Regular',sans-serif] font-normal leading-[normal] left-[14.02px] not-italic text-[#5a7060] text-[7.711px] text-center top-[0.05px] whitespace-nowrap">Activity</p>
+      <p className="-translate-x-1/2 absolute font-['Inter:Regular',sans-serif] font-normal leading-[normal] left-[14.02px] not-italic text-[#65717E] text-[7.711px] text-center top-[0.05px] whitespace-nowrap">Activity</p>
     </div>
   );
 }
@@ -711,7 +711,7 @@ function Icon21() {
     <div className="h-[4.316px] overflow-clip relative shrink-0 w-full" data-name="Icon">
       <div className="absolute inset-[0_83.09%_84.38%_0]" data-name="Vector">
         <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 32 32">
-          <path d={svgPaths.p33641900} fill="var(--fill-0, #7EC8A4)" id="Vector" opacity="0" />
+          <path d={svgPaths.p33641900} fill="var(--fill-0, #0E6E63)" id="Vector" opacity="0" />
         </svg>
       </div>
     </div>
@@ -729,7 +729,7 @@ function Group38() {
 function Group39() {
   return (
     <div className="absolute h-[20.563px] left-[160.65px] top-[681.65px] w-[15.423px]" data-name="Group">
-      <p className="-translate-x-1/2 absolute font-['Inter:Regular','Noto_Sans_Symbols2:Regular',sans-serif] font-normal leading-[normal] left-[7.83px] not-italic text-[#5a7060] text-[17.136px] text-center top-[-0.12px] whitespace-nowrap">◎</p>
+      <p className="-translate-x-1/2 absolute font-['Inter:Regular','Noto_Sans_Symbols2:Regular',sans-serif] font-normal leading-[normal] left-[7.83px] not-italic text-[#65717E] text-[17.136px] text-center top-[-0.12px] whitespace-nowrap">◎</p>
     </div>
   );
 }
@@ -737,7 +737,7 @@ function Group39() {
 function Group40() {
   return (
     <div className="absolute h-[9.425px] left-[158.08px] top-[706.67px] w-[20.563px]" data-name="Group">
-      <p className="-translate-x-1/2 absolute font-['Inter:Regular',sans-serif] font-normal leading-[normal] left-[10.51px] not-italic text-[#5a7060] text-[7.711px] text-center top-[0.05px] whitespace-nowrap">Goals</p>
+      <p className="-translate-x-1/2 absolute font-['Inter:Regular',sans-serif] font-normal leading-[normal] left-[10.51px] not-italic text-[#65717E] text-[7.711px] text-center top-[0.05px] whitespace-nowrap">Goals</p>
     </div>
   );
 }
@@ -747,7 +747,7 @@ function Icon22() {
     <div className="h-[4.316px] overflow-clip relative shrink-0 w-full" data-name="Icon">
       <div className="absolute inset-[0_83.09%_84.38%_0]" data-name="Vector">
         <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 32 32">
-          <path d={svgPaths.p33641900} fill="var(--fill-0, #7EC8A4)" id="Vector" opacity="0" />
+          <path d={svgPaths.p33641900} fill="var(--fill-0, #0E6E63)" id="Vector" opacity="0" />
         </svg>
       </div>
     </div>
@@ -765,7 +765,7 @@ function Group41() {
 function Group42() {
   return (
     <div className="absolute h-[20.563px] left-[226.71px] top-[681.65px] w-[17.993px]" data-name="Group">
-      <p className="-translate-x-1/2 absolute font-['Inter:Regular',sans-serif] font-normal leading-[normal] left-[9.22px] not-italic text-[#5a7060] text-[17.136px] text-center top-[-0.12px] whitespace-nowrap">♡</p>
+      <p className="-translate-x-1/2 absolute font-['Inter:Regular',sans-serif] font-normal leading-[normal] left-[9.22px] not-italic text-[#65717E] text-[17.136px] text-center top-[-0.12px] whitespace-nowrap">♡</p>
     </div>
   );
 }
@@ -773,7 +773,7 @@ function Group42() {
 function Group43() {
   return (
     <div className="absolute h-[9.425px] left-[225.43px] top-[706.67px] w-[20.563px]" data-name="Group">
-      <p className="-translate-x-1/2 absolute font-['Inter:Regular',sans-serif] font-normal leading-[normal] left-[10.42px] not-italic text-[#5a7060] text-[7.711px] text-center top-[0.05px] whitespace-nowrap">Pulse</p>
+      <p className="-translate-x-1/2 absolute font-['Inter:Regular',sans-serif] font-normal leading-[normal] left-[10.42px] not-italic text-[#65717E] text-[7.711px] text-center top-[0.05px] whitespace-nowrap">Pulse</p>
     </div>
   );
 }
@@ -783,7 +783,7 @@ function Icon23() {
     <div className="h-[4.316px] overflow-clip relative shrink-0 w-full" data-name="Icon">
       <div className="absolute inset-[0_83.09%_84.38%_0]" data-name="Vector">
         <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 32 32">
-          <path d={svgPaths.p33641900} fill="var(--fill-0, #7EC8A4)" id="Vector" opacity="0" />
+          <path d={svgPaths.p33641900} fill="var(--fill-0, #0E6E63)" id="Vector" opacity="0" />
         </svg>
       </div>
     </div>
@@ -801,7 +801,7 @@ function Group44() {
 function Group45() {
   return (
     <div className="absolute h-[20.563px] left-[295.34px] top-[681.65px] w-[15.423px]" data-name="Group">
-      <p className="-translate-x-1/2 absolute font-['Inter:Regular','Noto_Sans_Symbols2:Regular',sans-serif] font-normal leading-[normal] left-[8.92px] not-italic text-[#5a7060] text-[17.136px] text-center top-[-0.12px] whitespace-nowrap">⊙</p>
+      <p className="-translate-x-1/2 absolute font-['Inter:Regular','Noto_Sans_Symbols2:Regular',sans-serif] font-normal leading-[normal] left-[8.92px] not-italic text-[#65717E] text-[17.136px] text-center top-[-0.12px] whitespace-nowrap">⊙</p>
     </div>
   );
 }
@@ -809,7 +809,7 @@ function Group45() {
 function Group46() {
   return (
     <div className="absolute h-[9.425px] left-[291.06px] top-[706.67px] w-[23.991px]" data-name="Group">
-      <p className="-translate-x-1/2 absolute font-['Inter:Regular',sans-serif] font-normal leading-[normal] left-[12.41px] not-italic text-[#5a7060] text-[7.711px] text-center top-[0.05px] whitespace-nowrap">Profile</p>
+      <p className="-translate-x-1/2 absolute font-['Inter:Regular',sans-serif] font-normal leading-[normal] left-[12.41px] not-italic text-[#65717E] text-[7.711px] text-center top-[0.05px] whitespace-nowrap">Profile</p>
     </div>
   );
 }
@@ -819,7 +819,7 @@ function Icon24() {
     <div className="h-[4.316px] overflow-clip relative shrink-0 w-full" data-name="Icon">
       <div className="absolute inset-[0_83.09%_84.38%_0]" data-name="Vector">
         <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 32 32">
-          <path d={svgPaths.p33641900} fill="var(--fill-0, #7EC8A4)" id="Vector" opacity="0" />
+          <path d={svgPaths.p33641900} fill="var(--fill-0, #0E6E63)" id="Vector" opacity="0" />
         </svg>
       </div>
     </div>
@@ -928,7 +928,7 @@ function Container() {
 
 function App() {
   return (
-    <div className="bg-[#050505] h-[729.6px] overflow-clip relative shrink-0 w-full" data-name="App">
+    <div className="bg-[#EAF0F4] h-[729.6px] overflow-clip relative shrink-0 w-full" data-name="App">
       <Container />
     </div>
   );

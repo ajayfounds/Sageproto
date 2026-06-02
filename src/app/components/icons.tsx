@@ -20,12 +20,45 @@ import {
   Meh,
   Frown,
   Annoyed,
+  Shield,
+  TrendingUp,
+  Home,
+  Landmark,
+  LineChart,
+  User,
+  Send,
+  ArrowDownLeft,
+  Zap,
+  ArrowUp,
+  ArrowLeft,
+  Check,
+  Lock,
+  Fingerprint,
+  Copy,
+  Snowflake,
+  ChevronRight,
+  Eye,
+  LogOut,
+  Bell,
+  Globe,
+  Palette,
+  HelpCircle,
+  Mail,
+  FileText,
+  Smartphone,
+  Monitor,
+  ShieldCheck,
+  Receipt,
 } from "lucide-react";
 
 export type IconKey =
   | "coffee" | "tea" | "train" | "cart" | "car" | "package" | "card" | "wallet"
   | "plane" | "alert" | "laptop" | "target" | "chart" | "pulse" | "plus"
-  | "bulb" | "wave" | "leaf" | "smile" | "meh" | "frown" | "annoyed";
+  | "bulb" | "wave" | "leaf" | "smile" | "meh" | "frown" | "annoyed"
+  | "shield" | "trending-up" | "home" | "accounts" | "insights" | "profile"
+  | "send" | "request" | "pay" | "topup" | "arrow-left" | "check" | "lock" | "fingerprint" | "copy"
+  | "snowflake" | "chevron-right" | "eye" | "zap" | "logout" | "bell" | "globe" | "palette" | "help" | "mail" | "file"
+  | "smartphone" | "monitor" | "shield-check" | "receipt";
 
 const MAP: Record<IconKey, React.ComponentType<{ size?: number; className?: string; strokeWidth?: number }>> = {
   coffee: Coffee,
@@ -50,6 +83,36 @@ const MAP: Record<IconKey, React.ComponentType<{ size?: number; className?: stri
   meh: Meh,
   frown: Frown,
   annoyed: Annoyed,
+  shield: Shield,
+  "trending-up": TrendingUp,
+  home: Home,
+  accounts: Landmark,
+  insights: LineChart,
+  profile: User,
+  send: Send,
+  request: ArrowDownLeft,
+  pay: Zap,
+  topup: ArrowUp,
+  "arrow-left": ArrowLeft,
+  check: Check,
+  lock: Lock,
+  fingerprint: Fingerprint,
+  copy: Copy,
+  snowflake: Snowflake,
+  "chevron-right": ChevronRight,
+  eye: Eye,
+  zap: Zap,
+  logout: LogOut,
+  bell: Bell,
+  globe: Globe,
+  palette: Palette,
+  help: HelpCircle,
+  mail: Mail,
+  file: FileText,
+  smartphone: Smartphone,
+  monitor: Monitor,
+  "shield-check": ShieldCheck,
+  receipt: Receipt,
 };
 
 export function Icon({ name, size = 16, className, strokeWidth = 1.5 }: { name: IconKey; size?: number; className?: string; strokeWidth?: number }) {

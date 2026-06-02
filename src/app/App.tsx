@@ -4,19 +4,70 @@ import Sage01Onboarding from "../imports/Sage01Onboarding1/Sage01Onboarding1";
 import HomeScreen from "./components/HomeScreen";
 import ActivityScreen from "./components/ActivityScreen";
 import GoalsScreen from "./components/GoalsScreen";
-import PulseScreen from "./components/PulseScreen";
+import InsightsScreen from "./components/InsightsScreen";
 import ProfileScreen from "./components/ProfileScreen";
 import NotificationsScreen from "./components/NotificationsScreen";
+import AccountsListScreen from "./components/AccountsListScreen";
+import AccountDetailScreen from "./components/AccountDetailScreen";
+import CardsScreen from "./components/CardsScreen";
+import TransactionDetailScreen, { TransactionDetail } from "./components/TransactionDetailScreen";
+import SendMoneyScreen from "./components/SendMoneyScreen";
+import BudgetsScreen from "./components/BudgetsScreen";
+import SecurityScreen from "./components/SecurityScreen";
+import type { TabKey } from "./components/BottomTabBar";
 
-type Screen = "onboarding" | "home" | "activity" | "goals" | "pulse" | "profile" | "notifications";
+type Screen =
+  | "onboarding"
+  | "home"
+  | "activity"
+  | "goals"
+  | "insights"
+  | "profile"
+  | "notifications"
+  | "accounts"
+  | "accountDetail"
+  | "cards"
+  | "transactionDetail"
+  | "sendMoney"
+  | "budgets"
+  | "security";
 
 const FRAME_HEIGHT = 852;
 const FRAME_WIDTH = 393;
 
 export default function App() {
-  const [screen, setScreen] = useState<Screen>("onboarding");
+  const [screen, setScreen] = useState<Screen>("notifications");
   const [onboardingStep, setOnboardingStep] = useState(2);
   const [scale, setScale] = useState(1);
+  const [activeAccountId, setActiveAccountId] = useState<string>("a1");
+  const [activeTx, setActiveTx] = useState<TransactionDetail | null>(null);
+  const [txReturnTo, setTxReturnTo] = useState<Screen>("home");
+
+  const TAB_TO_SCREEN: Record<TabKey, Screen> = {
+    home: "home",
+    accounts: "accounts",
+    cards: "cards",
+    insights: "insights",
+    profile: "profile",
+  };
+
+  const tabNavigate = (k: TabKey) => setScreen(TAB_TO_SCREEN[k]);
+  const navigate = (s: Screen | TabKey) => {
+    if ((s as TabKey) in TAB_TO_SCREEN) {
+      setScreen(TAB_TO_SCREEN[s as TabKey]);
+    } else {
+      setScreen(s as Screen);
+    }
+  };
+  const openAccount = (id: string) => {
+    setActiveAccountId(id);
+    setScreen("accountDetail");
+  };
+  const openTransaction = (tx: TransactionDetail, from: Screen) => {
+    setActiveTx(tx);
+    setTxReturnTo(from);
+    setScreen("transactionDetail");
+  };
 
   useEffect(() => {
     const compute = () => {
@@ -46,28 +97,40 @@ export default function App() {
   const renderScreen = () => {
     switch (screen) {
       case "onboarding": return <Sage01Onboarding />;
-      case "home": return <HomeScreen onNavigate={setScreen} />;
-      case "activity": return <ActivityScreen onNavigate={setScreen} />;
-      case "goals": return <GoalsScreen onNavigate={setScreen} />;
-      case "pulse": return <PulseScreen onNavigate={setScreen} />;
-      case "profile": return <ProfileScreen onNavigate={setScreen} onSignOut={handleSignOut} />;
+      case "home": return <HomeScreen onNavigate={navigate} onOpenTransaction={(tx) => openTransaction(tx, "home")} />;
+      case "activity": return <ActivityScreen onNavigate={navigate} onOpenTransaction={(tx) => openTransaction(tx, "activity")} />;
+      case "goals": return <GoalsScreen onNavigate={navigate} />;
+      case "insights": return <InsightsScreen onNavigate={tabNavigate} />;
+      case "profile": return <ProfileScreen onNavigate={navigate} onSignOut={handleSignOut} />;
       case "notifications": return <NotificationsScreen onBack={() => setScreen("home")} />;
+      case "accounts": return <AccountsListScreen onNavigate={tabNavigate} onOpenAccount={openAccount} />;
+      case "accountDetail": return <AccountDetailScreen accountId={activeAccountId} onBack={() => setScreen("accounts")} onNavigate={tabNavigate} onOpenTransaction={(tx) => openTransaction(tx, "accountDetail")} />;
+      case "cards": return <CardsScreen onNavigate={tabNavigate} />;
+      case "transactionDetail":
+        return activeTx ? <TransactionDetailScreen tx={activeTx} onBack={() => setScreen(txReturnTo)} /> : null;
+      case "sendMoney":
+        return <SendMoneyScreen onBack={() => setScreen("home")} onViewReceipt={(tx) => openTransaction(tx, "home")} />;
+      case "budgets":
+        return <BudgetsScreen onNavigate={tabNavigate} />;
+      case "security":
+        return <SecurityScreen onBack={() => setScreen("profile")} />;
     }
   };
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-[#050505] overflow-hidden">
-      <Toaster theme="dark" position="top-center" />
-      <div
-        className="relative shrink-0"
-        style={{
-          width: FRAME_WIDTH,
-          height: FRAME_HEIGHT,
-          transform: `scale(${scale})`,
-          transformOrigin: "center center",
-        }}
-      >
-        {renderScreen()}
+    <>
+      <Toaster theme="light" position="top-center" />
+      <div className="fixed inset-0 flex items-center justify-center bg-[#EAF0F4] overflow-hidden">
+        <div
+          className="relative shrink-0"
+          style={{
+            width: FRAME_WIDTH,
+            height: FRAME_HEIGHT,
+            transform: `scale(${scale})`,
+            transformOrigin: "center center",
+          }}
+        >
+          {renderScreen()}
 
         {screen === "onboarding" && (
           <>
@@ -105,13 +168,14 @@ export default function App() {
               aria-label="Skip for now"
             />
             {onboardingStep > 0 && (
-              <div className="absolute top-2 right-2 text-[10px] text-[#7EC8A4] bg-[#0E1A10] px-2 py-1 rounded">
+              <div className="absolute top-2 right-2 text-[13px] text-[#0E6E63] bg-[#FFFFFF] px-2 py-1 rounded">
                 {onboardingStep}/3 done
               </div>
             )}
           </>
         )}
+        </div>
       </div>
-    </div>
+    </>
   );
 }

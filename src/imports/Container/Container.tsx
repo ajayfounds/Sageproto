@@ -86,7 +86,7 @@ function StatusBar() {
 function Heading() {
   return (
     <div className="absolute h-[44.997px] left-[19.99px] top-[7.99px] w-[347.656px]" data-name="Heading 1">
-      <p className="absolute font-['Fraunces:Regular',sans-serif] font-normal leading-[45px] left-0 text-[30px] text-white top-[-1.64px] whitespace-nowrap" style={{ fontVariationSettings: "'SOFT' 0, 'WONK' 1" }}>
+      <p className="absolute font-['Plus_Jakarta_Sans:Regular',sans-serif] font-normal leading-[45px] left-0 text-[30px] text-white top-[-1.64px] whitespace-nowrap" style={{ fontVariationSettings: "'SOFT' 0, 'WONK' 1" }}>
         Profile
       </p>
     </div>
@@ -447,7 +447,7 @@ function Button3() {
 }
 
 function Text14() {
-  return <div className="absolute bg-[#ff6467] left-[36.31px] rounded-[39602500px] size-[5.993px] top-0" data-name="Text" />;
+  return <div className="absolute bg-[#C24A3C] left-[36.31px] rounded-[39602500px] size-[5.993px] top-0" data-name="Text" />;
 }
 
 function Icon3() {
@@ -485,9 +485,9 @@ function Icon4() {
     <div className="absolute left-[17.08px] size-[21.982px] top-[3.98px]" data-name="Icon">
       <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 21.9821 21.9821">
         <g id="Icon">
-          <path d={svgPaths.pa0be9c0} id="Vector" stroke="var(--stroke-0, #5EE9B5)" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.60286" />
-          <path d={svgPaths.p3d07b8c0} id="Vector_2" stroke="var(--stroke-0, #5EE9B5)" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.60286" />
-          <path d={svgPaths.p3f12e300} id="Vector_3" stroke="var(--stroke-0, #5EE9B5)" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.60286" />
+          <path d={svgPaths.pa0be9c0} id="Vector" stroke="var(--stroke-0, #0E6E63)" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.60286" />
+          <path d={svgPaths.p3d07b8c0} id="Vector_2" stroke="var(--stroke-0, #0E6E63)" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.60286" />
+          <path d={svgPaths.p3f12e300} id="Vector_3" stroke="var(--stroke-0, #0E6E63)" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.60286" />
         </g>
       </svg>
     </div>
@@ -497,13 +497,13 @@ function Icon4() {
 function Text16() {
   return (
     <div className="absolute content-stretch flex h-[16.487px] items-start left-[11.99px] top-[29.95px] w-[32.18px]" data-name="Text">
-      <p className="font-['Inter:Medium',sans-serif] font-medium leading-[16.5px] not-italic relative shrink-0 text-[#5ee9b5] text-[11px] text-center whitespace-nowrap">Profile</p>
+      <p className="font-['Inter:Medium',sans-serif] font-medium leading-[16.5px] not-italic relative shrink-0 text-[#0E6E63] text-[11px] text-center whitespace-nowrap">Profile</p>
     </div>
   );
 }
 
 function Text17() {
-  return <div className="absolute bg-[#5ee9b5] left-[26.08px] rounded-[39602500px] size-[3.983px] top-[52.41px]" data-name="Text" />;
+  return <div className="absolute bg-[#0E6E63] left-[26.08px] rounded-[39602500px] size-[3.983px] top-[52.41px]" data-name="Text" />;
 }
 
 function Button5() {
@@ -537,21 +537,21 @@ function BottomNav() {
     { icon: "⊙", label: "Profile", active: true },
   ];
   return (
-    <div className="absolute left-0 right-0 bottom-0 h-[62px] bg-[#0A0F0C]/[0.97]" data-name="BottomNav">
-      <div className="absolute inset-x-0 top-0 h-px bg-[#7EC8A4]/[0.15]" />
+    <div className="absolute left-0 right-0 bottom-0 h-[62px] bg-[#FFFFFF]/[0.97]" data-name="BottomNav">
+      <div className="absolute inset-x-0 top-0 h-px bg-[#0E6E63]/[0.15]" />
       <div className="flex h-full">
         {tabs.map((t) => (
           <div key={t.label} className="flex-1 flex flex-col items-center justify-center gap-[2px] relative">
             <p
-              className={`leading-none text-[20px] text-center ${t.active ? "text-[#7EC8A4]" : "text-[#5A7060]"}`}
+              className={`leading-none text-[20px] text-center ${t.active ? "text-[#0E6E63]" : "text-[#65717E]"}`}
               style={{ fontFamily: "Inter, 'Noto Sans Symbols2', sans-serif" }}
             >
               {t.icon}
             </p>
-            <p className={`leading-none text-[9px] text-center ${t.active ? "text-[#7EC8A4]" : "text-[#5A7060]"}`}>
+            <p className={`leading-none text-[9px] text-center ${t.active ? "text-[#0E6E63]" : "text-[#65717E]"}`}>
               {t.label}
             </p>
-            {t.active && <div className="absolute bottom-[6px] size-[5px] rounded-full bg-[#7EC8A4]" />}
+            {t.active && <div className="absolute bottom-[6px] size-[5px] rounded-full bg-[#0E6E63]" />}
           </div>
         ))}
       </div>

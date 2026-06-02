@@ -1,84 +1,147 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
+  /* ---------- Vault Finance · Brand palette ---------- */
+  --vault-teal: #0E6E63;        /* Primary */
+  --vault-teal-hover: #0a5a51;
+  --teal-400: #3FAE9F;
+  --teal-200: #9FD3CB;
+  --teal-100: #D6EDE9;
+  --trust-navy: #0B1F33;        /* Headings / dark surfaces */
+  --navy-700: #13314F;
+
+  /* Semantic */
+  --gain: #1B9E63;              /* credit / positive */
+  --loss: #C24A3C;              /* debit / negative */
+  --warn: #C68A2E;              /* pending */
+  --info: #2C6FB5;
+
+  /* Neutrals */
+  --ink-900: #101820;           /* primary text */
+  --ink-500: #65717E;           /* muted text */
+  --surface-2: #F5F8FA;         /* app background */
+  --surface-1: #FFFFFF;         /* cards */
+
+  /* ---------- Typography ---------- */
+  --font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+
   --font-size: 16px;
-  --background: #ffffff;
-  --foreground: oklch(0.145 0 0);
-  --card: #ffffff;
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: #030213;
-  --primary-foreground: oklch(1 0 0);
-  --secondary: oklch(0.95 0.0058 264.53);
-  --secondary-foreground: #030213;
-  --muted: #ececf0;
-  --muted-foreground: #717182;
-  --accent: #e9ebef;
-  --accent-foreground: #030213;
-  --destructive: #d4183d;
-  --destructive-foreground: #ffffff;
-  --border: rgba(0, 0, 0, 0.1);
-  --input: transparent;
-  --input-background: #f3f3f5;
-  --switch-background: #cbced4;
-  --font-weight-medium: 500;
   --font-weight-normal: 400;
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: #030213;
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+
+  /* Type scale — accessibility-first (16px base, 1.5 body / 1.3 headings).
+     No primary content < 16px, no secondary content < 13px. */
+  --text-display: 34px;     --leading-display: 44px;
+  --text-h1: 28px;          --leading-h1: 36px;
+  --text-h2: 22px;          --leading-h2: 29px;
+  --text-h3: 19px;          --leading-h3: 25px;
+  --text-money: 30px;       --leading-money: 36px;
+  --text-body-lg: 17px;     --leading-body-lg: 26px;
+  --text-body: 16px;        --leading-body: 24px;
+  --text-label: 13px;       --leading-label: 18px;
+  --text-caption: 13px;     --leading-caption: 18px;
+  --text-button: 16px;      --leading-button: 22px;
+
+  /* ---------- Spacing (4-pt grid) ---------- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --space-16: 64px;
+
+  /* ---------- Radius ---------- */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --radius-pill: 9999px;
+  --radius: var(--radius-md);
+
+  /* ---------- Semantic tokens (shadcn-style) ---------- */
+  --background: var(--surface-2);
+  --foreground: var(--ink-900);
+
+  --card: var(--surface-1);
+  --card-foreground: var(--ink-900);
+
+  --popover: var(--surface-1);
+  --popover-foreground: var(--ink-900);
+
+  --primary: var(--vault-teal);
+  --primary-foreground: #ffffff;
+
+  --secondary: var(--teal-100);
+  --secondary-foreground: var(--vault-teal);
+
+  --muted: var(--surface-2);
+  --muted-foreground: var(--ink-500);
+
+  --accent: var(--teal-100);
+  --accent-foreground: var(--vault-teal);
+
+  --destructive: var(--loss);
+  --destructive-foreground: #ffffff;
+
+  --success: var(--gain);
+  --success-foreground: #ffffff;
+  --warning: var(--warn);
+  --warning-foreground: #ffffff;
+
+  --border: rgba(11, 31, 51, 0.08);
+  --input: transparent;
+  --input-background: var(--surface-2);
+  --switch-background: #cbced4;
+
+  --ring: var(--vault-teal);
+
+  --chart-1: var(--vault-teal);
+  --chart-2: var(--teal-400);
+  --chart-3: var(--navy-700);
+  --chart-4: var(--warn);
+  --chart-5: var(--info);
+
+  --sidebar: var(--surface-1);
+  --sidebar-foreground: var(--ink-900);
+  --sidebar-primary: var(--vault-teal);
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: var(--teal-100);
+  --sidebar-accent-foreground: var(--vault-teal);
+  --sidebar-border: var(--border);
+  --sidebar-ring: var(--vault-teal);
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.145 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.145 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.985 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.396 0.141 25.723);
-  --destructive-foreground: oklch(0.637 0.237 25.331);
-  --border: oklch(0.269 0 0);
-  --input: oklch(0.269 0 0);
-  --ring: oklch(0.439 0 0);
-  --font-weight-medium: 500;
-  --font-weight-normal: 400;
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(0.269 0 0);
-  --sidebar-ring: oklch(0.439 0 0);
+  --background: var(--trust-navy);
+  --foreground: #ffffff;
+  --card: var(--navy-700);
+  --card-foreground: #ffffff;
+  --popover: var(--navy-700);
+  --popover-foreground: #ffffff;
+  --primary: var(--teal-400);
+  --primary-foreground: var(--trust-navy);
+  --secondary: var(--navy-700);
+  --secondary-foreground: var(--teal-200);
+  --muted: var(--navy-700);
+  --muted-foreground: #9FB0C3;
+  --accent: var(--navy-700);
+  --accent-foreground: var(--teal-200);
+  --destructive: var(--loss);
+  --destructive-foreground: #ffffff;
+  --border: rgba(255, 255, 255, 0.08);
+  --input: var(--navy-700);
+  --ring: var(--teal-400);
 }
 
 @theme inline {
+  --font-family-sans: var(--font-sans);
+  --font-family-mono: var(--font-mono);
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -95,20 +158,44 @@
   --color-accent-foreground: var(--accent-foreground);
   --color-destructive: var(--destructive);
   --color-destructive-foreground: var(--destructive-foreground);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
   --color-border: var(--border);
   --color-input: var(--input);
   --color-input-background: var(--input-background);
   --color-switch-background: var(--switch-background);
   --color-ring: var(--ring);
+
+  /* Brand color aliases for direct use */
+  --color-vault-teal: var(--vault-teal);
+  --color-trust-navy: var(--trust-navy);
+  --color-teal-100: var(--teal-100);
+  --color-teal-200: var(--teal-200);
+  --color-teal-400: var(--teal-400);
+  --color-navy-700: var(--navy-700);
+  --color-gain: var(--gain);
+  --color-loss: var(--loss);
+  --color-warn: var(--warn);
+  --color-info: var(--info);
+  --color-ink-900: var(--ink-900);
+  --color-ink-500: var(--ink-500);
+  --color-surface-1: var(--surface-1);
+  --color-surface-2: var(--surface-2);
+
   --color-chart-1: var(--chart-1);
   --color-chart-2: var(--chart-2);
   --color-chart-3: var(--chart-3);
   --color-chart-4: var(--chart-4);
   --color-chart-5: var(--chart-5);
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
+
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+  --radius-xl: var(--radius-lg);
+  --radius-pill: var(--radius-pill);
+
   --color-sidebar: var(--sidebar);
   --color-sidebar-foreground: var(--sidebar-foreground);
   --color-sidebar-primary: var(--sidebar-primary);
@@ -124,58 +211,124 @@
     @apply border-border outline-ring/50;
   }
 
+  html {
+    font-size: var(--font-size);
+    font-family: var(--font-sans);
+  }
+
   body {
     @apply bg-background text-foreground;
+    font-family: var(--font-sans);
+    font-weight: var(--font-weight-normal);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Money & tabular numeric data — IBM Plex Mono */
+  .font-mono,
+  .tabular-nums,
+  [data-money],
+  .money {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: 'tnum' 1;
   }
 
   /**
-  * Default typography styles for HTML elements (h1-h4, p, label, button, input).
-  * These are in @layer base, so Tailwind utility classes (like text-sm, text-lg) automatically override them.
-  */
-
-  html {
-    font-size: var(--font-size);
-  }
+   * Default typography — Vault Finance type scale.
+   * Tailwind utility classes still override these.
+   */
 
   h1 {
-    font-size: var(--text-2xl);
-    font-weight: var(--font-weight-medium);
-    line-height: 1.5;
+    font-family: var(--font-sans);
+    font-size: var(--text-h1);
+    line-height: var(--leading-h1);
+    font-weight: var(--font-weight-semibold);
+    color: var(--trust-navy);
+    letter-spacing: -0.01em;
   }
 
   h2 {
-    font-size: var(--text-xl);
-    font-weight: var(--font-weight-medium);
-    line-height: 1.5;
+    font-family: var(--font-sans);
+    font-size: var(--text-h2);
+    line-height: var(--leading-h2);
+    font-weight: var(--font-weight-semibold);
+    color: var(--trust-navy);
+    letter-spacing: -0.005em;
   }
 
   h3 {
-    font-size: var(--text-lg);
-    font-weight: var(--font-weight-medium);
-    line-height: 1.5;
+    font-family: var(--font-sans);
+    font-size: var(--text-h3);
+    line-height: var(--leading-h3);
+    font-weight: var(--font-weight-semibold);
+    color: var(--trust-navy);
   }
 
   h4 {
-    font-size: var(--text-base);
-    font-weight: var(--font-weight-medium);
-    line-height: 1.5;
+    font-family: var(--font-sans);
+    font-size: var(--text-body-lg);
+    line-height: var(--leading-body-lg);
+    font-weight: var(--font-weight-semibold);
+    color: var(--trust-navy);
+  }
+
+  p {
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: var(--leading-body);
+    font-weight: var(--font-weight-normal);
+    color: var(--ink-900);
   }
 
   label {
-    font-size: var(--text-base);
-    font-weight: var(--font-weight-medium);
-    line-height: 1.5;
+    font-family: var(--font-sans);
+    font-size: var(--text-label);
+    line-height: var(--leading-label);
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--ink-500);
   }
 
   button {
-    font-size: var(--text-base);
-    font-weight: var(--font-weight-medium);
-    line-height: 1.5;
+    font-family: var(--font-sans);
+    font-size: var(--text-button);
+    line-height: var(--leading-button);
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: 0.01em;
   }
 
-  input {
-    font-size: var(--text-base);
+  input,
+  textarea,
+  select {
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: var(--leading-body);
     font-weight: var(--font-weight-normal);
-    line-height: 1.5;
+    color: var(--ink-900);
+  }
+
+  small {
+    font-size: var(--text-caption);
+    line-height: var(--leading-caption);
+    color: var(--ink-500);
+  }
+
+  /* Secondary text on dark/navy surfaces — WCAG AA on Trust Navy. */
+  .text-on-navy {
+    color: var(--teal-200);
+  }
+  .text-on-navy-strong {
+    color: #ffffff;
+  }
+
+  /* Hide scrollbar while maintaining scroll functionality */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
   }
 }

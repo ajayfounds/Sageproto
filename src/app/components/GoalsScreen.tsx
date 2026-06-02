@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 import { toast } from "sonner";
 import { Icon, IconKey } from "./icons";
+import BottomTabBar, { TabKey } from "./BottomTabBar";
 
 export type Goal = {
   id: string;
@@ -16,9 +17,9 @@ export type Goal = {
 const GOAL_ICONS: IconKey[] = ["plane", "alert", "laptop", "target", "wallet", "cart"];
 
 const ACCENT = {
-  green: { text: "text-[#7EC8A4]", bg: "bg-[#1A2E1F]", border: "border-[#7EC8A4]/[0.22]", barFrom: "from-[#7EC8A4]", barTo: "to-[#A8E4C4]" },
-  gold:  { text: "text-[#E8C87A]", bg: "bg-[#1E1A0A]", border: "border-[#E8C87A]/[0.22]", barFrom: "from-[#E8C87A]", barTo: "to-[#F0D89A]" },
-  blue:  { text: "text-[#7AB8D4]", bg: "bg-[#0E1C24]", border: "border-[#7AB8D4]/[0.22]", barFrom: "from-[#7AB8D4]", barTo: "to-[#A8CDE4]" },
+  green: { text: "text-[#0E6E63]", bg: "bg-[#D6EDE9]", border: "border-[#0E6E63]/[0.22]", barFrom: "from-[#0E6E63]", barTo: "to-[#3FAE9F]" },
+  gold:  { text: "text-[#C68A2E]", bg: "bg-[#FBF1E0]", border: "border-[#C68A2E]/[0.22]", barFrom: "from-[#C68A2E]", barTo: "to-[#C68A2E]" },
+  blue:  { text: "text-[#2C6FB5]", bg: "bg-[#FFFFFF]", border: "border-[#2C6FB5]/[0.22]", barFrom: "from-[#2C6FB5]", barTo: "to-[#2C6FB5]" },
 };
 
 const ACCENT_CYCLE: Goal["accent"][] = ["green", "gold", "blue"];
@@ -38,7 +39,7 @@ const monthsLeft = (g: Goal) => {
   return `${m} month${m === 1 ? "" : "s"} left`;
 };
 
-type Props = { onNavigate?: (tab: "home" | "activity" | "goals" | "pulse" | "profile") => void };
+type Props = { onNavigate?: (tab: TabKey) => void };
 
 export default function GoalsScreen({ onNavigate }: Props = {}) {
   const [goals, setGoals] = useState<Goal[]>(DEFAULT_GOALS);
@@ -106,15 +107,15 @@ export default function GoalsScreen({ onNavigate }: Props = {}) {
   };
 
   return (
-    <div className="relative size-full bg-[#090E0B] overflow-hidden">
+    <div className="relative size-full bg-[#F5F8FA] overflow-hidden">
       {/* Status bar spacer */}
       <div className="h-[44px]" />
 
       <div className="px-6 pt-2">
-        <p className="text-[#EEF2ED] text-[24px]" style={{ fontFamily: "Fraunces, serif", fontVariationSettings: "'SOFT' 0, 'WONK' 1" }}>
+        <p className="text-[#0B1F33] text-[24px]" style={{ fontFamily: "var(--font-sans)", fontWeight: 700, letterSpacing: "-0.01em" }}>
           Your Goals
         </p>
-        <p className="text-[#5A7060] text-[10px] mt-1">
+        <p className="text-[#65717E] text-[13px] mt-1">
           {goals.length} active · {onTrack ? "on track overall" : "needs attention"}
         </p>
       </div>
@@ -132,16 +133,16 @@ export default function GoalsScreen({ onNavigate }: Props = {}) {
                     <Icon name={g.icon} size={16} />
                   </div>
                   <div className="flex-1">
-                    <p className="text-[#EEF2ED] text-[13px]">{g.name}</p>
-                    <p className="text-[#5A7060] text-[9px] mt-1">By {g.byDate}</p>
+                    <p className="text-[#0B1F33] text-[13px]">{g.name}</p>
+                    <p className="text-[#65717E] text-[9px] mt-1">By {g.byDate}</p>
                   </div>
-                  <p className={`${a.text} text-[22px]`} style={{ fontFamily: "Fraunces, serif" }}>{pct}%</p>
+                  <p className={`${a.text} text-[22px]`} style={{ fontFamily: "var(--font-sans)", fontWeight: 700, letterSpacing: "-0.01em" }}>{pct}%</p>
                 </div>
 
-                <p className={`${a.text} text-[18px] mt-3`} style={{ fontFamily: "Fraunces, serif" }}>{fmt(g.saved)}</p>
-                <p className="text-[#5A7060] text-[9px]">of {fmt(g.target)}</p>
+                <p className={`${a.text} text-[18px] mt-3`} style={{ fontFamily: "var(--font-sans)", fontWeight: 700, letterSpacing: "-0.01em" }}>{fmt(g.saved)}</p>
+                <p className="text-[#65717E] text-[9px]">of {fmt(g.target)}</p>
 
-                <div className="mt-3 h-[5px] rounded-full bg-white/5 overflow-hidden">
+                <div className="mt-3 h-[5px] rounded-full bg-[#F5F8FA] overflow-hidden">
                   <div
                     className={`h-full bg-gradient-to-r ${a.barFrom} ${a.barTo} transition-all`}
                     style={{ width: `${pct}%` }}
@@ -149,8 +150,8 @@ export default function GoalsScreen({ onNavigate }: Props = {}) {
                 </div>
 
                 <div className="flex justify-between mt-2">
-                  <p className="text-[#5A7060] text-[9px]">Saving {fmt(g.monthly)}/mo</p>
-                  <p className="text-[#5A7060] text-[9px]">{monthsLeft(g)}</p>
+                  <p className="text-[#65717E] text-[9px]">Saving {fmt(g.monthly)}/mo</p>
+                  <p className="text-[#65717E] text-[9px]">{monthsLeft(g)}</p>
                 </div>
               </button>
 
@@ -158,25 +159,25 @@ export default function GoalsScreen({ onNavigate }: Props = {}) {
                 <div className="mt-3 pt-3 border-t border-white/5 grid grid-cols-2 gap-2">
                   <button
                     onClick={() => contribute(g.id, 500)}
-                    className={`text-[11px] py-2 rounded-full border ${a.border} ${a.text}`}
+                    className={`text-[13px] py-2 rounded-full border ${a.border} ${a.text}`}
                   >
                     + ₹500
                   </button>
                   <button
                     onClick={() => contribute(g.id, g.monthly)}
-                    className={`text-[11px] py-2 rounded-full border ${a.border} ${a.text}`}
+                    className={`text-[13px] py-2 rounded-full border ${a.border} ${a.text}`}
                   >
                     + {fmt(g.monthly)}
                   </button>
                   <button
                     onClick={() => rename(g.id)}
-                    className="text-[11px] py-2 rounded-full border border-white/10 text-white/60"
+                    className="text-[13px] py-2 rounded-full border border-[#E5EAEE] text-[#65717E]"
                   >
                     Rename
                   </button>
                   <button
                     onClick={() => remove(g.id)}
-                    className="text-[11px] py-2 rounded-full border border-[#F07B6A]/30 text-[#F07B6A]"
+                    className="text-[13px] py-2 rounded-full border border-[#C24A3C]/30 text-[#C24A3C]"
                   >
                     Delete
                   </button>
@@ -189,12 +190,12 @@ export default function GoalsScreen({ onNavigate }: Props = {}) {
         {!adding ? (
           <button
             onClick={() => setAdding(true)}
-            className="w-full rounded-[14px] border border-dashed border-[#7EC8A4]/[0.22] py-4 text-[#5A7060] text-[11px]"
+            className="w-full rounded-[14px] border border-dashed border-[#0E6E63]/[0.22] py-4 text-[#65717E] text-[13px]"
           >
             + Add a new goal
           </button>
         ) : (
-          <div className="rounded-[14px] border border-[#7EC8A4]/[0.22] bg-[#0E1A10] p-4 space-y-2">
+          <div className="rounded-[14px] border border-[#0E6E63]/[0.22] bg-[#FFFFFF] p-4 space-y-2">
             <div className="flex gap-2 flex-wrap">
               {GOAL_ICONS.map((k) => {
                 const sel = draft.icon === k;
@@ -203,7 +204,7 @@ export default function GoalsScreen({ onNavigate }: Props = {}) {
                     key={k}
                     onClick={() => setDraft({ ...draft, icon: k })}
                     className={`size-9 rounded-full flex items-center justify-center border ${
-                      sel ? "border-[#7EC8A4] text-[#7EC8A4] bg-[#1A2E1F]" : "border-white/10 text-white/50"
+                      sel ? "border-[#0E6E63] text-[#0E6E63] bg-[#D6EDE9]" : "border-[#E5EAEE] text-[#65717E]"
                     }`}
                   >
                     <Icon name={k} size={16} />
@@ -215,38 +216,38 @@ export default function GoalsScreen({ onNavigate }: Props = {}) {
               value={draft.name}
               onChange={(e) => setDraft({ ...draft, name: e.target.value })}
               placeholder="Goal name"
-              className="w-full bg-black/30 rounded px-3 py-2 text-[12px] text-white placeholder:text-[#5A7060]"
+              className="w-full bg-[#F5F8FA] rounded px-3 py-2 text-[13px] text-[#0B1F33] border border-[#E5EAEE] placeholder:text-[#65717E]"
             />
             <input
               value={draft.target}
               onChange={(e) => setDraft({ ...draft, target: e.target.value })}
               placeholder="Target (₹)"
               inputMode="numeric"
-              className="w-full bg-black/30 rounded px-3 py-2 text-[12px] text-white placeholder:text-[#5A7060]"
+              className="w-full bg-[#F5F8FA] rounded px-3 py-2 text-[13px] text-[#0B1F33] border border-[#E5EAEE] placeholder:text-[#65717E]"
             />
             <input
               value={draft.monthly}
               onChange={(e) => setDraft({ ...draft, monthly: e.target.value })}
               placeholder="Monthly saving (₹)"
               inputMode="numeric"
-              className="w-full bg-black/30 rounded px-3 py-2 text-[12px] text-white placeholder:text-[#5A7060]"
+              className="w-full bg-[#F5F8FA] rounded px-3 py-2 text-[13px] text-[#0B1F33] border border-[#E5EAEE] placeholder:text-[#65717E]"
             />
             <input
               value={draft.byDate}
               onChange={(e) => setDraft({ ...draft, byDate: e.target.value })}
               placeholder="By when (e.g. Dec 2026)"
-              className="w-full bg-black/30 rounded px-3 py-2 text-[12px] text-white placeholder:text-[#5A7060]"
+              className="w-full bg-[#F5F8FA] rounded px-3 py-2 text-[13px] text-[#0B1F33] border border-[#E5EAEE] placeholder:text-[#65717E]"
             />
             <div className="flex gap-2 pt-1">
               <button
                 onClick={() => setAdding(false)}
-                className="flex-1 py-2 rounded-full border border-white/10 text-[11px] text-white/60"
+                className="flex-1 py-2 rounded-full border border-[#E5EAEE] text-[13px] text-[#65717E]"
               >
                 Cancel
               </button>
               <button
                 onClick={addGoal}
-                className="flex-1 py-2 rounded-full bg-[#7EC8A4] text-[11px] text-[#0A1A0E]"
+                className="flex-1 py-2 rounded-full bg-[#0E6E63] text-[13px] text-white"
               >
                 Add goal
               </button>
@@ -255,31 +256,7 @@ export default function GoalsScreen({ onNavigate }: Props = {}) {
         )}
       </div>
 
-      <div className="absolute left-0 right-0 bottom-0 h-[80px] bg-[#0A0F0C]/[0.97]">
-        <div className="absolute inset-x-0 top-0 h-px bg-[#7EC8A4]/[0.15]" />
-        <div className="flex h-full">
-          {([
-            { key: "home",     icon: "⌂", label: "Home" },
-            { key: "activity", icon: "≡", label: "Activity" },
-            { key: "goals",    icon: "◎", label: "Goals" },
-            { key: "pulse",    icon: "♡", label: "Pulse" },
-            { key: "profile",  icon: "⊙", label: "Profile" },
-          ] as const).map((t) => {
-            const active = t.key === "goals";
-            return (
-              <button
-                key={t.key}
-                onClick={() => onNavigate?.(t.key)}
-                className="flex-1 flex flex-col items-center justify-center gap-[3px] relative"
-              >
-                <p className={`leading-none text-[26px] ${active ? "text-[#7EC8A4]" : "text-[#5A7060]"}`}>{t.icon}</p>
-                <p className={`leading-none text-[12px] ${active ? "text-[#7EC8A4]" : "text-[#5A7060]"}`}>{t.label}</p>
-                {active && <div className="absolute bottom-[8px] size-[6px] rounded-full bg-[#7EC8A4]" />}
-              </button>
-            );
-          })}
-        </div>
-      </div>
+      <BottomTabBar onNavigate={(k) => onNavigate?.(k)} />
     </div>
   );
 }

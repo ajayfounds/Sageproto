@@ -1,6 +1,8 @@
 import { useMemo, useState } from "react";
 import { toast } from "sonner";
 import { Icon, IconKey } from "./icons";
+import BottomTabBar, { TabKey } from "./BottomTabBar";
+import type { TransactionDetail } from "./TransactionDetailScreen";
 
 type Category = "Food & Dining" | "Transport" | "Shopping" | "Other";
 
@@ -23,10 +25,10 @@ const CATEGORY_ICON: Record<Category, IconKey> = {
 };
 
 const CATEGORY_COLOR: Record<Category, string> = {
-  "Food & Dining": "#F07B6A",
-  "Transport": "#7EC8A4",
-  "Shopping": "#E8C87A",
-  "Other": "#7AB8D4",
+  "Food & Dining": "#C24A3C",
+  "Transport": "#0E6E63",
+  "Shopping": "#C68A2E",
+  "Other": "#2C6FB5",
 };
 
 const INITIAL: Tx[] = [
@@ -43,9 +45,28 @@ const CATEGORIES: Category[] = ["Food & Dining", "Transport", "Shopping", "Other
 
 const fmt = (n: number) => "₹" + n.toLocaleString("en-IN");
 
-type Props = { onNavigate?: (tab: "home" | "activity" | "goals" | "pulse" | "profile") => void };
+type Props = {
+  onNavigate?: (tab: TabKey) => void;
+  onOpenTransaction?: (tx: TransactionDetail) => void;
+};
 
-export default function ActivityScreen({ onNavigate }: Props = {}) {
+export default function ActivityScreen({ onNavigate, onOpenTransaction }: Props = {}) {
+  const handleOpenTx = (t: Tx) => {
+    onOpenTransaction?.({
+      id: t.id,
+      merchant: t.merchant,
+      icon: t.icon,
+      amount: t.amount,
+      type: "debit",
+      status: "completed",
+      category: t.category,
+      sourceAccount: "HDFC Savings",
+      sourceMask: "4921",
+      dateTime: `${t.day === "Today" ? "1 Apr 2025" : t.day === "Yesterday" ? "31 Mar 2025" : "29 Mar 2025"}, ${t.time}`,
+      reference: "TXN8F2K9D4Q" + t.id.toUpperCase(),
+      method: "UPI / Card",
+    });
+  };
   const [txs, setTxs] = useState<Tx[]>(INITIAL);
   const [month, setMonth] = useState<Tx["month"]>("Apr");
   const [openId, setOpenId] = useState<string | null>(null);
@@ -113,11 +134,11 @@ export default function ActivityScreen({ onNavigate }: Props = {}) {
   const maxCat = Math.max(...Object.values(totals), 1);
 
   return (
-    <div className="relative size-full bg-[#090E0B] overflow-hidden">
+    <div className="relative size-full bg-[#F5F8FA] overflow-hidden">
       <div className="h-[44px]" />
 
       <div className="px-6 pt-2">
-        <p className="text-[#EEF2ED] text-[26px]" style={{ fontFamily: "Fraunces, serif", fontVariationSettings: "'SOFT' 0, 'WONK' 1" }}>
+        <p className="text-[#0B1F33] text-[26px]" style={{ fontFamily: "var(--font-sans)", fontWeight: 700, letterSpacing: "-0.01em" }}>
           Activity
         </p>
         <div className="flex gap-2 mt-3">
@@ -127,8 +148,8 @@ export default function ActivityScreen({ onNavigate }: Props = {}) {
               <button
                 key={m}
                 onClick={() => setMonth(m)}
-                className={`px-3 py-1 rounded-full border text-[10px] ${
-                  active ? "border-[#7EC8A4] text-[#7EC8A4] bg-[#1A2E1F]" : "border-white/10 text-white/60"
+                className={`px-3 py-1 rounded-full border text-[13px] ${
+                  active ? "border-[#0E6E63] text-[#0E6E63] bg-[#D6EDE9]" : "border-[#E5EAEE] text-[#65717E]"
                 }`}
               >
                 {m}
@@ -139,7 +160,7 @@ export default function ActivityScreen({ onNavigate }: Props = {}) {
       </div>
 
       <div className="px-5 pt-3 pb-[100px] overflow-y-auto h-[calc(100%-100px-80px)]">
-        <div className="rounded-[14px] border border-[#7EC8A4]/[0.15] bg-[#0E1A10] p-4 flex gap-4 items-center">
+        <div className="rounded-[14px] border border-[#0E6E63]/[0.15] bg-[#FFFFFF] p-4 flex gap-4 items-center">
           <div className="relative size-[88px] shrink-0">
             <svg viewBox="0 0 88 88" className="size-full -rotate-90">
               <circle cx="44" cy="44" r="36" stroke="rgba(255,255,255,0.05)" strokeWidth="8" fill="none" />
@@ -159,10 +180,10 @@ export default function ActivityScreen({ onNavigate }: Props = {}) {
               ))}
             </svg>
             <div className="absolute inset-0 flex flex-col items-center justify-center">
-              <p className="text-[#EEF2ED] text-[18px]" style={{ fontFamily: "Fraunces, serif" }}>
+              <p className="text-[#0B1F33] text-[18px]" style={{ fontFamily: "var(--font-sans)", fontWeight: 700, letterSpacing: "-0.01em" }}>
                 ₹{total >= 1000 ? (total / 1000).toFixed(total % 1000 === 0 ? 0 : 1) + "k" : total.toLocaleString("en-IN")}
               </p>
-              <p className="text-[#5A7060] text-[8px]">spent</p>
+              <p className="text-[#65717E] text-[8px]">spent</p>
             </div>
           </div>
           <div className="flex-1 space-y-2">
@@ -173,10 +194,10 @@ export default function ActivityScreen({ onNavigate }: Props = {}) {
                 <div key={cat}>
                   <div className="flex items-center gap-2">
                     <div className="size-[6px] rounded-full" style={{ background: CATEGORY_COLOR[cat] }} />
-                    <p className="text-[#EEF2ED] text-[10px] flex-1">{cat === "Food & Dining" ? "Food & Dining" : cat}</p>
-                    <p className="text-[#EEF2ED] text-[10px]">{fmt(v)}</p>
+                    <p className="text-[#0B1F33] text-[13px] flex-1">{cat === "Food & Dining" ? "Food & Dining" : cat}</p>
+                    <p className="text-[#0B1F33] text-[13px] tabular-nums">{fmt(v)}</p>
                   </div>
-                  <div className="h-[2px] bg-white/5 rounded-full mt-1 overflow-hidden">
+                  <div className="h-[2px] bg-[#F5F8FA] rounded-full mt-1 overflow-hidden">
                     <div className="h-full rounded-full" style={{ width: `${pct}%`, background: CATEGORY_COLOR[cat] }} />
                   </div>
                 </div>
@@ -190,25 +211,25 @@ export default function ActivityScreen({ onNavigate }: Props = {}) {
           if (list.length === 0) return null;
           return (
             <div key={day} className="mt-5">
-              <p className="text-[#5A7060] text-[9px] tracking-wider px-1 mb-2">{day.toUpperCase()}</p>
+              <p className="text-[#65717E] text-[9px] tracking-wider px-1 mb-2">{day.toUpperCase()}</p>
               <div className="space-y-2">
                 {list.map((t) => {
                   const open = openId === t.id;
                   return (
-                    <div key={t.id} className="rounded-[12px] border border-white/5 bg-[#0E1A10]">
-                      <button onClick={() => setOpenId(open ? null : t.id)} className="w-full p-3 flex items-center gap-3">
-                        <div className="size-8 rounded-full bg-black/40 flex items-center justify-center" style={{ color: CATEGORY_COLOR[t.category] }}><Icon name={t.icon} size={14} /></div>
+                    <div key={t.id} className="rounded-[12px] border border-[#E5EAEE] bg-[#FFFFFF] shadow-[0_1px_2px_rgba(11,31,51,0.04)]">
+                      <button onClick={() => handleOpenTx(t)} className="w-full p-3 flex items-center gap-3">
+                        <div className="size-8 rounded-full bg-[#F5F8FA] flex items-center justify-center" style={{ color: CATEGORY_COLOR[t.category] }}><Icon name={t.icon} size={14} /></div>
                         <div className="flex-1 text-left">
-                          <p className="text-[#EEF2ED] text-[12px]">{t.merchant}</p>
-                          <p className="text-[#5A7060] text-[9px]">{t.time} · {t.category.replace(" & Dining", "")}</p>
+                          <p className="text-[#0B1F33] text-[13px]">{t.merchant}</p>
+                          <p className="text-[#65717E] text-[9px]">{t.time} · {t.category.replace(" & Dining", "")}</p>
                         </div>
-                        <p className="text-[12px]" style={{ color: CATEGORY_COLOR[t.category] }}>−{fmt(t.amount)}</p>
+                        <p className="text-[13px]" style={{ color: CATEGORY_COLOR[t.category] }}>−{fmt(t.amount)}</p>
                       </button>
                       {open && (
                         <div className="px-3 pb-3 pt-1 flex gap-2">
                           <button
                             onClick={() => toast(`${t.merchant} · ${t.category} · ${fmt(t.amount)}`)}
-                            className="flex-1 py-2 rounded-full border border-white/10 text-[10px] text-white/60"
+                            className="flex-1 py-2 rounded-full border border-[#E5EAEE] text-[13px] text-[#65717E]"
                           >
                             Details
                           </button>
@@ -219,13 +240,13 @@ export default function ActivityScreen({ onNavigate }: Props = {}) {
                               setTxs((xs) => xs.map((x) => (x.id === t.id ? { ...x, category: next } : x)));
                               toast(`Recategorized to ${next}`);
                             }}
-                            className="flex-1 py-2 rounded-full border border-[#7EC8A4]/30 text-[10px] text-[#7EC8A4]"
+                            className="flex-1 py-2 rounded-full border border-[#0E6E63]/30 text-[13px] text-[#0E6E63]"
                           >
                             Recategorize
                           </button>
                           <button
                             onClick={() => remove(t.id)}
-                            className="flex-1 py-2 rounded-full border border-[#F07B6A]/30 text-[10px] text-[#F07B6A]"
+                            className="flex-1 py-2 rounded-full border border-[#C24A3C]/30 text-[13px] text-[#C24A3C]"
                           >
                             Delete
                           </button>
@@ -240,80 +261,56 @@ export default function ActivityScreen({ onNavigate }: Props = {}) {
         })}
 
         {filtered.length === 0 && (
-          <p className="text-center text-[#5A7060] text-[11px] mt-10">No transactions in {month}</p>
+          <p className="text-center text-[#65717E] text-[13px] mt-10">No transactions in {month}</p>
         )}
 
         {!adding ? (
           <button
             onClick={() => setAdding(true)}
-            className="w-full mt-5 rounded-full border border-dashed border-[#7EC8A4]/30 py-3 text-[11px] text-[#7EC8A4]"
+            className="w-full mt-5 rounded-full border border-dashed border-[#0E6E63]/30 py-3 text-[13px] text-[#0E6E63]"
           >
             + Add transaction
           </button>
         ) : (
-          <div className="mt-5 rounded-[14px] border border-[#7EC8A4]/[0.22] bg-[#0E1A10] p-4 space-y-2">
+          <div className="mt-5 rounded-[14px] border border-[#0E6E63]/[0.22] bg-[#FFFFFF] p-4 space-y-2">
             <input
               value={draft.merchant}
               onChange={(e) => setDraft({ ...draft, merchant: e.target.value })}
               placeholder="Merchant"
-              className="w-full bg-black/30 rounded px-3 py-2 text-[12px] text-white placeholder:text-[#5A7060]"
+              className="w-full bg-[#F5F8FA] rounded px-3 py-2 text-[13px] text-[#0B1F33] border border-[#E5EAEE] placeholder:text-[#65717E]"
             />
             <input
               value={draft.amount}
               onChange={(e) => setDraft({ ...draft, amount: e.target.value })}
               placeholder="Amount (₹)"
               inputMode="numeric"
-              className="w-full bg-black/30 rounded px-3 py-2 text-[12px] text-white placeholder:text-[#5A7060]"
+              className="w-full bg-[#F5F8FA] rounded px-3 py-2 text-[13px] text-[#0B1F33] border border-[#E5EAEE] placeholder:text-[#65717E]"
             />
             <select
               value={draft.category}
               onChange={(e) => setDraft({ ...draft, category: e.target.value as Category })}
-              className="w-full bg-black/30 rounded px-3 py-2 text-[12px] text-white"
+              className="w-full bg-[#F5F8FA] rounded px-3 py-2 text-[13px] text-[#0B1F33] border border-[#E5EAEE]"
             >
               {CATEGORIES.map((c) => <option key={c} value={c}>{c}</option>)}
             </select>
             <select
               value={draft.day}
               onChange={(e) => setDraft({ ...draft, day: e.target.value as Tx["day"] })}
-              className="w-full bg-black/30 rounded px-3 py-2 text-[12px] text-white"
+              className="w-full bg-[#F5F8FA] rounded px-3 py-2 text-[13px] text-[#0B1F33] border border-[#E5EAEE]"
             >
               <option value="Today">Today</option>
               <option value="Yesterday">Yesterday</option>
               <option value="Earlier">Earlier</option>
             </select>
             <div className="flex gap-2 pt-1">
-              <button onClick={() => setAdding(false)} className="flex-1 py-2 rounded-full border border-white/10 text-[11px] text-white/60">Cancel</button>
-              <button onClick={addTx} className="flex-1 py-2 rounded-full bg-[#7EC8A4] text-[11px] text-[#0A1A0E]">Add</button>
+              <button onClick={() => setAdding(false)} className="flex-1 py-2 rounded-full border border-[#E5EAEE] text-[13px] text-[#65717E]">Cancel</button>
+              <button onClick={addTx} className="flex-1 py-2 rounded-full bg-[#0E6E63] text-[13px] text-white" style={{ fontWeight: 600 }}>Add</button>
             </div>
           </div>
         )}
       </div>
 
-      <div className="absolute left-0 right-0 bottom-0 h-[80px] bg-[#0A0F0C]/[0.97]">
-        <div className="absolute inset-x-0 top-0 h-px bg-[#7EC8A4]/[0.15]" />
-        <div className="flex h-full">
-          {([
-            { key: "home",     icon: "⌂", label: "Home" },
-            { key: "activity", icon: "≡", label: "Activity" },
-            { key: "goals",    icon: "◎", label: "Goals" },
-            { key: "pulse",    icon: "♡", label: "Pulse" },
-            { key: "profile",  icon: "⊙", label: "Profile" },
-          ] as const).map((t) => {
-            const active = t.key === "activity";
-            return (
-              <button
-                key={t.key}
-                onClick={() => onNavigate?.(t.key)}
-                className="flex-1 flex flex-col items-center justify-center gap-[3px] relative"
-              >
-                <p className={`leading-none text-[26px] ${active ? "text-[#7EC8A4]" : "text-[#5A7060]"}`}>{t.icon}</p>
-                <p className={`leading-none text-[12px] ${active ? "text-[#7EC8A4]" : "text-[#5A7060]"}`}>{t.label}</p>
-                {active && <div className="absolute bottom-[8px] size-[6px] rounded-full bg-[#7EC8A4]" />}
-              </button>
-            );
-          })}
-        </div>
-      </div>
+      <BottomTabBar onNavigate={(k) => onNavigate?.(k)} />
     </div>
   );
 }

@@ -1,6 +1,8 @@
 import { useMemo, useState } from "react";
 import { toast } from "sonner";
 import { Icon, IconKey } from "./icons";
+import BottomTabBar, { TabKey } from "./BottomTabBar";
+import type { TransactionDetail } from "./TransactionDetailScreen";
 
 type Tx = { id: string; merchant: string; icon: IconKey; amount: number; date: string; type: "debit" | "credit" };
 
@@ -12,10 +14,29 @@ const INITIAL: Tx[] = [
 
 const fmt = (n: number) => "₹" + n.toLocaleString("en-IN");
 
-type Tab = "home" | "activity" | "goals" | "pulse" | "profile" | "notifications";
-type Props = { onNavigate?: (tab: Tab) => void };
+type NavTarget = TabKey | "notifications" | "activity";
+type Props = {
+  onNavigate?: (tab: NavTarget) => void;
+  onOpenTransaction?: (tx: TransactionDetail) => void;
+};
 
-export default function HomeScreen({ onNavigate }: Props = {}) {
+export default function HomeScreen({ onNavigate, onOpenTransaction }: Props = {}) {
+  const handleOpenTx = (t: Tx) => {
+    onOpenTransaction?.({
+      id: t.id,
+      merchant: t.merchant,
+      icon: t.icon,
+      amount: t.amount,
+      type: t.type,
+      status: "completed",
+      category: t.type === "credit" ? "Income" : "Food & Dining",
+      sourceAccount: "HDFC Savings",
+      sourceMask: "4921",
+      dateTime: "1 Apr 2025, 1:30 PM",
+      reference: "TXN8F2K9D4Q" + t.id.toUpperCase(),
+      method: t.type === "credit" ? "Bank transfer" : "UPI / Card",
+    });
+  };
   const [income] = useState(58000);
   const [budget, setBudget] = useState(58000);
   const [txs, setTxs] = useState<Tx[]>(INITIAL);
@@ -52,170 +73,155 @@ export default function HomeScreen({ onNavigate }: Props = {}) {
   };
 
   return (
-    <div className="relative size-full bg-[#090E0B] overflow-hidden">
+    <div className="relative size-full bg-surface-2 overflow-hidden">
       <div className="h-[44px]" />
 
       <div className="px-6 pt-2 flex items-start justify-between">
         <div>
-          <p className="text-[#5A7060] text-[10px]">Good morning,</p>
-          <p className="text-[#EEF2ED] text-[24px] flex items-center gap-2" style={{ fontFamily: "Fraunces, serif", fontVariationSettings: "'SOFT' 0, 'WONK' 1" }}>
-            Priya <Icon name="wave" size={20} className="text-[#E8C87A]" />
-          </p>
+          <p className="text-ink-500" style={{ fontSize: 'var(--text-label)', lineHeight: 'var(--leading-label)' }}>Good morning,</p>
+          <h1 className="flex items-center gap-2">Priya</h1>
         </div>
         <button
           onClick={() => onNavigate?.("notifications")}
-          className="relative size-9 rounded-full bg-[#7EC8A4]/10 border border-[#7EC8A4]/30 flex items-center justify-center text-[#7EC8A4] active:scale-95 transition-transform"
+          className="relative w-11 h-11 rounded-full bg-vault-teal/10 border border-vault-teal/30 flex items-center justify-center text-vault-teal active:scale-95 transition-transform"
           aria-label="Notifications"
         >
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
             <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9" />
             <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0" />
           </svg>
-          <span className="absolute top-[6px] right-[6px] size-[6px] rounded-full bg-[#F07B6A] border border-[#0E1A10]" />
+          <span className="absolute top-[6px] right-[6px] size-[6px] rounded-full bg-loss border border-surface-1" />
         </button>
       </div>
 
       <div className="px-5 pt-3 pb-[100px] overflow-y-auto h-[calc(100%-90px-80px)]">
-        <button onClick={editBudget} className="w-full text-left rounded-[14px] border border-[#7EC8A4]/[0.18] bg-[#0E1A10] p-4">
-          <p className="text-[#5A7060] text-[9px] tracking-wider">AVAILABLE THIS MONTH</p>
-          <p className="text-[#EEF2ED] text-[34px] mt-1" style={{ fontFamily: "Fraunces, serif" }}>{fmt(available)}</p>
-          <div className="h-[3px] bg-white/5 rounded-full mt-3 overflow-hidden">
-            <div className="h-full bg-gradient-to-r from-[#7EC8A4] to-[#A8E4C4]" style={{ width: `${pct}%` }} />
+        <button onClick={editBudget} className="w-full text-left p-4 relative overflow-hidden bg-trust-navy shadow-[0_2px_8px_rgba(11,31,51,0.12)]" style={{ borderRadius: 'var(--radius-lg)' }}>
+          <div className="absolute top-3 right-4">
+            <Icon name="shield" size={18} className="text-white/60" strokeWidth={1.5} />
           </div>
-          <div className="flex justify-between mt-2">
-            <p className="text-[#5A7060] text-[9px]">{pct}% of budget used</p>
-            <p className="text-[#5A7060] text-[9px]">18 days left</p>
+          <label className="text-on-navy">AVAILABLE THIS MONTH</label>
+          <p className="text-white mt-1 money" style={{ fontSize: 'var(--text-money)', lineHeight: 'var(--leading-money)', fontWeight: 600, letterSpacing: "-0.01em" }}>{fmt(available)}</p>
+          <div className="flex items-center gap-1 mt-2">
+            <Icon name="trending-up" size={16} className="text-gain" strokeWidth={2} />
+            <span style={{ color: '#5BD49C', fontSize: 'var(--text-label)', lineHeight: 'var(--leading-label)', fontWeight: 600 }}>+2.4% this month</span>
           </div>
-          <div className="grid grid-cols-3 gap-2 mt-4">
+          <div className="h-[4px] bg-white/20 rounded-full overflow-hidden" style={{ marginTop: 'var(--space-3)' }}>
+            <div className="h-full bg-white" style={{ width: `${pct}%` }} />
+          </div>
+          <div className="flex justify-between" style={{ marginTop: 'var(--space-2)' }}>
+            <span className="text-on-navy" style={{ fontSize: 'var(--text-label)', lineHeight: 'var(--leading-label)', fontWeight: 500 }}>{pct}% of budget used</span>
+            <span className="text-on-navy" style={{ fontSize: 'var(--text-label)', lineHeight: 'var(--leading-label)', fontWeight: 500 }}>18 days left</span>
+          </div>
+          <div className="grid grid-cols-3 gap-2" style={{ marginTop: 'var(--space-4)' }}>
             <div>
-              <p className="text-[#5A7060] text-[9px]">Income</p>
-              <p className="text-[#EEF2ED] text-[12px] mt-1">{fmt(income + credited - 58000 + 58000)}</p>
+              <label className="text-on-navy">INCOME</label>
+              <p className="text-white mt-1 money" style={{ fontSize: 'var(--text-body)', lineHeight: 'var(--leading-body)', fontWeight: 600 }}>{fmt(income + credited - 58000 + 58000)}</p>
             </div>
             <div>
-              <p className="text-[#5A7060] text-[9px]">Spent</p>
-              <p className="text-[#F07B6A] text-[12px] mt-1">{fmt(spent)}</p>
+              <label className="text-on-navy">SPENT</label>
+              <p className="text-white mt-1 money" style={{ fontSize: 'var(--text-body)', lineHeight: 'var(--leading-body)', fontWeight: 600 }}>{fmt(spent)}</p>
             </div>
             <div>
-              <p className="text-[#5A7060] text-[9px]">Saved</p>
-              <p className="text-[#7EC8A4] text-[12px] mt-1">{fmt(saved)}</p>
+              <label className="text-on-navy">SAVED</label>
+              <p className="text-white mt-1 money" style={{ fontSize: 'var(--text-body)', lineHeight: 'var(--leading-body)', fontWeight: 600 }}>{fmt(saved)}</p>
             </div>
           </div>
         </button>
 
-        <div className="grid grid-cols-4 gap-2 mt-4">
+        <div className="grid grid-cols-4 gap-3 mt-4">
           {([
-            { key: "add",       label: "Add",       icon: "plus"  as IconKey, onClick: () => setAdding(true) },
-            { key: "activity",  label: "Analytics", icon: "chart" as IconKey, onClick: () => onNavigate?.("activity") },
-            { key: "goals",     label: "Goals",     icon: "target" as IconKey, onClick: () => onNavigate?.("goals") },
-            { key: "pulse",     label: "Pulse",     icon: "pulse" as IconKey, onClick: () => onNavigate?.("pulse") },
+            { key: "send",    label: "Send",    icon: "send"    as IconKey, onClick: () => onNavigate?.("sendMoney" as any) },
+            { key: "request", label: "Request", icon: "request" as IconKey, onClick: () => toast("Request money") },
+            { key: "pay",     label: "Pay",     icon: "pay"     as IconKey, onClick: () => toast("Pay bill") },
+            { key: "topup",   label: "Top up",  icon: "topup"   as IconKey, onClick: () => setAdding(true) },
           ]).map((q) => (
             <button
               key={q.key}
               onClick={q.onClick}
-              className="rounded-[12px] border border-white/5 bg-[#0E1A10] p-3 flex flex-col items-center gap-2"
+              className="flex flex-col items-center gap-2"
             >
-              <div className="size-8 rounded-full bg-black/40 flex items-center justify-center text-[#7EC8A4]">
-                <Icon name={q.icon} size={16} />
+              <div className="w-14 h-14 rounded-full bg-teal-100 flex items-center justify-center text-vault-teal">
+                <Icon name={q.icon} size={22} strokeWidth={1.8} />
               </div>
-              <p className="text-[#9BB09F] text-[10px]">{q.label}</p>
+              <p className="text-ink-900" style={{ fontSize: 'var(--text-label)', lineHeight: 'var(--leading-label)', fontWeight: 500 }}>{q.label}</p>
             </button>
           ))}
         </div>
 
-        <div className="mt-4 rounded-[14px] border border-[#E8C87A]/[0.22] bg-[#1A1408] p-3 flex gap-3 items-start">
-          <div className="text-[#E8C87A] mt-[1px]"><Icon name="bulb" size={16} /></div>
-          <p className="text-[#EEF2ED] text-[10px] leading-[16px]">
+        <div className="mt-4 border border-warn/[0.22] bg-[#FBF1E0] flex gap-3 items-start" style={{ borderRadius: 'var(--radius-md)', padding: 'var(--space-3)' }}>
+          <div className="text-warn mt-[2px]"><Icon name="bulb" size={18} /></div>
+          <p className="text-trust-navy" style={{ fontSize: 'var(--text-body)', lineHeight: 'var(--leading-body)' }}>
             You're 12% under budget on food this week. At this rate you'll save an extra ₹1,200 this month.
           </p>
         </div>
 
         <div className="flex justify-between items-center mt-5 mb-2">
-          <p className="text-[#EEF2ED] text-[16px]" style={{ fontFamily: "Fraunces, serif" }}>Recent</p>
-          <button onClick={() => onNavigate?.("activity")} className="text-[#7EC8A4] text-[10px]">See all →</button>
+          <label className="text-ink-500">RECENT ACTIVITY</label>
+          <button onClick={() => onNavigate?.("activity")} className="text-vault-teal" style={{ fontSize: 'var(--text-label)', lineHeight: 'var(--leading-label)', fontWeight: 600 }}>See all →</button>
         </div>
 
         <div className="space-y-2">
           {txs.slice(0, 5).map((t) => (
-            <div key={t.id} className="rounded-[12px] border border-white/5 bg-[#0E1A10] p-3 flex items-center gap-3">
-              <div className={`size-8 rounded-full bg-black/40 flex items-center justify-center ${t.type === "credit" ? "text-[#7EC8A4]" : "text-[#9BB09F]"}`}><Icon name={t.icon} size={14} /></div>
+            <button key={t.id} onClick={() => handleOpenTx(t)} className="w-full text-left border border-border bg-card shadow-[0_1px_2px_rgba(11,31,51,0.04)] flex items-center gap-3 active:scale-[0.99] transition-transform" style={{ borderRadius: 'var(--radius-md)', padding: 'var(--space-3)', minHeight: '56px' }}>
+              <div className={`w-10 h-10 rounded-full bg-surface-2 flex items-center justify-center ${t.type === "credit" ? "text-vault-teal" : "text-ink-500"}`}><Icon name={t.icon} size={18} /></div>
               <div className="flex-1">
-                <p className="text-[#EEF2ED] text-[12px]">{t.merchant}</p>
-                <p className="text-[#5A7060] text-[9px]">{t.date}</p>
+                <p className="text-trust-navy" style={{ fontSize: 'var(--text-body)', lineHeight: 'var(--leading-body)', fontWeight: 500 }}>{t.merchant}</p>
+                <p className="text-ink-500" style={{ fontSize: 'var(--text-label)', lineHeight: 'var(--leading-label)' }}>{t.date}</p>
               </div>
-              <p className={`text-[12px] ${t.type === "credit" ? "text-[#7EC8A4]" : "text-[#F07B6A]"}`}>
+              <p className={`money ${t.type === "credit" ? "text-gain" : "text-trust-navy"}`} style={{ fontSize: 'var(--text-body)', lineHeight: 'var(--leading-body)', fontWeight: 600 }}>
                 {t.type === "credit" ? "+" : "−"}{fmt(t.amount)}
               </p>
-            </div>
+            </button>
           ))}
-          {txs.length === 0 && <p className="text-center text-[#5A7060] text-[11px] py-6">No transactions yet</p>}
+          {txs.length === 0 && <p className="text-center text-ink-500 py-6" style={{ fontSize: 'var(--text-body)' }}>No transactions yet</p>}
         </div>
 
         {adding && (
-          <div className="mt-4 rounded-[14px] border border-[#7EC8A4]/[0.22] bg-[#0E1A10] p-4 space-y-2">
+          <div className="mt-4 border border-vault-teal/[0.22] bg-card space-y-2" style={{ borderRadius: 'var(--radius-md)', padding: 'var(--space-4)' }}>
             <input
               value={draft.merchant}
               onChange={(e) => setDraft({ ...draft, merchant: e.target.value })}
               placeholder="Merchant"
-              className="w-full bg-black/30 rounded px-3 py-2 text-[12px] text-white placeholder:text-[#5A7060]"
+              className="w-full bg-input-background border border-border text-trust-navy placeholder:text-ink-500"
+              style={{ borderRadius: 'var(--radius-sm)', padding: 'var(--space-3)', fontSize: 'var(--text-body)', lineHeight: 'var(--leading-body)', minHeight: '44px' }}
             />
             <input
               value={draft.amount}
               onChange={(e) => setDraft({ ...draft, amount: e.target.value })}
               placeholder="Amount (₹)"
               inputMode="numeric"
-              className="w-full bg-black/30 rounded px-3 py-2 text-[12px] text-white placeholder:text-[#5A7060]"
+              className="w-full bg-input-background border border-border text-trust-navy placeholder:text-ink-500"
+              style={{ borderRadius: 'var(--radius-sm)', padding: 'var(--space-3)', fontSize: 'var(--text-body)', lineHeight: 'var(--leading-body)', minHeight: '44px' }}
             />
             <div className="flex gap-2">
               <button
                 onClick={() => setDraft({ ...draft, type: "debit" })}
-                className={`flex-1 py-2 rounded-full border text-[11px] ${
-                  draft.type === "debit" ? "border-[#F07B6A] text-[#F07B6A]" : "border-white/10 text-white/60"
+                className={`flex-1 py-2 border ${
+                  draft.type === "debit" ? "border-loss text-loss" : "border-border text-ink-500"
                 }`}
+                style={{ borderRadius: 'var(--radius-pill)', fontSize: 'var(--text-body)', lineHeight: 'var(--leading-body)', minHeight: '44px' }}
               >
                 Spent
               </button>
               <button
                 onClick={() => setDraft({ ...draft, type: "credit" })}
-                className={`flex-1 py-2 rounded-full border text-[11px] ${
-                  draft.type === "credit" ? "border-[#7EC8A4] text-[#7EC8A4]" : "border-white/10 text-white/60"
+                className={`flex-1 py-2 border ${
+                  draft.type === "credit" ? "border-vault-teal text-vault-teal" : "border-border text-ink-500"
                 }`}
+                style={{ borderRadius: 'var(--radius-pill)', fontSize: 'var(--text-body)', lineHeight: 'var(--leading-body)', minHeight: '44px' }}
               >
                 Earned
               </button>
             </div>
             <div className="flex gap-2 pt-1">
-              <button onClick={() => setAdding(false)} className="flex-1 py-2 rounded-full border border-white/10 text-[11px] text-white/60">Cancel</button>
-              <button onClick={addTx} className="flex-1 py-2 rounded-full bg-[#7EC8A4] text-[11px] text-[#0A1A0E]">Add</button>
+              <button onClick={() => setAdding(false)} className="flex-1 border border-border text-ink-500" style={{ borderRadius: 'var(--radius-pill)', fontSize: 'var(--text-body)', minHeight: '44px' }}>Cancel</button>
+              <button onClick={addTx} className="flex-1 bg-vault-teal text-white" style={{ borderRadius: 'var(--radius-pill)', fontSize: 'var(--text-body)', fontWeight: 600, minHeight: '44px' }}>Add</button>
             </div>
           </div>
         )}
       </div>
 
-      <div className="absolute left-0 right-0 bottom-0 h-[80px] bg-[#0A0F0C]/[0.97]">
-        <div className="absolute inset-x-0 top-0 h-px bg-[#7EC8A4]/[0.15]" />
-        <div className="flex h-full">
-          {([
-            { key: "home",     icon: "⌂", label: "Home" },
-            { key: "activity", icon: "≡", label: "Activity" },
-            { key: "goals",    icon: "◎", label: "Goals" },
-            { key: "pulse",    icon: "♡", label: "Pulse" },
-            { key: "profile",  icon: "⊙", label: "Profile" },
-          ] as const).map((t) => {
-            const active = t.key === "home";
-            return (
-              <button
-                key={t.key}
-                onClick={() => onNavigate?.(t.key)}
-                className="flex-1 flex flex-col items-center justify-center gap-[3px] relative"
-              >
-                <p className={`leading-none text-[26px] ${active ? "text-[#7EC8A4]" : "text-[#5A7060]"}`}>{t.icon}</p>
-                <p className={`leading-none text-[12px] ${active ? "text-[#7EC8A4]" : "text-[#5A7060]"}`}>{t.label}</p>
-                {active && <div className="absolute bottom-[8px] size-[6px] rounded-full bg-[#7EC8A4]" />}
-              </button>
-            );
-          })}
-        </div>
-      </div>
+      <BottomTabBar active="home" onNavigate={(k) => onNavigate?.(k)} />
     </div>
   );
 }
