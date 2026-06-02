@@ -7,7 +7,7 @@ import InsightsScreen from "./components/InsightsScreen";
 import ProfileScreen from "./components/ProfileScreen";
 import NotificationsScreen from "./components/NotificationsScreen";
 import AccountsListScreen from "./components/AccountsListScreen";
-import AccountDetailScreen from "./components/AchcountDetailScreen";
+import AccountDetailScreen from "./components/AccountDetailScreen";
 import CardsScreen from "./components/CardsScreen";
 import TransactionDetailScreen, { TransactionDetail } from "./components/TransactionDetailScreen";
 import SendMoneyScreen from "./components/SendMoneyScreen";
