@@ -7,7 +7,7 @@ import InsightsScreen from "./components/InsightsScreen";
 import ProfileScreen from "./components/ProfileScreen";
 import NotificationsScreen from "./components/NotificationsScreen";
 import AccountsListScreen from "./components/AccountsListScreen";
-import AccountDetailScreen from "./components/AccountDetailScreen";
+import AccountDetailScreen from "./components/AchcountDetailScreen";
 import CardsScreen from "./components/CardsScreen";
 import TransactionDetailScreen, { TransactionDetail } from "./components/TransactionDetailScreen";
 import SendMoneyScreen from "./components/SendMoneyScreen";
@@ -34,7 +34,7 @@ const FRAME_HEIGHT = 852;
 const FRAME_WIDTH = 393;
 
 export default function App() {
-  const [screen, setScreen] = useState<Screen>("notifications");
+  const [screen, setScreen] = useState<Screen>("home");
   const [scale, setScale] = useState(1);
   const [activeAccountId, setActiveAccountId] = useState<string>("a1");
   const [activeTx, setActiveTx] = useState<TransactionDetail | null>(null);
