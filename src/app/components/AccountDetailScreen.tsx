@@ -51,7 +51,7 @@ export default function AccountDetailScreen({ accountId, onBack, onNavigate, onO
           <button
             onClick={onBack}
             className="mt-4 bg-vault-teal text-white px-6"
-            style={{ borderRadius: 'var(--radius-pill)', minHeight: '44px', fontSize: 'var(--text-button)', fontWeight: 600 }}
+            style={{ borderRadius: 'var(--radius-pill)', minHeight: '44px', fontSize: 'var(--text-button)', fontWeight: 400 }}
           >
             Go back
           </button>
@@ -89,7 +89,7 @@ export default function AccountDetailScreen({ accountId, onBack, onNavigate, onO
               padding: '4px 10px',
               fontSize: 'var(--text-label)',
               lineHeight: 'var(--leading-label)',
-              fontWeight: 600,
+              fontWeight: 400,
             }}
           >
             <Icon name="shield" size={12} strokeWidth={2.25} />
@@ -109,7 +109,7 @@ export default function AccountDetailScreen({ accountId, onBack, onNavigate, onO
           <label className="text-on-navy">AVAILABLE BALANCE</label>
           <p
             className="text-white mt-1 money"
-            style={{ fontSize: 'var(--text-money)', lineHeight: 'var(--leading-money)', fontWeight: 600, letterSpacing: "-0.01em" }}
+            style={{ fontSize: 'var(--text-money)', lineHeight: 'var(--leading-money)', fontWeight: 400, letterSpacing: "-0.01em" }}
           >
             {fmtINR(account.balance)}
           </p>
@@ -117,7 +117,7 @@ export default function AccountDetailScreen({ accountId, onBack, onNavigate, onO
           <div className="flex items-center gap-2" style={{ marginTop: 'var(--space-3)' }}>
             <p
               className="text-white money"
-              style={{ fontSize: 'var(--text-body)', lineHeight: 'var(--leading-body)', fontWeight: 500, letterSpacing: '0.04em' }}
+              style={{ fontSize: 'var(--text-body)', lineHeight: 'var(--leading-body)', fontWeight: 300, letterSpacing: '0.04em' }}
             >
               •••• {account.mask}
             </p>
@@ -147,14 +147,14 @@ export default function AccountDetailScreen({ accountId, onBack, onNavigate, onO
         >
           <div className="flex-1">
             <label className="text-ink-500">IFSC</label>
-            <p className="text-trust-navy money" style={{ fontSize: 'var(--text-body)', lineHeight: 'var(--leading-body)', fontWeight: 500 }}>
+            <p className="text-trust-navy money" style={{ fontSize: 'var(--text-body)', lineHeight: 'var(--leading-body)', fontWeight: 300 }}>
               {maskIFSC(account.ifsc)}
             </p>
           </div>
           <div className="w-px bg-border mx-3" />
           <div className="flex-1">
             <label className="text-ink-500">ACCOUNT HOLDER</label>
-            <p className="text-trust-navy" style={{ fontSize: 'var(--text-body)', lineHeight: 'var(--leading-body)', fontWeight: 500 }}>
+            <p className="text-trust-navy" style={{ fontSize: 'var(--text-body)', lineHeight: 'var(--leading-body)', fontWeight: 300 }}>
               {account.holder}
             </p>
           </div>
@@ -169,7 +169,7 @@ export default function AccountDetailScreen({ accountId, onBack, onNavigate, onO
             minHeight: '48px',
             fontSize: 'var(--text-button)',
             lineHeight: 'var(--leading-button)',
-            fontWeight: 600,
+            fontWeight: 400,
           }}
         >
           <Icon name="send" size={18} strokeWidth={2} />
@@ -212,14 +212,14 @@ export default function AccountDetailScreen({ accountId, onBack, onNavigate, onO
                   <Icon name={t.icon} size={18} />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <p className="text-trust-navy truncate" style={{ fontSize: 'var(--text-body)', lineHeight: 'var(--leading-body)', fontWeight: 600 }}>
+                  <p className="text-trust-navy truncate" style={{ fontSize: 'var(--text-body)', lineHeight: 'var(--leading-body)', fontWeight: 400 }}>
                     {t.merchant}
                   </p>
                   <p className="text-ink-500" style={{ fontSize: 'var(--text-label)', lineHeight: 'var(--leading-label)' }}>
                     {t.category} · {t.date}
                   </p>
                 </div>
-                <p className={`money ${color}`} style={{ fontSize: 'var(--text-body)', lineHeight: 'var(--leading-body)', fontWeight: 600 }}>
+                <p className={`money ${color}`} style={{ fontSize: 'var(--text-body)', lineHeight: 'var(--leading-body)', fontWeight: 400 }}>
                   {sign}{fmtINR(t.amount)}
                 </p>
               </button>

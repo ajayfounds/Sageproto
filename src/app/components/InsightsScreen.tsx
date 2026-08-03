@@ -81,7 +81,7 @@ export default function InsightsScreen({ onNavigate }: Props = {}) {
             style={{
               fontSize: "var(--text-label)",
               lineHeight: "var(--leading-label)",
-              fontWeight: 600,
+              fontWeight: 400,
             }}
           >
             {period}
@@ -92,29 +92,31 @@ export default function InsightsScreen({ onNavigate }: Props = {}) {
       <div className="px-5 pt-3 pb-[100px] overflow-y-auto h-[calc(100%-90px-80px)]">
         {/* Net summary card */}
         <div
-          className="p-6 bg-trust-navy shadow-[0_2px_8px_rgba(11,31,51,0.12)] mb-6"
-          style={{ borderRadius: "var(--radius-lg)" }}
+          className="bg-brand-dark-900 shadow-level-2 mb-6"
+          style={{ borderRadius: "var(--radius-lg)", padding: "var(--space-6)" }}
         >
           <label className="text-on-navy">NET THIS MONTH</label>
           <p
-            className="money mt-1"
+            className="money"
             style={{
               fontSize: "var(--text-money)",
               lineHeight: "var(--leading-money)",
-              fontWeight: 600,
-              letterSpacing: "-0.01em",
-              color: net >= 0 ? "var(--gain)" : "var(--loss)",
+              fontWeight: 300,
+              letterSpacing: "var(--tracking-money)",
+              marginTop: "var(--space-2)",
+              color: net >= 0 ? "var(--gain-on-dark)" : "var(--loss)",
             }}
           >
             {net >= 0 ? "+" : "−"}
             {fmt(Math.abs(net))}
           </p>
           <p
-            className="text-on-navy mt-1 money"
+            className="text-on-navy money"
             style={{
-              fontSize: "var(--text-label)",
-              lineHeight: "var(--leading-label)",
-              fontWeight: 500,
+              fontSize: "var(--text-tabular)",
+              lineHeight: "var(--leading-tabular)",
+              fontWeight: 300,
+              marginTop: "var(--space-3)",
             }}
           >
             Income {fmt(income)} · Spent {fmt(spent)}
@@ -158,7 +160,7 @@ export default function InsightsScreen({ onNavigate }: Props = {}) {
                     style={{
                       fontSize: "var(--text-label)",
                       lineHeight: "var(--leading-label)",
-                      fontWeight: 500,
+                      fontWeight: 300,
                     }}
                   >
                     {month.month}
@@ -226,7 +228,7 @@ export default function InsightsScreen({ onNavigate }: Props = {}) {
                         style={{
                           fontSize: "var(--text-body)",
                           lineHeight: "var(--leading-body)",
-                          fontWeight: 600,
+                          fontWeight: 400,
                         }}
                       >
                         {cat.name}
@@ -238,7 +240,7 @@ export default function InsightsScreen({ onNavigate }: Props = {}) {
                         style={{
                           fontSize: "var(--text-body)",
                           lineHeight: "var(--leading-body)",
-                          fontWeight: 600,
+                          fontWeight: 400,
                         }}
                       >
                         {fmt(cat.amount)}
@@ -300,7 +302,7 @@ export default function InsightsScreen({ onNavigate }: Props = {}) {
                   style={{
                     fontSize: "var(--text-body)",
                     lineHeight: "var(--leading-body)",
-                    fontWeight: 500,
+                    fontWeight: 300,
                   }}
                 >
                   {trend.text}
@@ -317,7 +319,7 @@ export default function InsightsScreen({ onNavigate }: Props = {}) {
             borderRadius: "var(--radius-pill)",
             fontSize: "var(--text-button)",
             lineHeight: "var(--leading-button)",
-            fontWeight: 600,
+            fontWeight: 400,
             minHeight: "52px",
           }}
         >

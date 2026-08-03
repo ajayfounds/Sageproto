@@ -61,7 +61,7 @@ export default function SecurityScreen({ onBack }: Props = {}) {
               style={{
                 fontSize: "var(--text-body)",
                 lineHeight: "var(--leading-body)",
-                fontWeight: 600,
+                fontWeight: 400,
               }}
             >
               Your account is protected
@@ -96,7 +96,7 @@ export default function SecurityScreen({ onBack }: Props = {}) {
               style={{
                 fontSize: "var(--text-body)",
                 lineHeight: "var(--leading-body)",
-                fontWeight: 600,
+                fontWeight: 400,
               }}
             >
               Biometric login
@@ -131,7 +131,7 @@ export default function SecurityScreen({ onBack }: Props = {}) {
                 style={{
                   fontSize: "var(--text-body)",
                   lineHeight: "var(--leading-body)",
-                  fontWeight: 600,
+                  fontWeight: 400,
                 }}
               >
                 Two-factor authentication
@@ -179,7 +179,7 @@ export default function SecurityScreen({ onBack }: Props = {}) {
               style={{
                 fontSize: "var(--text-body)",
                 lineHeight: "var(--leading-body)",
-                fontWeight: 600,
+                fontWeight: 400,
               }}
             >
               Change PIN / password
@@ -216,7 +216,7 @@ export default function SecurityScreen({ onBack }: Props = {}) {
                     style={{
                       fontSize: "var(--text-body)",
                       lineHeight: "var(--leading-body)",
-                      fontWeight: 600,
+                      fontWeight: 400,
                     }}
                   >
                     {device.name} · {device.location}
@@ -231,7 +231,7 @@ export default function SecurityScreen({ onBack }: Props = {}) {
                         style={{
                           fontSize: "var(--text-label)",
                           lineHeight: "var(--leading-label)",
-                          fontWeight: 600,
+                          fontWeight: 400,
                         }}
                       >
                         This device
@@ -257,7 +257,7 @@ export default function SecurityScreen({ onBack }: Props = {}) {
                   style={{
                     fontSize: "var(--text-label)",
                     lineHeight: "var(--leading-label)",
-                    fontWeight: 600,
+                    fontWeight: 400,
                   }}
                 >
                   Remove
@@ -285,7 +285,7 @@ export default function SecurityScreen({ onBack }: Props = {}) {
               style={{
                 fontSize: "var(--text-body)",
                 lineHeight: "var(--leading-body)",
-                fontWeight: 600,
+                fontWeight: 400,
               }}
             >
               Login alerts
@@ -319,7 +319,7 @@ export default function SecurityScreen({ onBack }: Props = {}) {
               style={{
                 fontSize: "var(--text-body)",
                 lineHeight: "var(--leading-body)",
-                fontWeight: 600,
+                fontWeight: 400,
               }}
             >
               App lock
@@ -357,7 +357,7 @@ export default function SecurityScreen({ onBack }: Props = {}) {
               style={{
                 fontSize: "var(--text-body)",
                 lineHeight: "var(--leading-body)",
-                fontWeight: 600,
+                fontWeight: 400,
               }}
             >
               Data & privacy controls
@@ -374,7 +374,7 @@ export default function SecurityScreen({ onBack }: Props = {}) {
             borderRadius: "var(--radius-pill)",
             fontSize: "var(--text-button)",
             lineHeight: "var(--leading-button)",
-            fontWeight: 600,
+            fontWeight: 400,
             minHeight: "52px",
           }}
         >

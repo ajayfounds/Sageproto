@@ -80,7 +80,7 @@ export default function TransactionDetailScreen({
                   color: amountColor,
                   fontSize: 'var(--text-money)',
                   lineHeight: 'var(--leading-money)',
-                  fontWeight: 600,
+                  fontWeight: 400,
                   letterSpacing: '-0.01em',
                 }}
               >
@@ -105,7 +105,7 @@ export default function TransactionDetailScreen({
                 padding: '6px 12px',
                 fontSize: 'var(--text-label)',
                 lineHeight: 'var(--leading-label)',
-                fontWeight: 600,
+                fontWeight: 400,
               }}
             >
               <Icon name={status.icon} size={14} strokeWidth={2.25} />
@@ -160,7 +160,7 @@ export default function TransactionDetailScreen({
             minHeight: '48px',
             fontSize: 'var(--text-button)',
             lineHeight: 'var(--leading-button)',
-            fontWeight: 600,
+            fontWeight: 400,
           }}
         >
           Report a problem
@@ -192,7 +192,7 @@ function Row({
       <div className="flex items-center gap-2 min-w-0">
         <p
           className={`text-trust-navy truncate text-right ${mono ? "money" : ""}`}
-          style={{ fontSize: 'var(--text-body)', lineHeight: 'var(--leading-body)', fontWeight: 600 }}
+          style={{ fontSize: 'var(--text-body)', lineHeight: 'var(--leading-body)', fontWeight: 400 }}
         >
           {value}
         </p>

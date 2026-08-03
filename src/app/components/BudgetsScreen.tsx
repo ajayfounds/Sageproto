@@ -57,7 +57,7 @@ export default function BudgetsScreen({ onNavigate }: Props = {}) {
             style={{
               fontSize: "var(--text-label)",
               lineHeight: "var(--leading-label)",
-              fontWeight: 600,
+              fontWeight: 400,
             }}
           >
             {month}
@@ -76,7 +76,7 @@ export default function BudgetsScreen({ onNavigate }: Props = {}) {
             style={{
               fontSize: "var(--text-money)",
               lineHeight: "var(--leading-money)",
-              fontWeight: 600,
+              fontWeight: 400,
               letterSpacing: "-0.01em",
             }}
           >
@@ -87,7 +87,7 @@ export default function BudgetsScreen({ onNavigate }: Props = {}) {
             style={{
               fontSize: "var(--text-label)",
               lineHeight: "var(--leading-label)",
-              fontWeight: 500,
+              fontWeight: 300,
             }}
           >
             of {fmt(monthlyBudget)} budget
@@ -108,7 +108,7 @@ export default function BudgetsScreen({ onNavigate }: Props = {}) {
             style={{
               fontSize: "var(--text-label)",
               lineHeight: "var(--leading-label)",
-              fontWeight: 500,
+              fontWeight: 300,
               marginTop: "var(--space-2)",
             }}
           >
@@ -144,7 +144,7 @@ export default function BudgetsScreen({ onNavigate }: Props = {}) {
                         style={{
                           fontSize: "var(--text-body)",
                           lineHeight: "var(--leading-body)",
-                          fontWeight: 600,
+                          fontWeight: 400,
                         }}
                       >
                         {cat.name}
@@ -154,7 +154,7 @@ export default function BudgetsScreen({ onNavigate }: Props = {}) {
                         style={{
                           fontSize: "var(--text-body)",
                           lineHeight: "var(--leading-body)",
-                          fontWeight: 600,
+                          fontWeight: 400,
                         }}
                       >
                         {pct}%
@@ -196,7 +196,7 @@ export default function BudgetsScreen({ onNavigate }: Props = {}) {
                           style={{
                             fontSize: "var(--text-label)",
                             lineHeight: "var(--leading-label)",
-                            fontWeight: 600,
+                            fontWeight: 400,
                           }}
                         >
                           {label}
@@ -217,7 +217,7 @@ export default function BudgetsScreen({ onNavigate }: Props = {}) {
             borderRadius: "var(--radius-pill)",
             fontSize: "var(--text-button)",
             lineHeight: "var(--leading-button)",
-            fontWeight: 600,
+            fontWeight: 400,
             minHeight: "52px",
           }}
         >

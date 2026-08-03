@@ -111,7 +111,7 @@ export default function App() {
   return (
     <>
       <Toaster theme="light" position="top-center" />
-      <div className="fixed inset-0 flex items-center justify-center bg-[#EAF0F4] overflow-hidden">
+      <div className="fixed inset-0 flex items-center justify-center bg-canvas-soft overflow-hidden">
         <div
           className="relative shrink-0"
           style={{

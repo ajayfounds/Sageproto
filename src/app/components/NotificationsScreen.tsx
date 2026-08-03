@@ -132,7 +132,7 @@ export default function NotificationsScreen({ onBack }: Props = {}) {
           style={{
             fontSize: "var(--text-label)",
             lineHeight: "var(--leading-label)",
-            fontWeight: 600,
+            fontWeight: 400,
           }}
         >
           Mark all read
@@ -196,7 +196,7 @@ export default function NotificationsScreen({ onBack }: Props = {}) {
                           style={{
                             fontSize: "var(--text-body)",
                             lineHeight: "var(--leading-body)",
-                            fontWeight: 600,
+                            fontWeight: 400,
                           }}
                         >
                           {notif.title}

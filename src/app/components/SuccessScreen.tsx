@@ -48,7 +48,7 @@ export default function SuccessScreen({
             style={{
               fontSize: "var(--text-money)",
               lineHeight: "var(--leading-money)",
-              fontWeight: 600,
+              fontWeight: 400,
             }}
           >
             ₹{amount.toLocaleString("en-IN")}
@@ -89,7 +89,7 @@ export default function SuccessScreen({
             borderRadius: "var(--radius-pill)",
             fontSize: "var(--text-button)",
             lineHeight: "var(--leading-button)",
-            fontWeight: 600,
+            fontWeight: 400,
             minHeight: "52px",
           }}
         >
@@ -104,7 +104,7 @@ export default function SuccessScreen({
               borderRadius: "var(--radius-pill)",
               fontSize: "var(--text-button)",
               lineHeight: "var(--leading-button)",
-              fontWeight: 600,
+              fontWeight: 400,
               minHeight: "52px",
             }}
           >

@@ -138,7 +138,7 @@ export default function SendMoneyScreen({ onBack, onViewReceipt }: Props) {
                   borderRadius: "var(--radius-lg)",
                   fontSize: "var(--text-button)",
                   lineHeight: "var(--leading-button)",
-                  fontWeight: 600,
+                  fontWeight: 400,
                   minHeight: "64px",
                 }}
               >
@@ -152,7 +152,7 @@ export default function SendMoneyScreen({ onBack, onViewReceipt }: Props) {
                 style={{
                   fontSize: "var(--text-body)",
                   lineHeight: "var(--leading-body)",
-                  fontWeight: 600,
+                  fontWeight: 400,
                 }}
               >
                 Use PIN instead
@@ -187,7 +187,7 @@ export default function SendMoneyScreen({ onBack, onViewReceipt }: Props) {
                   borderRadius: "var(--radius-pill)",
                   fontSize: "var(--text-button)",
                   lineHeight: "var(--leading-button)",
-                  fontWeight: 600,
+                  fontWeight: 400,
                   minHeight: "52px",
                 }}
               >
@@ -203,7 +203,7 @@ export default function SendMoneyScreen({ onBack, onViewReceipt }: Props) {
                 style={{
                   fontSize: "var(--text-body)",
                   lineHeight: "var(--leading-body)",
-                  fontWeight: 600,
+                  fontWeight: 400,
                 }}
               >
                 Use biometric instead
@@ -244,7 +244,7 @@ export default function SendMoneyScreen({ onBack, onViewReceipt }: Props) {
               style={{
                 fontSize: "var(--text-money)",
                 lineHeight: "var(--leading-money)",
-                fontWeight: 600,
+                fontWeight: 400,
                 letterSpacing: "-0.01em",
               }}
             >
@@ -260,7 +260,7 @@ export default function SendMoneyScreen({ onBack, onViewReceipt }: Props) {
                     style={{
                       fontSize: "var(--text-body)",
                       lineHeight: "var(--leading-body)",
-                      fontWeight: 600,
+                      fontWeight: 400,
                     }}
                   >
                     {selectedPayee?.name}
@@ -281,7 +281,7 @@ export default function SendMoneyScreen({ onBack, onViewReceipt }: Props) {
                   style={{
                     fontSize: "var(--text-body)",
                     lineHeight: "var(--leading-body)",
-                    fontWeight: 600,
+                    fontWeight: 400,
                   }}
                 >
                   {sourceAccount}
@@ -295,7 +295,7 @@ export default function SendMoneyScreen({ onBack, onViewReceipt }: Props) {
                   style={{
                     fontSize: "var(--text-body)",
                     lineHeight: "var(--leading-body)",
-                    fontWeight: 600,
+                    fontWeight: 400,
                   }}
                 >
                   ₹{fee} · Free
@@ -309,7 +309,7 @@ export default function SendMoneyScreen({ onBack, onViewReceipt }: Props) {
                   style={{
                     fontSize: "var(--text-body)",
                     lineHeight: "var(--leading-body)",
-                    fontWeight: 600,
+                    fontWeight: 400,
                   }}
                 >
                   Instantly
@@ -324,7 +324,7 @@ export default function SendMoneyScreen({ onBack, onViewReceipt }: Props) {
                     style={{
                       fontSize: "var(--text-body)",
                       lineHeight: "var(--leading-body)",
-                      fontWeight: 500,
+                      fontWeight: 300,
                     }}
                   >
                     {note}
@@ -356,7 +356,7 @@ export default function SendMoneyScreen({ onBack, onViewReceipt }: Props) {
               borderRadius: "var(--radius-pill)",
               fontSize: "var(--text-button)",
               lineHeight: "var(--leading-button)",
-              fontWeight: 600,
+              fontWeight: 400,
               minHeight: "52px",
             }}
           >
@@ -370,7 +370,7 @@ export default function SendMoneyScreen({ onBack, onViewReceipt }: Props) {
               borderRadius: "var(--radius-pill)",
               fontSize: "var(--text-button)",
               lineHeight: "var(--leading-button)",
-              fontWeight: 600,
+              fontWeight: 400,
               minHeight: "52px",
             }}
           >
@@ -417,7 +417,7 @@ export default function SendMoneyScreen({ onBack, onViewReceipt }: Props) {
                     ? "bg-vault-teal text-white"
                     : "bg-surface-2 text-trust-navy"
                 }`}
-                style={{ fontSize: "var(--text-body)", fontWeight: 600 }}
+                style={{ fontSize: "var(--text-body)", fontWeight: 400 }}
               >
                 {payee.initials}
               </div>
@@ -427,7 +427,7 @@ export default function SendMoneyScreen({ onBack, onViewReceipt }: Props) {
                   style={{
                     fontSize: "var(--text-body)",
                     lineHeight: "var(--leading-body)",
-                    fontWeight: 600,
+                    fontWeight: 400,
                   }}
                 >
                   {payee.name}
@@ -455,7 +455,7 @@ export default function SendMoneyScreen({ onBack, onViewReceipt }: Props) {
               style={{
                 fontSize: "var(--text-body)",
                 lineHeight: "var(--leading-body)",
-                fontWeight: 600,
+                fontWeight: 400,
               }}
             >
               Add new payee
@@ -472,7 +472,7 @@ export default function SendMoneyScreen({ onBack, onViewReceipt }: Props) {
               style={{
                 fontSize: "var(--text-h2)",
                 lineHeight: "var(--leading-h2)",
-                fontWeight: 500,
+                fontWeight: 300,
               }}
             >
               ₹
@@ -492,7 +492,7 @@ export default function SendMoneyScreen({ onBack, onViewReceipt }: Props) {
               style={{
                 fontSize: "var(--text-money)",
                 lineHeight: "var(--leading-money)",
-                fontWeight: 600,
+                fontWeight: 400,
                 letterSpacing: "-0.01em",
                 width: `${Math.max(2, amount.length || 1)}ch`,
               }}
@@ -532,7 +532,7 @@ export default function SendMoneyScreen({ onBack, onViewReceipt }: Props) {
             borderRadius: "var(--radius-pill)",
             fontSize: "var(--text-button)",
             lineHeight: "var(--leading-button)",
-            fontWeight: 600,
+            fontWeight: 400,
             minHeight: "52px",
           }}
         >
