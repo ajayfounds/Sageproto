@@ -77,7 +77,7 @@ export default function ProfileScreen({ onNavigate, onSignOut }: Props = {}) {
               style={{
                 fontSize: "var(--text-h2)",
                 lineHeight: "var(--leading-h2)",
-                fontWeight: 500,
+                fontWeight: 700,
               }}
             >
               PS
@@ -115,7 +115,7 @@ export default function ProfileScreen({ onNavigate, onSignOut }: Props = {}) {
               style={{
                 fontSize: "var(--text-label)",
                 lineHeight: "var(--leading-label)",
-                fontWeight: 400,
+                fontWeight: 600,
               }}
             >
               Verified
@@ -191,7 +191,7 @@ export default function ProfileScreen({ onNavigate, onSignOut }: Props = {}) {
             borderRadius: "var(--radius-pill)",
             fontSize: "var(--text-button)",
             lineHeight: "var(--leading-button)",
-            fontWeight: 400,
+            fontWeight: 600,
             minHeight: "52px",
           }}
         >
@@ -254,7 +254,7 @@ function SettingRowComponent({
         style={{
           fontSize: "var(--text-body)",
           lineHeight: "var(--leading-body)",
-          fontWeight: 400,
+          fontWeight: 600,
         }}
       >
         {label}
@@ -266,7 +266,7 @@ function SettingRowComponent({
           style={{
             fontSize: "var(--text-body)",
             lineHeight: "var(--leading-body)",
-            fontWeight: 300,
+            fontWeight: 500,
           }}
         >
           {value}

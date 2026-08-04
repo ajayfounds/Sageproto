@@ -37,7 +37,7 @@ export default function EmptyState({ icon, title, subtitle, actionLabel, onActio
             borderRadius: "var(--radius-pill)",
             fontSize: "var(--text-button)",
             lineHeight: "var(--leading-button)",
-            fontWeight: 400,
+            fontWeight: 600,
             minHeight: "52px",
             paddingLeft: "var(--space-8)",
             paddingRight: "var(--space-8)",

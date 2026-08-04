@@ -66,7 +66,7 @@ export default function CardsScreen({ onNavigate }: { onNavigate: (k: TabKey) =>
                         style={{
                           fontSize: "var(--text-body-lg)",
                           lineHeight: "var(--leading-body-lg)",
-                          fontWeight: 400,
+                          fontWeight: 600,
                         }}
                       >
                         Card frozen
@@ -81,7 +81,7 @@ export default function CardsScreen({ onNavigate }: { onNavigate: (k: TabKey) =>
                         style={{
                           fontSize: "var(--text-h3)",
                           lineHeight: "var(--leading-h3)",
-                          fontWeight: 500,
+                          fontWeight: 700,
                           letterSpacing: "0.05em",
                         }}
                       >
@@ -97,7 +97,7 @@ export default function CardsScreen({ onNavigate }: { onNavigate: (k: TabKey) =>
                         style={{
                           fontSize: "var(--text-label)",
                           lineHeight: "var(--leading-label)",
-                          fontWeight: 400,
+                          fontWeight: 600,
                           letterSpacing: "0.04em",
                         }}
                       >
@@ -112,7 +112,7 @@ export default function CardsScreen({ onNavigate }: { onNavigate: (k: TabKey) =>
                       fontSize: "var(--text-body-lg)",
                       lineHeight: "var(--leading-body-lg)",
                       letterSpacing: "0.18em",
-                      fontWeight: 300,
+                      fontWeight: 500,
                     }}
                   >
                     •••• •••• •••• {card.last4}
@@ -126,7 +126,7 @@ export default function CardsScreen({ onNavigate }: { onNavigate: (k: TabKey) =>
                         style={{
                           fontSize: "var(--text-body)",
                           lineHeight: "var(--leading-body)",
-                          fontWeight: 400,
+                          fontWeight: 600,
                           letterSpacing: "0.02em",
                           marginTop: "2px",
                         }}
@@ -141,25 +141,27 @@ export default function CardsScreen({ onNavigate }: { onNavigate: (k: TabKey) =>
                         style={{
                           fontSize: "var(--text-body)",
                           lineHeight: "var(--leading-body)",
-                          fontWeight: 300,
+                          fontWeight: 600,
                           marginTop: "2px",
                         }}
                       >
                         {card.expiry}
                       </p>
-                      <p
-                        className="text-white/70"
-                        style={{
-                          fontSize: "var(--text-caption)",
-                          lineHeight: "var(--leading-caption)",
-                          fontWeight: 400,
-                          letterSpacing: "0.04em",
-                          marginTop: "6px",
-                        }}
-                      >
-                        {card.network}
-                      </p>
                     </div>
+                  </div>
+
+                  <div className="absolute bottom-5 right-6">
+                    <p
+                      className="text-white"
+                      style={{
+                        fontSize: "var(--text-label)",
+                        lineHeight: "var(--leading-label)",
+                        fontWeight: 700,
+                        letterSpacing: "0.04em",
+                      }}
+                    >
+                      {card.network}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -198,7 +200,7 @@ export default function CardsScreen({ onNavigate }: { onNavigate: (k: TabKey) =>
                   style={{
                     fontSize: "var(--text-body)",
                     lineHeight: "var(--leading-body)",
-                    fontWeight: 400,
+                    fontWeight: 600,
                   }}
                 >
                   Freeze card
@@ -246,7 +248,7 @@ export default function CardsScreen({ onNavigate }: { onNavigate: (k: TabKey) =>
                 style={{
                   fontSize: "var(--text-body)",
                   lineHeight: "var(--leading-body)",
-                  fontWeight: 400,
+                  fontWeight: 600,
                 }}
               >
                 Card details
@@ -267,7 +269,7 @@ export default function CardsScreen({ onNavigate }: { onNavigate: (k: TabKey) =>
                 style={{
                   fontSize: "var(--text-body)",
                   lineHeight: "var(--leading-body)",
-                  fontWeight: 400,
+                  fontWeight: 600,
                 }}
               >
                 Spending limits
@@ -287,7 +289,7 @@ export default function CardsScreen({ onNavigate }: { onNavigate: (k: TabKey) =>
                 style={{
                   fontSize: "var(--text-body)",
                   lineHeight: "var(--leading-body)",
-                  fontWeight: 400,
+                  fontWeight: 600,
                 }}
               >
                 Online payments
@@ -320,7 +322,7 @@ export default function CardsScreen({ onNavigate }: { onNavigate: (k: TabKey) =>
                 style={{
                   fontSize: "var(--text-body)",
                   lineHeight: "var(--leading-body)",
-                  fontWeight: 400,
+                  fontWeight: 600,
                 }}
               >
                 Contactless
@@ -354,7 +356,7 @@ export default function CardsScreen({ onNavigate }: { onNavigate: (k: TabKey) =>
                 style={{
                   fontSize: "var(--text-body)",
                   lineHeight: "var(--leading-body)",
-                  fontWeight: 400,
+                  fontWeight: 600,
                 }}
               >
                 Replace card
@@ -379,7 +381,7 @@ export default function CardsScreen({ onNavigate }: { onNavigate: (k: TabKey) =>
                 style={{
                   fontSize: "var(--text-body)",
                   lineHeight: "var(--leading-body)",
-                  fontWeight: 400,
+                  fontWeight: 600,
                   color: "var(--loss)",
                 }}
               >
@@ -412,7 +414,7 @@ export default function CardsScreen({ onNavigate }: { onNavigate: (k: TabKey) =>
             borderRadius: "var(--radius-pill)",
             fontSize: "var(--text-button)",
             lineHeight: "var(--leading-button)",
-            fontWeight: 400,
+            fontWeight: 600,
             minHeight: "52px",
           }}
         >

@@ -5,10 +5,10 @@ import BottomTabBar, { TabKey } from "./BottomTabBar";
 
 type Mood = "Stressed" | "Calm" | "Great" | "Guilty";
 const MOODS: { key: Mood; icon: IconKey; color: string }[] = [
-  { key: "Stressed", icon: "frown",   color: "#665efd" },
-  { key: "Calm",     icon: "meh",     color: "#9b6829" },
-  { key: "Great",    icon: "smile",   color: "#533afd" },
-  { key: "Guilty",   icon: "annoyed", color: "#ea2261" },
+  { key: "Stressed", icon: "frown",   color: "#2C6FB5" },
+  { key: "Calm",     icon: "meh",     color: "#C68A2E" },
+  { key: "Great",    icon: "smile",   color: "#0E6E63" },
+  { key: "Guilty",   icon: "annoyed", color: "#C24A3C" },
 ];
 
 type Props = { onNavigate?: (tab: TabKey) => void };
@@ -53,15 +53,15 @@ export default function PulseScreen({ onNavigate }: Props = {}) {
   };
 
   return (
-    <div className="relative size-full bg-[#f6f9fc] overflow-hidden">
+    <div className="relative size-full bg-[#F5F8FA] overflow-hidden">
       <div className="h-[44px]" />
 
       <div className="px-5 pt-2 pb-[100px] overflow-y-auto h-[calc(100%-44px-80px)] space-y-4">
-        <div className="rounded-[16px] border border-[#ea2261]/[0.18] bg-[#FBE7E3] p-5 text-center">
-          <p className="text-[#ea2261] text-[13px] tracking-wider">WEEK {week} CHECK-IN</p>
-          <p className="text-[#0d253d] text-[22px] mt-2" style={{ fontFamily: "var(--font-sans)", fontWeight: 500, letterSpacing: "-0.01em" }}>How did money feel</p>
-          <p className="text-[#ea2261] text-[22px] italic" style={{ fontFamily: "var(--font-sans)", fontWeight: 500, letterSpacing: "-0.01em" }}>this week?</p>
-          <p className="text-[#64748d] text-[13px] mt-2">Takes 2 minutes. Completely private.</p>
+        <div className="rounded-[16px] border border-[#C24A3C]/[0.18] bg-[#FBE7E3] p-5 text-center">
+          <p className="text-[#C24A3C] text-[13px] tracking-wider">WEEK {week} CHECK-IN</p>
+          <p className="text-[#0B1F33] text-[22px] mt-2" style={{ fontFamily: "var(--font-sans)", fontWeight: 700, letterSpacing: "-0.01em" }}>How did money feel</p>
+          <p className="text-[#C24A3C] text-[22px] italic" style={{ fontFamily: "var(--font-sans)", fontWeight: 700, letterSpacing: "-0.01em" }}>this week?</p>
+          <p className="text-[#65717E] text-[13px] mt-2">Takes 2 minutes. Completely private.</p>
         </div>
 
         <div className="grid grid-cols-4 gap-2">
@@ -75,20 +75,20 @@ export default function PulseScreen({ onNavigate }: Props = {}) {
                   toast(`Mood: ${m.key}`);
                 }}
                 className={`rounded-[12px] border p-3 flex flex-col items-center gap-1 transition-colors ${
-                  active ? "bg-[#f5e9d4]" : "bg-[#FFFFFF] border-white/5"
+                  active ? "bg-[#FBF1E0]" : "bg-[#FFFFFF] border-white/5"
                 }`}
                 style={active ? { borderColor: m.color } : undefined}
               >
-                <span style={{ color: active ? m.color : "#64748d" }}><Icon name={m.icon} size={20} strokeWidth={1.75} /></span>
-                <p className="text-[13px]" style={{ color: active ? m.color : "#64748d" }}>{m.key}</p>
+                <span style={{ color: active ? m.color : "#65717E" }}><Icon name={m.icon} size={20} strokeWidth={1.75} /></span>
+                <p className="text-[13px]" style={{ color: active ? m.color : "#65717E" }}>{m.key}</p>
               </button>
             );
           })}
         </div>
 
-        <div className="rounded-[12px] border border-[#e3e8ee] bg-[#FFFFFF] shadow-[0_1px_2px_rgba(11,31,51,0.04)] p-4">
-          <p className="text-[#64748d] text-[11px] tracking-wider">THIS WEEK'S REFLECTION</p>
-          <p className="text-[#0d253d] text-[13px] mt-2">Was there a purchase you second-guessed?</p>
+        <div className="rounded-[14px] border border-[#E5EAEE] bg-[#FFFFFF] shadow-[0_1px_2px_rgba(11,31,51,0.04)] p-4">
+          <p className="text-[#65717E] text-[9px] tracking-wider">THIS WEEK'S REFLECTION</p>
+          <p className="text-[#0B1F33] text-[13px] mt-2">Was there a purchase you second-guessed?</p>
           {editingReflection ? (
             <textarea
               value={reflection}
@@ -96,14 +96,14 @@ export default function PulseScreen({ onNavigate }: Props = {}) {
               onBlur={() => setEditingReflection(false)}
               autoFocus
               rows={4}
-              className="w-full mt-3 bg-black/30 rounded p-3 text-[13px] text-[#64748d] resize-none outline-none border border-[#533afd]/30"
+              className="w-full mt-3 bg-black/30 rounded p-3 text-[13px] text-[#65717E] resize-none outline-none border border-[#0E6E63]/30"
             />
           ) : (
             <button
               onClick={() => setEditingReflection(true)}
-              className="w-full text-left mt-3 bg-[#f6f9fc] rounded p-3 text-[13px] text-[#64748d] leading-[16px]"
+              className="w-full text-left mt-3 bg-[#F5F8FA] rounded p-3 text-[13px] text-[#65717E] leading-[16px]"
             >
-              {reflection || <span className="text-[#64748d]">Tap to write...</span>}
+              {reflection || <span className="text-[#65717E]">Tap to write...</span>}
             </button>
           )}
         </div>
@@ -115,11 +115,11 @@ export default function PulseScreen({ onNavigate }: Props = {}) {
               const n = Number(v);
               if (n >= 0) setSpend(n);
             }}
-            className="rounded-[12px] border border-[#e3e8ee] bg-[#FFFFFF] shadow-[0_1px_2px_rgba(11,31,51,0.04)] p-3 text-left"
+            className="rounded-[14px] border border-[#E5EAEE] bg-[#FFFFFF] shadow-[0_1px_2px_rgba(11,31,51,0.04)] p-3 text-left"
           >
-            <p className="text-[#64748d] text-[11px] tracking-wider">THIS WEEK</p>
-            <p className="text-[#0d253d] text-[20px] mt-1" style={{ fontFamily: "var(--font-sans)", fontWeight: 500, letterSpacing: "-0.01em" }}>{fmt(spend)}</p>
-            <p className={`text-[11px] mt-1 ${delta >= 0 ? "text-[#ea2261]" : "text-[#533afd]"}`}>
+            <p className="text-[#65717E] text-[9px] tracking-wider">THIS WEEK</p>
+            <p className="text-[#0B1F33] text-[20px] mt-1" style={{ fontFamily: "var(--font-sans)", fontWeight: 700, letterSpacing: "-0.01em" }}>{fmt(spend)}</p>
+            <p className={`text-[9px] mt-1 ${delta >= 0 ? "text-[#C24A3C]" : "text-[#0E6E63]"}`}>
               {delta >= 0 ? "↑" : "↓"} {fmt(Math.abs(delta))} vs last week
             </p>
           </button>
@@ -129,23 +129,23 @@ export default function PulseScreen({ onNavigate }: Props = {}) {
               const n = Number(v);
               if (n >= 0) setImpulse(n);
             }}
-            className="rounded-[12px] border border-[#e3e8ee] bg-[#FFFFFF] shadow-[0_1px_2px_rgba(11,31,51,0.04)] p-3 text-left"
+            className="rounded-[14px] border border-[#E5EAEE] bg-[#FFFFFF] shadow-[0_1px_2px_rgba(11,31,51,0.04)] p-3 text-left"
           >
-            <p className="text-[#64748d] text-[11px] tracking-wider">IMPULSE BUYS</p>
-            <p className="text-[#0d253d] text-[20px] mt-1" style={{ fontFamily: "var(--font-sans)", fontWeight: 500, letterSpacing: "-0.01em" }}>{impulse}</p>
-            <p className={`text-[11px] mt-1 ${impulseDelta >= 0 ? "text-[#ea2261]" : "text-[#533afd]"}`}>
+            <p className="text-[#65717E] text-[9px] tracking-wider">IMPULSE BUYS</p>
+            <p className="text-[#0B1F33] text-[20px] mt-1" style={{ fontFamily: "var(--font-sans)", fontWeight: 700, letterSpacing: "-0.01em" }}>{impulse}</p>
+            <p className={`text-[9px] mt-1 ${impulseDelta >= 0 ? "text-[#C24A3C]" : "text-[#0E6E63]"}`}>
               {impulseDelta >= 0 ? "↑" : "↓"} {Math.abs(impulseDelta)} from last week
             </p>
           </button>
         </div>
 
-        <div className="rounded-[12px] border border-[#533afd]/[0.22] bg-[#FFFFFF] p-4 flex gap-3">
-          <div className="size-9 rounded-full bg-[#533afd]/10 border border-[#533afd]/30 flex items-center justify-center text-[#533afd] shrink-0">
+        <div className="rounded-[14px] border border-[#0E6E63]/[0.22] bg-[#FFFFFF] p-4 flex gap-3">
+          <div className="size-9 rounded-full bg-[#0E6E63]/10 border border-[#0E6E63]/30 flex items-center justify-center text-[#0E6E63] shrink-0">
             <Icon name="leaf" size={16} />
           </div>
           <div>
-            <p className="text-[#0d253d] text-[13px]">Sage's nudge for you</p>
-            <p className="text-[#64748d] text-[13px] mt-1 leading-[15px]">
+            <p className="text-[#0B1F33] text-[13px]">Sage's nudge for you</p>
+            <p className="text-[#65717E] text-[13px] mt-1 leading-[15px]">
               Your food spend goes up on weeks you log 'tired.' Meal prepping Sunday could save ₹1,200/mo —
               no pressure, just a pattern we noticed.
             </p>
@@ -155,18 +155,18 @@ export default function PulseScreen({ onNavigate }: Props = {}) {
         {!submitted ? (
           <button
             onClick={completeCheckIn}
-            className="w-full py-4 rounded-full bg-[#533afd] text-[#FFFFFF] text-[13px]"
+            className="w-full py-4 rounded-full bg-[#0E6E63] text-[#FFFFFF] text-[13px]"
           >
             Complete check-in
           </button>
         ) : (
           <div className="space-y-2">
-            <div className="rounded-full bg-[#eeecfe] border border-[#533afd]/30 py-3 text-center text-[#533afd] text-[13px]">
+            <div className="rounded-full bg-[#D6EDE9] border border-[#0E6E63]/30 py-3 text-center text-[#0E6E63] text-[13px]">
               ✓ Week {week} check-in complete
             </div>
             <button
               onClick={startNextWeek}
-              className="w-full py-3 rounded-full border border-[#e3e8ee] text-[13px] text-[#64748d]"
+              className="w-full py-3 rounded-full border border-[#E5EAEE] text-[13px] text-[#65717E]"
             >
               Start week {week + 1}
             </button>

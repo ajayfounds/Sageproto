@@ -31,7 +31,6 @@ import {
   Zap,
   ArrowUp,
   ArrowLeft,
-  ArrowRight,
   Check,
   Lock,
   Fingerprint,
@@ -57,7 +56,7 @@ export type IconKey =
   | "plane" | "alert" | "laptop" | "target" | "chart" | "pulse" | "plus"
   | "bulb" | "wave" | "leaf" | "smile" | "meh" | "frown" | "annoyed"
   | "shield" | "trending-up" | "home" | "accounts" | "insights" | "profile"
-  | "send" | "request" | "pay" | "topup" | "arrow-left" | "arrow-right" | "check" | "lock" | "fingerprint" | "copy"
+  | "send" | "request" | "pay" | "topup" | "arrow-left" | "check" | "lock" | "fingerprint" | "copy"
   | "snowflake" | "chevron-right" | "eye" | "zap" | "logout" | "bell" | "globe" | "palette" | "help" | "mail" | "file"
   | "smartphone" | "monitor" | "shield-check" | "receipt";
 
@@ -95,7 +94,6 @@ const MAP: Record<IconKey, React.ComponentType<{ size?: number; className?: stri
   pay: Zap,
   topup: ArrowUp,
   "arrow-left": ArrowLeft,
-  "arrow-right": ArrowRight,
   check: Check,
   lock: Lock,
   fingerprint: Fingerprint,

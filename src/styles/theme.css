@@ -1,95 +1,52 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* ================================================================
-     SAGE · Design system
-     Indigo CTA · deep-navy ink · gradient-mesh depth · Sohne/Inter 300
-     ================================================================ */
+  /* ---------- Vault Finance · Brand palette ---------- */
+  --vault-teal: #0E6E63;        /* Primary */
+  --vault-teal-hover: #0a5a51;
+  --teal-400: #3FAE9F;
+  --teal-200: #9FD3CB;
+  --teal-100: #D6EDE9;
+  --trust-navy: #0B1F33;        /* Headings / dark surfaces */
+  --navy-700: #13314F;
 
-  /* ---------- Brand & accent ---------- */
-  --primary: #533afd;
-  --primary-deep: #4434d4;
-  --primary-press: #2e2b8c;
-  --primary-soft: #665efd;
-  --primary-subdued: #b9b9f9;
-  --primary-pale: #eeecfe;
-  --brand-dark-900: #1c1e54;
+  /* Semantic */
+  --gain: #1B9E63;              /* credit / positive */
+  --loss: #C24A3C;              /* debit / negative */
+  --warn: #C68A2E;              /* pending */
+  --info: #2C6FB5;
 
-  --ruby: #ea2261;
-  --magenta: #f96bee;
-  --lemon: #9b6829;
-
-  /* Gradient-mesh stops — the brand's depth medium */
-  --mesh-cream: #f5e9d4;
-  --mesh-orange: #ffb37a;
-  --mesh-lavender: #c3b5fd;
-  --mesh-indigo: #533afd;
-  --mesh-ruby: #ea2261;
-  --mesh-magenta: #f96bee;
-
-  /* ---------- Surface ---------- */
-  --canvas: #ffffff;
-  --canvas-soft: #f6f9fc;
-  --canvas-cream: #f5e9d4;
-  --hairline: #e3e8ee;
-  --hairline-input: #a8c3de;
-
-  /* ---------- Text ---------- */
-  --ink: #0d253d;
-  --ink-secondary: #273951;
-  --ink-mute: #64748d;
-  --on-primary: #ffffff;
-
-  /* ---------- Semantic (product UI only) ---------- */
-  --gain: #197a56;
-  --gain-on-dark: #5fd6a4;
-  --loss: var(--ruby);
-  --warn: var(--lemon);
-  --info: var(--primary);
-
-  /* ---------- Legacy token bridge ----------
-     Component classes reference these names; the values now resolve to
-     the indigo/ink system so the whole app re-skins from this file. */
-  --vault-teal: var(--primary);
-  --vault-teal-hover: var(--primary-deep);
-  --teal-400: var(--primary-soft);
-  --teal-200: var(--primary-subdued);
-  --teal-100: var(--primary-pale);
-  --trust-navy: var(--ink);
-  --navy-700: var(--brand-dark-900);
-  --ink-900: var(--ink);
-  --ink-500: var(--ink-mute);
-  --surface-2: var(--canvas-soft);
-  --surface-1: var(--canvas);
+  /* Neutrals */
+  --ink-900: #101820;           /* primary text */
+  --ink-500: #65717E;           /* muted text */
+  --surface-2: #F5F8FA;         /* app background */
+  --surface-1: #FFFFFF;         /* cards */
 
   /* ---------- Typography ---------- */
-  --font-sans: 'Inter', 'SF Pro Display', ui-sans-serif, system-ui, -apple-system, sans-serif;
-  --font-mono: 'Inter', ui-monospace, 'SF Mono', Menlo, monospace;
+  --font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, monospace;
 
   --font-size: 16px;
-  /* Thin weight is the brand — display never exceeds 300. */
-  --font-weight-normal: 300;
-  --font-weight-medium: 400;
-  --font-weight-semibold: 400;
-  --font-weight-bold: 500;
-  --font-weight-extrabold: 500;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
 
-  /* Type scale — negative tracking on display is the typographic signature. */
-  --text-display: 32px;   --leading-display: 35px;  --tracking-display: -0.64px;
-  --text-h1: 26px;        --leading-h1: 29px;       --tracking-h1: -0.26px;
-  --text-h2: 22px;        --leading-h2: 24px;       --tracking-h2: -0.22px;
-  --text-h3: 20px;        --leading-h3: 28px;       --tracking-h3: -0.2px;
-  --text-money: 32px;     --leading-money: 35px;    --tracking-money: -0.64px;
-  --text-body-lg: 16px;   --leading-body-lg: 22px;
-  --text-body: 15px;      --leading-body: 21px;
-  --text-tabular: 14px;   --leading-tabular: 20px;  --tracking-tabular: -0.42px;
-  /* micro-cap — all-caps eyebrow */
-  --text-label: 10px;     --leading-label: 11.5px;  --tracking-label: 0.1px;
-  --text-caption: 13px;   --leading-caption: 18px;  --tracking-caption: -0.39px;
-  --text-button: 16px;    --leading-button: 16px;
-  --text-micro: 11px;     --leading-micro: 15px;
+  /* Type scale — accessibility-first (16px base, 1.5 body / 1.3 headings).
+     No primary content < 16px, no secondary content < 13px. */
+  --text-display: 34px;     --leading-display: 44px;
+  --text-h1: 28px;          --leading-h1: 36px;
+  --text-h2: 22px;          --leading-h2: 29px;
+  --text-h3: 19px;          --leading-h3: 25px;
+  --text-money: 30px;       --leading-money: 36px;
+  --text-body-lg: 17px;     --leading-body-lg: 26px;
+  --text-body: 16px;        --leading-body: 24px;
+  --text-label: 13px;       --leading-label: 18px;
+  --text-caption: 13px;     --leading-caption: 18px;
+  --text-button: 16px;      --leading-button: 22px;
 
-  /* ---------- Spacing (8-pt base) ---------- */
+  /* ---------- Spacing (4-pt grid) ---------- */
   --space-1: 4px;
   --space-2: 8px;
   --space-3: 12px;
@@ -100,87 +57,85 @@
   --space-16: 64px;
 
   /* ---------- Radius ---------- */
-  --radius-xs: 4px;
-  --radius-sm: 6px;
-  --radius-md: 12px;
-  --radius-lg: 16px;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
   --radius-pill: 9999px;
   --radius: var(--radius-md);
 
-  /* ---------- Elevation ---------- */
-  --shadow-1: rgba(0, 55, 112, 0.08) 0 1px 3px;
-  --shadow-2: rgba(0, 55, 112, 0.08) 0 8px 24px, rgba(0, 55, 112, 0.04) 0 2px 6px;
-
   /* ---------- Semantic tokens (shadcn-style) ---------- */
-  --background: var(--canvas-soft);
-  --foreground: var(--ink);
+  --background: var(--surface-2);
+  --foreground: var(--ink-900);
 
-  --card: var(--canvas);
-  --card-foreground: var(--ink);
+  --card: var(--surface-1);
+  --card-foreground: var(--ink-900);
 
-  --popover: var(--canvas);
-  --popover-foreground: var(--ink);
+  --popover: var(--surface-1);
+  --popover-foreground: var(--ink-900);
 
-  --primary-foreground: var(--on-primary);
+  --primary: var(--vault-teal);
+  --primary-foreground: #ffffff;
 
-  --secondary: var(--primary-pale);
-  --secondary-foreground: var(--primary-deep);
+  --secondary: var(--teal-100);
+  --secondary-foreground: var(--vault-teal);
 
-  --muted: var(--canvas-soft);
-  --muted-foreground: var(--ink-mute);
+  --muted: var(--surface-2);
+  --muted-foreground: var(--ink-500);
 
-  --accent: var(--primary-pale);
-  --accent-foreground: var(--primary-deep);
+  --accent: var(--teal-100);
+  --accent-foreground: var(--vault-teal);
 
   --destructive: var(--loss);
-  --destructive-foreground: var(--on-primary);
+  --destructive-foreground: #ffffff;
 
   --success: var(--gain);
-  --success-foreground: var(--on-primary);
+  --success-foreground: #ffffff;
   --warning: var(--warn);
-  --warning-foreground: var(--on-primary);
+  --warning-foreground: #ffffff;
 
-  --border: var(--hairline);
+  --border: rgba(11, 31, 51, 0.08);
   --input: transparent;
-  --input-background: var(--canvas);
+  --input-background: var(--surface-2);
   --switch-background: #cbced4;
 
-  --ring: var(--primary);
+  --ring: var(--vault-teal);
 
-  --chart-1: var(--primary);
-  --chart-2: var(--primary-soft);
-  --chart-3: var(--brand-dark-900);
-  --chart-4: var(--ruby);
-  --chart-5: var(--magenta);
+  --chart-1: var(--vault-teal);
+  --chart-2: var(--teal-400);
+  --chart-3: var(--navy-700);
+  --chart-4: var(--warn);
+  --chart-5: var(--info);
 
-  --sidebar: var(--canvas);
-  --sidebar-foreground: var(--ink);
-  --sidebar-primary: var(--primary);
-  --sidebar-primary-foreground: var(--on-primary);
-  --sidebar-accent: var(--primary-pale);
-  --sidebar-accent-foreground: var(--primary-deep);
-  --sidebar-border: var(--hairline);
-  --sidebar-ring: var(--primary);
+  --sidebar: var(--surface-1);
+  --sidebar-foreground: var(--ink-900);
+  --sidebar-primary: var(--vault-teal);
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: var(--teal-100);
+  --sidebar-accent-foreground: var(--vault-teal);
+  --sidebar-border: var(--border);
+  --sidebar-ring: var(--vault-teal);
 }
 
 .dark {
-  --background: var(--brand-dark-900);
+  --background: var(--trust-navy);
   --foreground: #ffffff;
-  --card: #262a63;
+  --card: var(--navy-700);
   --card-foreground: #ffffff;
-  --popover: #262a63;
+  --popover: var(--navy-700);
   --popover-foreground: #ffffff;
-  --primary: var(--primary-soft);
-  --primary-foreground: #ffffff;
-  --secondary: #262a63;
-  --secondary-foreground: var(--primary-subdued);
-  --muted: #262a63;
-  --muted-foreground: #a9b4c8;
-  --accent: #262a63;
-  --accent-foreground: var(--primary-subdued);
-  --border: rgba(255, 255, 255, 0.1);
-  --input: #262a63;
-  --ring: var(--primary-soft);
+  --primary: var(--teal-400);
+  --primary-foreground: var(--trust-navy);
+  --secondary: var(--navy-700);
+  --secondary-foreground: var(--teal-200);
+  --muted: var(--navy-700);
+  --muted-foreground: #9FB0C3;
+  --accent: var(--navy-700);
+  --accent-foreground: var(--teal-200);
+  --destructive: var(--loss);
+  --destructive-foreground: #ffffff;
+  --border: rgba(255, 255, 255, 0.08);
+  --input: var(--navy-700);
+  --ring: var(--teal-400);
 }
 
 @theme inline {
@@ -213,27 +168,7 @@
   --color-switch-background: var(--switch-background);
   --color-ring: var(--ring);
 
-  /* Design-system names */
-  --color-primary-deep: var(--primary-deep);
-  --color-primary-press: var(--primary-press);
-  --color-primary-soft: var(--primary-soft);
-  --color-primary-subdued: var(--primary-subdued);
-  --color-primary-pale: var(--primary-pale);
-  --color-brand-dark-900: var(--brand-dark-900);
-  --color-ruby: var(--ruby);
-  --color-magenta: var(--magenta);
-  --color-lemon: var(--lemon);
-  --color-canvas: var(--canvas);
-  --color-canvas-soft: var(--canvas-soft);
-  --color-canvas-cream: var(--canvas-cream);
-  --color-hairline: var(--hairline);
-  --color-hairline-input: var(--hairline-input);
-  --color-ink: var(--ink);
-  --color-ink-secondary: var(--ink-secondary);
-  --color-ink-mute: var(--ink-mute);
-  --color-on-primary: var(--on-primary);
-
-  /* Legacy aliases — resolve to the new system */
+  /* Brand color aliases for direct use */
   --color-vault-teal: var(--vault-teal);
   --color-trust-navy: var(--trust-navy);
   --color-teal-100: var(--teal-100);
@@ -255,7 +190,6 @@
   --color-chart-4: var(--chart-4);
   --color-chart-5: var(--chart-5);
 
-  --radius-xs: var(--radius-xs);
   --radius-sm: var(--radius-sm);
   --radius-md: var(--radius-md);
   --radius-lg: var(--radius-lg);
@@ -286,76 +220,83 @@
     @apply bg-background text-foreground;
     font-family: var(--font-sans);
     font-weight: var(--font-weight-normal);
-    /* ss01 is on globally — the stylistic set is part of the type signature. */
-    font-feature-settings: 'ss01' 1;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
-  /* Money & numeric cells — tabular figures are the financial-data signal. */
+  /* Money & tabular numeric data — IBM Plex Mono */
   .font-mono,
   .tabular-nums,
   [data-money],
   .money {
+    font-family: var(--font-mono);
     font-variant-numeric: tabular-nums;
-    font-feature-settings: 'ss01' 1, 'tnum' 1;
-    letter-spacing: var(--tracking-tabular);
+    font-feature-settings: 'tnum' 1;
   }
 
+  /**
+   * Default typography — Vault Finance type scale.
+   * Tailwind utility classes still override these.
+   */
+
   h1 {
+    font-family: var(--font-sans);
     font-size: var(--text-h1);
     line-height: var(--leading-h1);
-    font-weight: 300;
-    letter-spacing: var(--tracking-h1);
-    color: var(--ink);
+    font-weight: var(--font-weight-semibold);
+    color: var(--trust-navy);
+    letter-spacing: -0.01em;
   }
 
   h2 {
+    font-family: var(--font-sans);
     font-size: var(--text-h2);
     line-height: var(--leading-h2);
-    font-weight: 300;
-    letter-spacing: var(--tracking-h2);
-    color: var(--ink);
+    font-weight: var(--font-weight-semibold);
+    color: var(--trust-navy);
+    letter-spacing: -0.005em;
   }
 
   h3 {
+    font-family: var(--font-sans);
     font-size: var(--text-h3);
     line-height: var(--leading-h3);
-    font-weight: 300;
-    letter-spacing: var(--tracking-h3);
-    color: var(--ink);
+    font-weight: var(--font-weight-semibold);
+    color: var(--trust-navy);
   }
 
   h4 {
+    font-family: var(--font-sans);
     font-size: var(--text-body-lg);
     line-height: var(--leading-body-lg);
-    font-weight: 400;
-    color: var(--ink);
+    font-weight: var(--font-weight-semibold);
+    color: var(--trust-navy);
   }
 
   p {
+    font-family: var(--font-sans);
     font-size: var(--text-body);
     line-height: var(--leading-body);
-    font-weight: 300;
-    color: var(--ink);
+    font-weight: var(--font-weight-normal);
+    color: var(--ink-900);
   }
 
-  /* All-caps eyebrow */
   label {
+    font-family: var(--font-sans);
     font-size: var(--text-label);
     line-height: var(--leading-label);
-    font-weight: 400;
-    letter-spacing: var(--tracking-label);
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: 0.04em;
     text-transform: uppercase;
-    color: var(--ink-mute);
+    color: var(--ink-500);
   }
 
   button {
     font-family: var(--font-sans);
     font-size: var(--text-button);
     line-height: var(--leading-button);
-    font-weight: 400;
-    letter-spacing: 0;
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: 0.01em;
   }
 
   input,
@@ -364,157 +305,25 @@
     font-family: var(--font-sans);
     font-size: var(--text-body);
     line-height: var(--leading-body);
-    font-weight: 300;
-    color: var(--ink);
+    font-weight: var(--font-weight-normal);
+    color: var(--ink-900);
   }
 
   small {
     font-size: var(--text-caption);
     line-height: var(--leading-caption);
-    letter-spacing: var(--tracking-caption);
-    color: var(--ink-mute);
-  }
-}
-
-@layer components {
-  /* ---------- Gradient mesh ----------
-     Organic blob stops rather than a flat linear gradient: cream →
-     sherbet → lavender → indigo → ruby → magenta washed horizontally. */
-  .gradient-mesh {
-    background-color: var(--canvas);
-    background-image:
-      radial-gradient(ellipse 85% 70% at 6% 22%, rgba(245, 233, 212, 0.95) 0%, rgba(245, 233, 212, 0) 62%),
-      radial-gradient(ellipse 72% 58% at 28% 6%, rgba(255, 179, 122, 0.85) 0%, rgba(255, 179, 122, 0) 64%),
-      radial-gradient(ellipse 78% 68% at 52% 26%, rgba(195, 181, 253, 0.9) 0%, rgba(195, 181, 253, 0) 62%),
-      radial-gradient(ellipse 66% 62% at 76% 8%, rgba(83, 58, 253, 0.5) 0%, rgba(83, 58, 253, 0) 64%),
-      radial-gradient(ellipse 72% 72% at 98% 34%, rgba(234, 34, 97, 0.55) 0%, rgba(234, 34, 97, 0) 62%),
-      radial-gradient(ellipse 58% 52% at 66% 52%, rgba(249, 107, 238, 0.4) 0%, rgba(249, 107, 238, 0) 66%);
+    color: var(--ink-500);
   }
 
-  /* ---------- Buttons ---------- */
-  .btn-pill {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: var(--space-2);
-    background: var(--primary);
-    color: var(--on-primary);
-    font-size: var(--text-button);
-    line-height: var(--leading-button);
-    font-weight: 400;
-    padding: var(--space-2) var(--space-4);
-    min-height: 44px;
-    border-radius: var(--radius-pill);
-    transition: background 140ms ease, transform 140ms ease;
+  /* Secondary text on dark/navy surfaces — WCAG AA on Trust Navy. */
+  .text-on-navy {
+    color: var(--teal-200);
   }
-  .btn-pill:active {
-    background: var(--primary-press);
-    transform: scale(0.98);
+  .text-on-navy-strong {
+    color: #ffffff;
   }
 
-  .btn-pill-secondary {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: var(--space-2);
-    background: var(--canvas);
-    color: var(--primary);
-    border: 1px solid var(--primary);
-    font-size: var(--text-button);
-    line-height: var(--leading-button);
-    font-weight: 400;
-    padding: var(--space-2) var(--space-4);
-    min-height: 44px;
-    border-radius: var(--radius-pill);
-    transition: background 140ms ease, transform 140ms ease;
-  }
-  .btn-pill-secondary:active {
-    background: var(--primary-pale);
-    transform: scale(0.98);
-  }
-
-  .btn-pill-dark {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: var(--space-2);
-    background: var(--brand-dark-900);
-    color: var(--on-primary);
-    font-size: var(--text-button);
-    line-height: var(--leading-button);
-    font-weight: 400;
-    padding: var(--space-2) var(--space-4);
-    min-height: 44px;
-    border-radius: var(--radius-pill);
-  }
-
-  /* ---------- Cards ---------- */
-  .card-feature {
-    background: var(--canvas);
-    border: 1px solid var(--hairline);
-    border-radius: var(--radius-md);
-    padding: var(--space-6);
-    box-shadow: var(--shadow-1);
-  }
-
-  .card-cream {
-    background: var(--canvas-cream);
-    color: var(--ink);
-    border-radius: var(--radius-md);
-    padding: var(--space-6);
-  }
-
-  .card-dark {
-    background: var(--brand-dark-900);
-    color: var(--on-primary);
-    border-radius: var(--radius-lg);
-    padding: var(--space-6);
-    box-shadow: var(--shadow-2);
-  }
-
-  /* ---------- Tags ---------- */
-  .pill-tag-soft {
-    display: inline-flex;
-    align-items: center;
-    background: var(--primary-subdued);
-    color: var(--primary-deep);
-    font-size: var(--text-label);
-    line-height: var(--leading-label);
-    font-weight: 400;
-    letter-spacing: var(--tracking-label);
-    text-transform: uppercase;
-    padding: 4px 8px;
-    border-radius: var(--radius-pill);
-  }
-
-  /* ---------- Inputs ---------- */
-  .input-field {
-    width: 100%;
-    background: var(--canvas);
-    color: var(--ink);
-    font-size: var(--text-body);
-    line-height: var(--leading-body);
-    font-weight: 300;
-    padding: var(--space-2) var(--space-3);
-    min-height: 44px;
-    border: 1px solid var(--hairline-input);
-    border-radius: var(--radius-sm);
-    transition: border-color 140ms ease;
-  }
-  .input-field:focus {
-    outline: none;
-    border-color: var(--primary);
-  }
-}
-
-@layer utilities {
-  .shadow-level-1 { box-shadow: var(--shadow-1); }
-  .shadow-level-2 { box-shadow: var(--shadow-2); }
-
-  /* Secondary text on deep-navy surfaces */
-  .text-on-navy { color: var(--primary-subdued); }
-  .text-on-navy-strong { color: #ffffff; }
-
+  /* Hide scrollbar while maintaining scroll functionality */
   .scrollbar-hide {
     -ms-overflow-style: none;
     scrollbar-width: none;

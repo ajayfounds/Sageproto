@@ -59,7 +59,7 @@ export default function AccountsListScreen({ onNavigate, onOpenAccount }: Props 
           <label className="text-on-navy">TOTAL BALANCE</label>
           <p
             className="text-white mt-1 money"
-            style={{ fontSize: 'var(--text-money)', lineHeight: 'var(--leading-money)', fontWeight: 400, letterSpacing: "-0.01em" }}
+            style={{ fontSize: 'var(--text-money)', lineHeight: 'var(--leading-money)', fontWeight: 600, letterSpacing: "-0.01em" }}
           >
             {fmtINR(total)}
           </p>
@@ -92,7 +92,7 @@ export default function AccountsListScreen({ onNavigate, onOpenAccount }: Props 
               <div className="flex-1 min-w-0">
                 <p
                   className="text-trust-navy truncate"
-                  style={{ fontSize: 'var(--text-body-lg)', lineHeight: 'var(--leading-body-lg)', fontWeight: 400 }}
+                  style={{ fontSize: 'var(--text-body-lg)', lineHeight: 'var(--leading-body-lg)', fontWeight: 600 }}
                 >
                   {a.name}
                 </p>
@@ -102,7 +102,7 @@ export default function AccountsListScreen({ onNavigate, onOpenAccount }: Props 
               </div>
               <p
                 className="money text-trust-navy"
-                style={{ fontSize: 'var(--text-body)', lineHeight: 'var(--leading-body)', fontWeight: 400 }}
+                style={{ fontSize: 'var(--text-body)', lineHeight: 'var(--leading-body)', fontWeight: 600 }}
               >
                 {fmtINR(a.balance)}
               </p>
@@ -119,7 +119,7 @@ export default function AccountsListScreen({ onNavigate, onOpenAccount }: Props 
             minHeight: '48px',
             fontSize: 'var(--text-button)',
             lineHeight: 'var(--leading-button)',
-            fontWeight: 400,
+            fontWeight: 600,
           }}
         >
           <Icon name="plus" size={18} strokeWidth={2.25} />
